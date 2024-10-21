@@ -1,0 +1,9 @@
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\bin\Debug\NStudio.exe.config
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\bin\Debug\NStudio.exe
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\bin\Debug\NStudio.pdb
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.csproj.AssemblyReference.cache
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.Properties.Resources.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.csproj.GenerateResource.cache
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.csproj.CoreCompileInputs.cache
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.exe
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\NStudio\obj\Debug\NStudio.pdb
