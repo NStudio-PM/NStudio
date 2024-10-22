@@ -21,3 +21,5 @@ C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\en\NStudio.re
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.exe
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.pdb
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.LogInModule.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\AlphaBlendTextBox.dll
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.csproj.Up2Date
