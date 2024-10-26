@@ -61,20 +61,47 @@ namespace NStudio.Language {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Witaj.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ustawienia bazy danych.
         /// </summary>
-        internal static string hello {
+        internal static string dbTooltip {
             get {
-                return ResourceManager.GetString("hello", resourceCulture);
+                return ResourceManager.GetString("dbTooltip", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Świecie.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zaloguj się.
         /// </summary>
-        internal static string world {
+        internal static string loginButton {
             get {
-                return ResourceManager.GetString("world", resourceCulture);
+                return ResourceManager.GetString("loginButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu LOGOWANIE.
+        /// </summary>
+        internal static string loginLabel {
+            get {
+                return ResourceManager.GetString("loginLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło.
+        /// </summary>
+        internal static string passInputLabel {
+            get {
+                return ResourceManager.GetString("passInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa użytkownika.
+        /// </summary>
+        internal static string userInputLabel {
+            get {
+                return ResourceManager.GetString("userInputLabel", resourceCulture);
             }
         }
     }

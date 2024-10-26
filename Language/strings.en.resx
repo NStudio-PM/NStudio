@@ -117,10 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hello" xml:space="preserve">
-    <value>Hello</value>
+  <data name="dbTooltip" xml:space="preserve">
+    <value>Database settings</value>
   </data>
-  <data name="world" xml:space="preserve">
-    <value>World</value>
+  <data name="loginButton" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="loginLabel" xml:space="preserve">
+    <value>LOG IN</value>
+  </data>
+  <data name="passInputLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="userInputLabel" xml:space="preserve">
+    <value>Username</value>
   </data>
 </root>

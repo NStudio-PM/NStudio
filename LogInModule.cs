@@ -14,13 +14,12 @@ using System.Reflection;
 using System.Globalization;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using System.Data.SqlClient;
+using Org.BouncyCastle.Asn1.Crmf;
 
 // TODO COLDERVOID
 // remember me checkbox
 // reset password label button
-// summit button for login
-//login module
-// startup module
 
 
 namespace NStudio
@@ -28,16 +27,45 @@ namespace NStudio
     public partial class LogInModule : Form
     {
         private static ResourceManager _rm;
+        private Timer connectionStatusTimer;
+        private ToolTip toolTip;
+        public DatabaseControl dbControl;
+        
+        private void ConnectionStatusTimer_Tick(object sender, EventArgs e) { dbControl.CheckDatabaseConnection(); }
 
         public LogInModule()
         {
 
             InitializeComponent();
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
+
+            string connectionString = "server=localhost;database=nstudio;uid=root;pwd=;";
+            string databaseType = null;
+            dbControl = new DatabaseControl(connectionString, databaseType);
+            dbControl.UpdateLabelColor = UpdateStatusLabelColor;
+
             // usage example by me
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
-            LogInModule.ChangeLanguage("en");
+            //LogInModule.ChangeLanguage("en");
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
+
+            connectionStatusTimer = new Timer();
+            connectionStatusTimer.Interval = 5000;
+            connectionStatusTimer.Tick += new EventHandler(ConnectionStatusTimer_Tick);
+            connectionStatusTimer.Start();
+
+
+        }
+
+        private void LogInModule_Load(object sender, EventArgs e)
+        {
+
+            loginLabel.Text = LogInModule.GetString("loginLabel");
+            userInputLabel.Text = LogInModule.GetString("userInputLabel");
+            passInputLabel.Text = LogInModule.GetString("passInputLabel");
+            loginButton.Text = LogInModule.GetString("loginButton");
 
         }
 
@@ -65,6 +93,11 @@ namespace NStudio
             base.OnPaint(e);
         }
 
+        private void UpdateStatusLabelColor(Color color)
+        {
+            lblConnectionStatus.ForeColor = color;
+        }
+
         public static string GetString(string name)
         {
             return _rm.GetString(name);
@@ -80,19 +113,26 @@ namespace NStudio
 
         }
 
-        private void LogInModule_Load(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
+            string username = usernameInput.Text;
+            string password = passwordInput.Text;
 
+            if (dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password))
+            {
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void lblConnectionStatus_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
+            using (var loginform = new DatabaseControl()) { loginform.ShowDialog(); }
         }
     }
 }

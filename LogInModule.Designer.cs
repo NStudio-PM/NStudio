@@ -31,17 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInModule));
             this.logo = new System.Windows.Forms.PictureBox();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.userInputLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.TextBox();
+            this.passInputLabel = new System.Windows.Forms.Label();
+            this.usernameInput = new System.Windows.Forms.TextBox();
+            this.passwordInput = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.lblConnectionStatus = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -59,11 +63,11 @@
             this.loginLabel.ForeColor = System.Drawing.Color.Black;
             this.loginLabel.Name = "loginLabel";
             // 
-            // label1
+            // userInputLabel
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.userInputLabel, "userInputLabel");
+            this.userInputLabel.BackColor = System.Drawing.Color.Transparent;
+            this.userInputLabel.Name = "userInputLabel";
             // 
             // pictureBox1
             // 
@@ -79,54 +83,80 @@
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
-            // label2
+            // passInputLabel
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.passInputLabel, "passInputLabel");
+            this.passInputLabel.BackColor = System.Drawing.Color.Transparent;
+            this.passInputLabel.Name = "passInputLabel";
             // 
-            // username
+            // usernameInput
             // 
-            this.username.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.username, "username");
-            this.username.ForeColor = System.Drawing.Color.Black;
-            this.username.Name = "username";
+            this.usernameInput.BackColor = System.Drawing.Color.LightGray;
+            this.usernameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.usernameInput, "usernameInput");
+            this.usernameInput.ForeColor = System.Drawing.Color.Black;
+            this.usernameInput.Name = "usernameInput";
             // 
-            // password
+            // passwordInput
             // 
-            this.password.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.password, "password");
-            this.password.ForeColor = System.Drawing.Color.Black;
-            this.password.Name = "password";
+            this.passwordInput.BackColor = System.Drawing.Color.LightGray;
+            this.passwordInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.passwordInput, "passwordInput");
+            this.passwordInput.ForeColor = System.Drawing.Color.Black;
+            this.passwordInput.Name = "passwordInput";
             // 
             // panel1
             // 
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Name = "panel1";
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Name = "panel2";
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // loginButton
+            // 
+            this.loginButton.BackColor = System.Drawing.Color.Transparent;
+            this.loginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.loginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.loginButton, "loginButton");
+            this.loginButton.Name = "loginButton";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            // 
+            // lblConnectionStatus
+            // 
+            this.lblConnectionStatus.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.lblConnectionStatus, "lblConnectionStatus");
+            this.lblConnectionStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblConnectionStatus.Name = "lblConnectionStatus";
+            this.lblConnectionStatus.Click += new System.EventHandler(this.lblConnectionStatus_Click);
+            // 
+            // pictureBox3
+            // 
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
             // 
             // LogInModule
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.lblConnectionStatus);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.password);
+            this.Controls.Add(this.passInputLabel);
+            this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.username);
+            this.Controls.Add(this.userInputLabel);
+            this.Controls.Add(this.usernameInput);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -135,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,14 +175,17 @@
 
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label loginLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label userInputLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.Label passInputLabel;
+        private System.Windows.Forms.TextBox usernameInput;
+        private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label lblConnectionStatus;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

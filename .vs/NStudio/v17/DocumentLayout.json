@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,19 +23,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LogInModule.cs",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
-              "RelativeDocumentMoniker": "LogInModule.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
-              "RelativeToolTip": "LogInModule.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T20:05:13.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "LogInModule.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
               "RelativeDocumentMoniker": "LogInModule.cs",
@@ -44,6 +31,19 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T21:32:10.528Z",
               "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LogInModule.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
+              "RelativeDocumentMoniker": "LogInModule.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
+              "RelativeToolTip": "LogInModule.cs",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAiwGUAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T20:05:13.023Z",
+              "EditorCaption": ""
             }
           ]
         }
