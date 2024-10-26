@@ -61,6 +61,51 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyjdź.
+        /// </summary>
+        internal static string dbCancelButton {
+            get {
+                return ResourceManager.GetString("dbCancelButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa hosta.
+        /// </summary>
+        internal static string dbHostnameL {
+            get {
+                return ResourceManager.GetString("dbHostnameL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa bazy.
+        /// </summary>
+        internal static string dbNameL {
+            get {
+                return ResourceManager.GetString("dbNameL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło.
+        /// </summary>
+        internal static string dbPassL {
+            get {
+                return ResourceManager.GetString("dbPassL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zapisz.
+        /// </summary>
+        internal static string dbSaveButton {
+            get {
+                return ResourceManager.GetString("dbSaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ustawienia bazy danych.
         /// </summary>
         internal static string dbTooltip {
@@ -70,11 +115,29 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa użytkownika.
+        /// </summary>
+        internal static string dbUserL {
+            get {
+                return ResourceManager.GetString("dbUserL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zaloguj się.
         /// </summary>
         internal static string loginButton {
             get {
                 return ResourceManager.GetString("loginButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Niepoprawna nazwa użytkownika lub hasło..
+        /// </summary>
+        internal static string logInError {
+            get {
+                return ResourceManager.GetString("logInError", resourceCulture);
             }
         }
         

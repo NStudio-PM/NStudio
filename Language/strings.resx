@@ -117,19 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="dbCancelButton" xml:space="preserve">
+    <value>Wyjdź</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbHostnameL" xml:space="preserve">
+    <value>Nazwa hosta</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbNameL" xml:space="preserve">
+    <value>Nazwa bazy</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbPassL" xml:space="preserve">
+    <value>Hasło</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbSaveButton" xml:space="preserve">
+    <value>Zapisz</value>
+    <comment>DatabaseControl</comment>
+  </data>
   <data name="dbTooltip" xml:space="preserve">
     <value>Ustawienia bazy danych</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="dbUserL" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+    <comment>DatabaseControl</comment>
   </data>
   <data name="loginButton" xml:space="preserve">
     <value>Zaloguj się</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="logInError" xml:space="preserve">
+    <value>Niepoprawna nazwa użytkownika lub hasło.</value>
+    <comment>LogInModule(Alert)</comment>
   </data>
   <data name="loginLabel" xml:space="preserve">
     <value>LOGOWANIE</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Hasło</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Nazwa użytkownika</value>
+    <comment>LogInModule</comment>
   </data>
 </root>

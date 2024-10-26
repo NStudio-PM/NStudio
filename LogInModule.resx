@@ -497,13 +497,13 @@
     <value>138, 239</value>
   </data>
   <data name="userInputLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
+    <value>101, 17</value>
   </data>
   <data name="userInputLabel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="userInputLabel.Text" xml:space="preserve">
-    <value>Username</value>
+    <value>userInputLabel</value>
   </data>
   <data name="&gt;&gt;userInputLabel.Name" xml:space="preserve">
     <value>userInputLabel</value>
@@ -845,13 +845,13 @@
     <value>138, 301</value>
   </data>
   <data name="passInputLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 17</value>
+    <value>104, 17</value>
   </data>
   <data name="passInputLabel.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="passInputLabel.Text" xml:space="preserve">
-    <value>Password</value>
+    <value>passInputLabel</value>
   </data>
   <data name="&gt;&gt;passInputLabel.Name" xml:space="preserve">
     <value>passInputLabel</value>
@@ -1001,7 +1001,7 @@
     <value>11</value>
   </data>
   <data name="loginButton.Text" xml:space="preserve">
-    <value>Log In</value>
+    <value>loginButton</value>
   </data>
   <data name="&gt;&gt;loginButton.Name" xml:space="preserve">
     <value>loginButton</value>
@@ -1051,7 +1051,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAACB
-        3AAAgdwBbILQEgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADROSURBVHhe7d0H
+        2wAAgdsBPsZ2bQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADROSURBVHhe7d0H
         uG5lfaZxqvQmHUUQUFFAGLEg6FiCiiKKzhixm6DGjolRxCRqNCrGgqgTg12DxpYRhWCMmEACNkBUpBoU
         EBGxIb3PPLe44nbznrPfvfdX1nq/+7mu3zVkkHP2XvW/3rqKMWZiWT02ie3jnrFnPDz2jyfFc+OlcWi8
         Od4ZR8X749O/dVx8Ob4Sp/3W2XHBb10Wv1yJW+L/rQD/rvTfdPizu7+Hv7P7+08IfqZjo/s53xf87EcE

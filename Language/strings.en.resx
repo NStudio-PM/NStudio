@@ -117,19 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="dbCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbHostnameL" xml:space="preserve">
+    <value>Hostname</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbNameL" xml:space="preserve">
+    <value>DB Name</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbPassL" xml:space="preserve">
+    <value>Password</value>
+    <comment>DatabaseControl</comment>
+  </data>
+  <data name="dbSaveButton" xml:space="preserve">
+    <value>Save</value>
+    <comment>DatabaseControl</comment>
+  </data>
   <data name="dbTooltip" xml:space="preserve">
     <value>Database settings</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="dbUserL" xml:space="preserve">
+    <value>Username</value>
+    <comment>DatabaseControl</comment>
   </data>
   <data name="loginButton" xml:space="preserve">
     <value>Log In</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="logInError" xml:space="preserve">
+    <value>Invalid username or password.</value>
+    <comment>LogInModule(Alert)</comment>
   </data>
   <data name="loginLabel" xml:space="preserve">
     <value>LOG IN</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Password</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Username</value>
+    <comment>LogInModule</comment>
   </data>
 </root>

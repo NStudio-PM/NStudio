@@ -103,6 +103,7 @@ namespace NStudio
             return _rm.GetString(name);
         }
 
+
         public static void ChangeLanguage(string language)
         {
 
@@ -126,7 +127,8 @@ namespace NStudio
             }
             else
             {
-                MessageBox.Show("Invalid username or password.");
+                // edit to red label not alert message
+                MessageBox.Show(LogInModule.GetString("logInError"));
             }
         }
 
