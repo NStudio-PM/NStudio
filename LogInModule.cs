@@ -44,6 +44,7 @@ namespace NStudio
         {
 
             InitializeComponent();
+            //LogInModule.ChangeLanguage("en");
             rPassInput.Visible = false;
             rPassInputLabel.Visible = false;
             rPassPic.Visible = false;
@@ -57,7 +58,6 @@ namespace NStudio
 
             // usage example by me
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
-            //LogInModule.ChangeLanguage("en");
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
 
             string DHostname = Properties.Settings.Default.dbHostname;
