@@ -61,6 +61,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Akceptuje regulamin.
+        /// </summary>
+        internal static string acceptRulesLabel {
+            get {
+                return ResourceManager.GetString("acceptRulesLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyjdź.
         /// </summary>
         internal static string dbCancelButton {
@@ -115,6 +124,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Aktualizacja ustawień nastąpi po restarcie programu..
+        /// </summary>
+        internal static string dbUpdateAfterRestart {
+            get {
+                return ResourceManager.GetString("dbUpdateAfterRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa użytkownika.
         /// </summary>
         internal static string dbUserL {
@@ -144,9 +162,18 @@ namespace NStudio.Language {
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu LOGOWANIE.
         /// </summary>
-        internal static string loginLabel {
+        internal static string loginLabel1 {
             get {
-                return ResourceManager.GetString("loginLabel", resourceCulture);
+                return ResourceManager.GetString("loginLabel1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu REJESTRACJA.
+        /// </summary>
+        internal static string loginLabel2 {
+            get {
+                return ResourceManager.GetString("loginLabel2", resourceCulture);
             }
         }
         
@@ -156,6 +183,51 @@ namespace NStudio.Language {
         internal static string passInputLabel {
             get {
                 return ResourceManager.GetString("passInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zarejestruj się.
+        /// </summary>
+        internal static string registerButton1 {
+            get {
+                return ResourceManager.GetString("registerButton1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zatwierdź.
+        /// </summary>
+        internal static string registerButton2 {
+            get {
+                return ResourceManager.GetString("registerButton2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Błąd rejestracji..
+        /// </summary>
+        internal static string registerError {
+            get {
+                return ResourceManager.GetString("registerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powrót.
+        /// </summary>
+        internal static string returnButton {
+            get {
+                return ResourceManager.GetString("returnButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powtórz hasło.
+        /// </summary>
+        internal static string rPassInputLabel {
+            get {
+                return ResourceManager.GetString("rPassInputLabel", resourceCulture);
             }
         }
         

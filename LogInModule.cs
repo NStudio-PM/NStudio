@@ -17,6 +17,8 @@ using System.Drawing.Drawing2D;
 using System.Data.SqlClient;
 using Org.BouncyCastle.Asn1.Crmf;
 using System.Web;
+using Org.BouncyCastle.Asn1;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 // TODO COLDERVOID
 // remember me checkbox
@@ -31,13 +33,24 @@ namespace NStudio
         private Timer connectionStatusTimer;
         private ToolTip toolTip;
         public DatabaseControl dbControl;
+
         
-        private void ConnectionStatusTimer_Tick(object sender, EventArgs e) { dbControl.CheckDatabaseConnection(); }
+        private void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
+        { 
+            dbControl.CheckDatabaseConnection(); 
+        }
 
         public LogInModule()
         {
 
             InitializeComponent();
+            rPassInput.Visible = false;
+            rPassInputLabel.Visible = false;
+            rPassPic.Visible = false;
+            acceptRulesInput.Visible = false;
+            acceptRulesLabel.Visible = false;
+            rPassPanel.Visible = false;
+            returnButton.Visible = false;
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
@@ -47,16 +60,34 @@ namespace NStudio
             //LogInModule.ChangeLanguage("en");
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
 
+            string DHostname = Properties.Settings.Default.dbHostname;
+            string DName = Properties.Settings.Default.dbName;
+            string DUser = Properties.Settings.Default.dbUser;
+            string DPass = Properties.Settings.Default.dbPass;
+            string DType = Properties.Settings.Default.dbType;
+
+            string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
+            string databaseType = DType;
+            dbControl = new DatabaseControl(connectionString, databaseType);
+            dbControl.UpdateLabelColor = UpdateStatusLabelColor;
+            connectionStatusTimer = new Timer();
+            connectionStatusTimer.Interval = 5000;
+            connectionStatusTimer.Tick += new EventHandler(ConnectionStatusTimer_Tick);
+            connectionStatusTimer.Start();
 
         }
 
         private void LogInModule_Load(object sender, EventArgs e)
         {
 
-            loginLabel.Text = LogInModule.GetString("loginLabel");
+            loginLabel.Text = LogInModule.GetString("loginLabel1");
             userInputLabel.Text = LogInModule.GetString("userInputLabel");
             passInputLabel.Text = LogInModule.GetString("passInputLabel");
             loginButton.Text = LogInModule.GetString("loginButton");
+            rPassInputLabel.Text = LogInModule.GetString("rPassInputLabel");
+            acceptRulesLabel.Text = LogInModule.GetString("acceptRulesLabel");
+            registerButton.Text = LogInModule.GetString("registerButton1");
+            returnButton.Text = LogInModule.GetString("returnButton");
 
         }
 
@@ -110,28 +141,7 @@ namespace NStudio
             string username = usernameInput.Text;
             string password = passwordInput.Text;
 
-            string DHostname = Properties.Settings.Default.dbHostname;
-            string DName = Properties.Settings.Default.dbName;
-            string DUser = Properties.Settings.Default.dbUser;
-            string DPass = Properties.Settings.Default.dbPass;
-            string DType = Properties.Settings.Default.dbType;
-
-            string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
-            string databaseType = null;
-            if (connectionStatusTimer is null || !connectionStatusTimer.Enabled)
-            {
-
-                dbControl = new DatabaseControl(connectionString, databaseType, username, password);
-                dbControl.UpdateLabelColor = UpdateStatusLabelColor;
-                connectionStatusTimer = new Timer();
-                connectionStatusTimer.Interval = 5000;
-                connectionStatusTimer.Tick += new EventHandler(ConnectionStatusTimer_Tick);
-                connectionStatusTimer.Start();
-
-            }
-            if(connectionStatusTimer.Enabled && dbControl.CheckDatabaseConnection()) { connectionStatusTimer.Stop(); }
-
-            if (dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password))
+            if (dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password, false))
             {
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
@@ -147,6 +157,55 @@ namespace NStudio
         private void lblConnectionStatus_Click(object sender, EventArgs e)
         {
             using (var loginform = new DatabaseControl()) { loginform.ShowDialog(); }
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            if (loginButton.Visible)
+            {
+                loginLabel.Text = LogInModule.GetString("loginLabel2");
+                registerButton.Text = LogInModule.GetString("registerButton2");
+                loginButton.Visible = false;
+                rPassInput.Visible = true;
+                rPassInputLabel.Visible = true;
+                rPassPic.Visible = true;
+                acceptRulesInput.Visible = true;
+                acceptRulesLabel.Visible = true;
+                rPassPanel.Visible = true;
+                returnButton.Visible = true;
+            }
+            else
+            {
+                string username = usernameInput.Text;
+                string password = passwordInput.Text;
+                string rPassword = rPassInput.Text;
+
+                if (password == rPassword && acceptRulesInput.Checked && dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password, true))
+                {
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    // edit to red label not alert message
+                    MessageBox.Show(LogInModule.GetString("registerError"));
+                }
+            }
+        }
+
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            loginLabel.Text = LogInModule.GetString("loginLabel1");
+            registerButton.Text = LogInModule.GetString("registerButton1");
+            loginButton.Visible = true;
+            rPassInput.Visible = false;
+            rPassInputLabel.Visible = false;
+            rPassPic.Visible = false;
+            acceptRulesInput.Visible = false;
+            acceptRulesLabel.Visible = false;
+            rPassPanel.Visible = false;
+            returnButton.Visible = false;
         }
     }
 }

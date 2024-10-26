@@ -16,15 +16,14 @@ using System.Reflection;
 using System.Xml.Linq;
 using Org.BouncyCastle.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Collections;
 
 namespace NStudio
 {
     public partial class DatabaseControl : Form
     {
-        private string connectionString;
-        private string databaseType;
-        private string username;
-        private string password;
+        private readonly string connectionString;
+        private readonly string databaseType;
         public Action<Color> UpdateLabelColor { get; set; }
         public DatabaseControl()
         {
@@ -55,25 +54,18 @@ namespace NStudio
             base.OnPaint(e);
         }
 
-        public DatabaseControl(string connectionString, string databaseType, string username, string password)
+        public DatabaseControl(string connectionString, string databaseType)
         {
 
             this.connectionString = connectionString;
             this.databaseType = databaseType;
-            this.username = username;
-            this.password = password;
 
-        }
-        public void UpdateConnectionString(string newConnectionString)
-        {
-            this.connectionString = newConnectionString;
         }
 
         public bool CheckDatabaseConnection()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                Console.WriteLine(connectionString);
                 try
                 {
                     connection.Open();
@@ -89,26 +81,24 @@ namespace NStudio
             
         }
 
-        public bool ValidateUser(string username, string password)
+        public bool ValidateUser(string username, string password, bool register)
         {
-            /*switch (databaseType)
+            switch (databaseType)
             {
-                case "MySQL":
-                    return ValidateUserMySQL(username, password);
-                case "PostgreSQL":
-                    return ValidateUserPostgreSQL(username, password);
-                case "SQLite":
-                    return ValidateUserSQLite(username, password);
-                case "MongoDB":
-                    return ValidateUserMongoDB(username, password);
+                case "mysql":
+                    if (register) { return RegisterUserMySQL(username, password); } else { return LoginUserMySQL(username, password); }
+                case "postgresql":
+                    if (register) { return RegisterUserPostgreSQL(username, password); } else { return LoginUserPostgreSQL(username, password); }
+                case "sqlite":
+                    if (register) { return RegisterUserSQLite(username, password); } else { return LoginUserSQLite(username, password); }
+                case "mongodb":
+                    if (register) { return RegisterUserMongoDB(username, password); } else { return LoginUserMongoDB(username, password); }
                 default:
                     throw new NotSupportedException($"Unsupported database type: {databaseType}");
-            }*/
-
-            return ValidateUserMySQL(username, password);
+            }
         }
 
-        private bool ValidateUserMySQL(string username, string password)
+        private bool LoginUserMySQL(string username, string password)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -117,8 +107,9 @@ namespace NStudio
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@username", username);
                 string hashedPassword = (string)cmd.ExecuteScalar();
+                cmd.Dispose();
 
-                if(hashedPassword != null)
+                if (hashedPassword != null)
                 {
                     bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
                     hashedPassword = null;
@@ -136,11 +127,57 @@ namespace NStudio
             }
         }
 
+        private bool LoginUserPostgreSQL(string username, string password) { return false; }
+
+        private bool LoginUserSQLite(string username, string password) { return false; }
+
+        private bool LoginUserMongoDB(string username, string password) { return false; }
+
+        private bool RegisterUserMySQL(string username, string password) 
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                bool freeUsername = false;
+                bool firstUser = false;
+                connection.Open();
+                string freeQuery = "SELECT COUNT(*) FROM users WHERE username=@username";
+                MySqlCommand cmd1 = new MySqlCommand(freeQuery, connection);
+                cmd1.Parameters.AddWithValue("@username", username);
+                if(Convert.ToInt32(cmd1.ExecuteScalar()) == 0) { freeUsername = true; } else { freeUsername = false; }
+
+                string firstQuery = "SELECT COUNT(*) FROM users";
+                MySqlCommand cmd2 = new MySqlCommand(firstQuery, connection);
+                if (Convert.ToInt32(cmd2.ExecuteScalar()) == 0) { firstUser = true; } else { firstUser = false; }
+
+                if (freeUsername)
+                {
+                    int power = 1;
+                    if (firstUser) { power = 3; }
+                    string registerQuery = "INSERT INTO users (username, password, power) VALUES (@username, @password, @power)";
+                    using (MySqlCommand cmd = new MySqlCommand(registerQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(password));
+                        cmd.Parameters.AddWithValue("@power", power);
+
+                        cmd.ExecuteNonQuery();
+                        password = "";
+                    }
+                    return true;
+                }
+                else { return false; }
+
+            }
+        }
+
+        private bool RegisterUserPostgreSQL(string username, string password) { return false; }
+
+        private bool RegisterUserSQLite(string username, string password) { return false; }
+
+        private bool RegisterUserMongoDB(string username, string password) { return false; }
+
         private void saveButton_Click(object sender, EventArgs e)  // dbSaveButton_Click
         {
-            //string dbUsername = "root";
-            //string dbPassword = "";
-            //string connectionStringTE = "server=localhost;database=nstudio;uid=root;pwd=;";
 
             Properties.Settings.Default.dbHostname = dbHostname.Text;
             Properties.Settings.Default.dbName = dbName.Text;
@@ -157,7 +194,7 @@ namespace NStudio
                 Properties.Settings.Default.dbType = "mongodb";
 
             Properties.Settings.Default.Save();
-            MessageBox.Show(LogInModule.GetString("Aktualizacja po restarcie programu"));
+            MessageBox.Show(LogInModule.GetString("dbUpdateAfterRestart"));
             this.Hide();
         }
 
@@ -200,16 +237,6 @@ namespace NStudio
                     mongodb.Checked = true;
                     break;
             }
-
-            //string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
-            //string databaseType = null;
-            //string connectionString = "server=localhost;database=nstudio;uid=root;pwd=;";
-            //string databaseType = null;
-            //dbControl = new DatabaseControl(connectionString, databaseType);
-            //dbControl = new DatabaseControl(connectionString, databaseType);
-            //DatabaseControl(connectionString, databaseType);
-            //dbControl.UpdateLabelColor = UpdateStatusLabelColor;
-
         }
     }
 }

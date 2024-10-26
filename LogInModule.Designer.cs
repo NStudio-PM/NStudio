@@ -32,19 +32,30 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.loginLabel = new System.Windows.Forms.Label();
             this.userInputLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.userPic = new System.Windows.Forms.PictureBox();
+            this.PassPic = new System.Windows.Forms.PictureBox();
             this.passInputLabel = new System.Windows.Forms.Label();
             this.usernameInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.rPassPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.rPassPic = new System.Windows.Forms.PictureBox();
+            this.rPassInputLabel = new System.Windows.Forms.Label();
+            this.rPassInput = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.lblConnectionStatus = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.registerButton = new System.Windows.Forms.Button();
+            this.acceptRulesInput = new System.Windows.Forms.CheckBox();
+            this.acceptRulesLabel = new System.Windows.Forms.LinkLabel();
+            this.userPanel = new System.Windows.Forms.Panel();
+            this.passPanel = new System.Windows.Forms.Panel();
+            this.returnButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PassPic)).BeginInit();
+            this.rPassPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rPassPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,19 +80,19 @@
             this.userInputLabel.BackColor = System.Drawing.Color.Transparent;
             this.userInputLabel.Name = "userInputLabel";
             // 
-            // pictureBox1
+            // userPic
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            this.userPic.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.userPic, "userPic");
+            this.userPic.Name = "userPic";
+            this.userPic.TabStop = false;
             // 
-            // pictureBox2
+            // PassPic
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.TabStop = false;
+            this.PassPic.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.PassPic, "PassPic");
+            this.PassPic.Name = "PassPic";
+            this.PassPic.TabStop = false;
             // 
             // passInputLabel
             // 
@@ -105,17 +116,42 @@
             this.passwordInput.ForeColor = System.Drawing.Color.Black;
             this.passwordInput.Name = "passwordInput";
             // 
-            // panel1
+            // rPassPanel
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Name = "panel1";
+            resources.ApplyResources(this.rPassPanel, "rPassPanel");
+            this.rPassPanel.BackColor = System.Drawing.Color.Transparent;
+            this.rPassPanel.Controls.Add(this.panel3);
+            this.rPassPanel.Controls.Add(this.rPassPic);
+            this.rPassPanel.Controls.Add(this.rPassInputLabel);
+            this.rPassPanel.Controls.Add(this.rPassInput);
+            this.rPassPanel.Name = "rPassPanel";
             // 
-            // panel2
+            // panel3
             // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Name = "panel2";
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Name = "panel3";
+            // 
+            // rPassPic
+            // 
+            this.rPassPic.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.rPassPic, "rPassPic");
+            this.rPassPic.Name = "rPassPic";
+            this.rPassPic.TabStop = false;
+            // 
+            // rPassInputLabel
+            // 
+            resources.ApplyResources(this.rPassInputLabel, "rPassInputLabel");
+            this.rPassInputLabel.BackColor = System.Drawing.Color.Transparent;
+            this.rPassInputLabel.Name = "rPassInputLabel";
+            // 
+            // rPassInput
+            // 
+            this.rPassInput.BackColor = System.Drawing.Color.LightGray;
+            this.rPassInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.rPassInput, "rPassInput");
+            this.rPassInput.ForeColor = System.Drawing.Color.Black;
+            this.rPassInput.Name = "rPassInput";
             // 
             // loginButton
             // 
@@ -142,19 +178,70 @@
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             // 
+            // registerButton
+            // 
+            this.registerButton.BackColor = System.Drawing.Color.Transparent;
+            this.registerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.registerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.registerButton, "registerButton");
+            this.registerButton.Name = "registerButton";
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // acceptRulesInput
+            // 
+            resources.ApplyResources(this.acceptRulesInput, "acceptRulesInput");
+            this.acceptRulesInput.BackColor = System.Drawing.Color.Transparent;
+            this.acceptRulesInput.Name = "acceptRulesInput";
+            this.acceptRulesInput.UseVisualStyleBackColor = false;
+            // 
+            // acceptRulesLabel
+            // 
+            resources.ApplyResources(this.acceptRulesLabel, "acceptRulesLabel");
+            this.acceptRulesLabel.BackColor = System.Drawing.Color.Transparent;
+            this.acceptRulesLabel.Name = "acceptRulesLabel";
+            this.acceptRulesLabel.TabStop = true;
+            // 
+            // userPanel
+            // 
+            resources.ApplyResources(this.userPanel, "userPanel");
+            this.userPanel.BackColor = System.Drawing.Color.Black;
+            this.userPanel.Name = "userPanel";
+            // 
+            // passPanel
+            // 
+            this.passPanel.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.passPanel, "passPanel");
+            this.passPanel.Name = "passPanel";
+            // 
+            // returnButton
+            // 
+            this.returnButton.BackColor = System.Drawing.Color.Transparent;
+            this.returnButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.returnButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.returnButton, "returnButton");
+            this.returnButton.Name = "returnButton";
+            this.returnButton.UseVisualStyleBackColor = false;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
+            // 
             // LogInModule
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.returnButton);
+            this.Controls.Add(this.passPanel);
+            this.Controls.Add(this.userPanel);
+            this.Controls.Add(this.acceptRulesLabel);
+            this.Controls.Add(this.acceptRulesInput);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.lblConnectionStatus);
             this.Controls.Add(this.loginButton);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.rPassPanel);
+            this.Controls.Add(this.PassPic);
             this.Controls.Add(this.passInputLabel);
             this.Controls.Add(this.passwordInput);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.userPic);
             this.Controls.Add(this.userInputLabel);
             this.Controls.Add(this.usernameInput);
             this.Controls.Add(this.loginLabel);
@@ -163,8 +250,11 @@
             this.Name = "LogInModule";
             this.Load += new System.EventHandler(this.LogInModule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PassPic)).EndInit();
+            this.rPassPanel.ResumeLayout(false);
+            this.rPassPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rPassPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,16 +266,25 @@
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Label userInputLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox userPic;
+        private System.Windows.Forms.PictureBox PassPic;
         private System.Windows.Forms.Label passInputLabel;
         private System.Windows.Forms.TextBox usernameInput;
         private System.Windows.Forms.TextBox passwordInput;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel rPassPanel;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label lblConnectionStatus;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox rPassPic;
+        private System.Windows.Forms.Label rPassInputLabel;
+        private System.Windows.Forms.TextBox rPassInput;
+        private System.Windows.Forms.CheckBox acceptRulesInput;
+        private System.Windows.Forms.LinkLabel acceptRulesLabel;
+        private System.Windows.Forms.Panel userPanel;
+        private System.Windows.Forms.Panel passPanel;
+        private System.Windows.Forms.Button returnButton;
     }
 }
 
