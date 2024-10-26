@@ -16,6 +16,7 @@ using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Data.SqlClient;
 using Org.BouncyCastle.Asn1.Crmf;
+using System.Web;
 
 // TODO COLDERVOID
 // remember me checkbox
@@ -41,20 +42,10 @@ namespace NStudio
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
 
-            string connectionString = "server=localhost;database=nstudio;uid=root;pwd=;";
-            string databaseType = null;
-            dbControl = new DatabaseControl(connectionString, databaseType);
-            dbControl.UpdateLabelColor = UpdateStatusLabelColor;
-
             // usage example by me
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
             //LogInModule.ChangeLanguage("en");
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
-
-            connectionStatusTimer = new Timer();
-            connectionStatusTimer.Interval = 5000;
-            connectionStatusTimer.Tick += new EventHandler(ConnectionStatusTimer_Tick);
-            connectionStatusTimer.Start();
 
 
         }
@@ -118,6 +109,27 @@ namespace NStudio
         {
             string username = usernameInput.Text;
             string password = passwordInput.Text;
+
+            string DHostname = Properties.Settings.Default.dbHostname;
+            string DName = Properties.Settings.Default.dbName;
+            string DUser = Properties.Settings.Default.dbUser;
+            string DPass = Properties.Settings.Default.dbPass;
+            string DType = Properties.Settings.Default.dbType;
+
+            string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
+            string databaseType = null;
+            if (connectionStatusTimer is null || !connectionStatusTimer.Enabled)
+            {
+
+                dbControl = new DatabaseControl(connectionString, databaseType, username, password);
+                dbControl.UpdateLabelColor = UpdateStatusLabelColor;
+                connectionStatusTimer = new Timer();
+                connectionStatusTimer.Interval = 5000;
+                connectionStatusTimer.Tick += new EventHandler(ConnectionStatusTimer_Tick);
+                connectionStatusTimer.Start();
+
+            }
+            if(connectionStatusTimer.Enabled && dbControl.CheckDatabaseConnection()) { connectionStatusTimer.Stop(); }
 
             if (dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password))
             {

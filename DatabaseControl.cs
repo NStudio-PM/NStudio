@@ -21,8 +21,10 @@ namespace NStudio
 {
     public partial class DatabaseControl : Form
     {
-        public string connectionString;
-        public string databaseType;
+        private string connectionString;
+        private string databaseType;
+        private string username;
+        private string password;
         public Action<Color> UpdateLabelColor { get; set; }
         public DatabaseControl()
         {
@@ -53,11 +55,13 @@ namespace NStudio
             base.OnPaint(e);
         }
 
-        public DatabaseControl(string connectionString, string databaseType)
+        public DatabaseControl(string connectionString, string databaseType, string username, string password)
         {
 
             this.connectionString = connectionString;
             this.databaseType = databaseType;
+            this.username = username;
+            this.password = password;
 
         }
         public void UpdateConnectionString(string newConnectionString)
@@ -134,12 +138,9 @@ namespace NStudio
 
         private void saveButton_Click(object sender, EventArgs e)  // dbSaveButton_Click
         {
-            string dbUsername = "root";
-            string dbPassword = "";
-
-            string connectionStringTE = "server=localhost;database=nstudio;uid=root;pwd=;";
-            UpdateConnectionString(connectionStringTE);
-            CheckDatabaseConnection();
+            //string dbUsername = "root";
+            //string dbPassword = "";
+            //string connectionStringTE = "server=localhost;database=nstudio;uid=root;pwd=;";
 
             Properties.Settings.Default.dbHostname = dbHostname.Text;
             Properties.Settings.Default.dbName = dbName.Text;
@@ -154,6 +155,10 @@ namespace NStudio
                 Properties.Settings.Default.dbType = "sqlite";
             else if (mongodb.Checked)
                 Properties.Settings.Default.dbType = "mongodb";
+
+            Properties.Settings.Default.Save();
+            MessageBox.Show(LogInModule.GetString("Aktualizacja po restarcie programu"));
+            this.Hide();
         }
 
         private void dbCancelButton_Click(object sender, EventArgs e)
@@ -196,12 +201,15 @@ namespace NStudio
                     break;
             }
 
-            string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
-            string databaseType = null;
+            //string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
+            //string databaseType = null;
+            //string connectionString = "server=localhost;database=nstudio;uid=root;pwd=;";
+            //string databaseType = null;
+            //dbControl = new DatabaseControl(connectionString, databaseType);
             //dbControl = new DatabaseControl(connectionString, databaseType);
             //DatabaseControl(connectionString, databaseType);
             //dbControl.UpdateLabelColor = UpdateStatusLabelColor;
 
         }
-        }
+    }
 }
