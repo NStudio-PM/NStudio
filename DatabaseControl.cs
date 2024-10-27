@@ -22,7 +22,7 @@ namespace NStudio
 {
     public partial class DatabaseControl : Form
     {
-        private readonly string connectionString;
+        public readonly string connectionString;
         private readonly string databaseType;
         public Action<Color> UpdateLabelColor { get; set; }
         public DatabaseControl()
@@ -176,6 +176,11 @@ namespace NStudio
         private bool RegisterUserSQLite(string username, string password) { return false; }
 
         private bool RegisterUserMongoDB(string username, string password) { return false; }
+
+        public string SendConnectionString()
+        {
+            if (connectionString != null) { return connectionString; } else { return ""; }
+        }
 
         private void saveButton_Click(object sender, EventArgs e)  // dbSaveButton_Click
         {

@@ -152,7 +152,8 @@ namespace NStudio
 
             if (isConnected && dbControl.ValidateUser(username, password, false))
             {
-                Dashboard dashboard = new Dashboard();
+                connectionStatusTimer.Stop();
+                Dashboard dashboard = new Dashboard(dbControl);
                 dashboard.Show();
                 this.Hide();
             }
@@ -192,7 +193,8 @@ namespace NStudio
 
                 if (password == rPassword && acceptRulesInput.Checked && isConnected && dbControl.ValidateUser(username, password, true))
                 {
-                    Dashboard dashboard = new Dashboard();
+                    connectionStatusTimer.Stop();
+                    Dashboard dashboard = new Dashboard(dbControl);
                     dashboard.Show();
                     this.Hide();
                 }

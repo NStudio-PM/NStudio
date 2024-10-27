@@ -12,9 +12,15 @@ namespace NStudio
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private DatabaseControl dbControl;
+        public Dashboard(DatabaseControl dbControl)
         {
             InitializeComponent();
+            this.dbControl = dbControl;
+
+            //string cs = dbControl.connectionString;
+            //string cs = dbControl.SendConnectionString();
+            //Console.WriteLine(cs);
         }
     }
 }
