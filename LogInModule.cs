@@ -35,9 +35,9 @@ namespace NStudio
         public DatabaseControl dbControl;
 
         
-        private void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
+        private async void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
         { 
-            dbControl.CheckDatabaseConnection(); 
+            await Task.Run(() => dbControl.CheckDatabaseConnection()); 
         }
 
         public LogInModule()
@@ -117,7 +117,15 @@ namespace NStudio
 
         private void UpdateStatusLabelColor(Color color)
         {
-            lblConnectionStatus.ForeColor = color;
+            if (lblConnectionStatus.InvokeRequired)
+            {
+                lblConnectionStatus.Invoke(new Action<Color>(UpdateStatusLabelColor), color);
+            }
+            else
+            {
+                lblConnectionStatus.ForeColor = color;
+            }
+            //lblConnectionStatus.ForeColor = color;
         }
 
         public static string GetString(string name)
@@ -136,12 +144,13 @@ namespace NStudio
 
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private async void loginButton_Click(object sender, EventArgs e)
         {
             string username = usernameInput.Text;
             string password = passwordInput.Text;
+            bool isConnected = await dbControl.CheckDatabaseConnection();
 
-            if (dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password, false))
+            if (isConnected && dbControl.ValidateUser(username, password, false))
             {
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
@@ -159,7 +168,7 @@ namespace NStudio
             using (var loginform = new DatabaseControl()) { loginform.ShowDialog(); }
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
+        private async void registerButton_Click(object sender, EventArgs e)
         {
             if (loginButton.Visible)
             {
@@ -179,8 +188,9 @@ namespace NStudio
                 string username = usernameInput.Text;
                 string password = passwordInput.Text;
                 string rPassword = rPassInput.Text;
+                bool isConnected = await dbControl.CheckDatabaseConnection();
 
-                if (password == rPassword && acceptRulesInput.Checked && dbControl.CheckDatabaseConnection() && dbControl.ValidateUser(username, password, true))
+                if (password == rPassword && acceptRulesInput.Checked && isConnected && dbControl.ValidateUser(username, password, true))
                 {
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();

@@ -62,13 +62,14 @@ namespace NStudio
 
         }
 
-        public bool CheckDatabaseConnection()
+        public async Task<bool> CheckDatabaseConnection()
         {
+            UpdateLabelColor?.Invoke(Color.Blue);
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    connection.Open();
+                    await connection.OpenAsync();
                     UpdateLabelColor?.Invoke(Color.Green);
                     return true;
                 }
