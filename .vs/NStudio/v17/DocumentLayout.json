@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Dashboard.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
               "RelativeToolTip": "Dashboard.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAB4AAAAyAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAmwIoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-27T23:08:58.37Z",
               "EditorCaption": ""
@@ -57,7 +57,7 @@
               "RelativeDocumentMoniker": "DatabaseControl.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\DatabaseControl.cs",
               "RelativeToolTip": "DatabaseControl.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAOUAAAAgAAAA",
+              "ViewState": "AQIAAM4AAAAAAAAAAAAAAB0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-26T13:01:21.919Z",
               "EditorCaption": ""

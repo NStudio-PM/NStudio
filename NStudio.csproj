@@ -166,6 +166,36 @@
     <Compile Include="DatabaseControl.Designer.cs">
       <DependentUpon>DatabaseControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\artistsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\artistsForm.Designer.cs">
+      <DependentUpon>artistsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\recordsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\recordsForm.Designer.cs">
+      <DependentUpon>recordsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\settingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\settingsForm.Designer.cs">
+      <DependentUpon>settingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\shopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\shopForm.Designer.cs">
+      <DependentUpon>shopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\songsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\songsForm.Designer.cs">
+      <DependentUpon>songsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogInModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +214,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DatabaseControl.resx">
       <DependentUpon>DatabaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\artistsForm.resx">
+      <DependentUpon>artistsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\recordsForm.resx">
+      <DependentUpon>recordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\settingsForm.resx">
+      <DependentUpon>settingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\shopForm.resx">
+      <DependentUpon>shopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\songsForm.resx">
+      <DependentUpon>songsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInModule.resx">
       <DependentUpon>LogInModule.cs</DependentUpon>

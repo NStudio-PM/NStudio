@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using NStudio.Desktop;
 
 namespace NStudio
 {
@@ -18,6 +19,7 @@ namespace NStudio
         private DatabaseControl dbControl;
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private Form currentChild;
         private struct RGBColors
         {
 
@@ -47,6 +49,22 @@ namespace NStudio
             artistsButton.Text = LogInModule.GetString("artistsButton");
             shopButton.Text = LogInModule.GetString("shopButton");
             settingsButton.Text = LogInModule.GetString("settingsButton");
+        }
+
+        private void OpenChild(Form childForm)
+        {
+
+            if (currentChild != null) { currentChild.Close(); }
+            currentChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            childForm.BackColor = Color.FromArgb(31, 31, 31);
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+
         }
 
         private void ActivateButton(object sender, Color color)
@@ -87,32 +105,38 @@ namespace NStudio
 
             DeactivateButton();
             leftBorderBtn.Visible = false;
+            currentChild.Close();
 
         }
 
         private void songsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.songsColor);
+            OpenChild(new songsForm());
         }
 
         private void recordsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.recordsColor);
+            OpenChild(new recordsForm());
         }
 
         private void artistsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.artistsColor);
+            OpenChild(new artistsForm());
         }
 
         private void shopButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.shopColor);
+            OpenChild(new shopForm());
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.settingsColor);
+            OpenChild(new settingsForm());
         }
 
         private void logo_Click(object sender, EventArgs e)
