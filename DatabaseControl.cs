@@ -1,4 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using Npgsql;
+using System.Data.SQLite;
+using MongoDB.Driver;
 using BCrypt.Net;
 using System;
 using System.Collections.Generic;
@@ -17,6 +20,7 @@ using System.Xml.Linq;
 using Org.BouncyCastle.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
+using System.Text.Json;
 
 namespace NStudio
 {
@@ -84,6 +88,189 @@ namespace NStudio
             
         }
 
+        public async Task<bool> ValidateDatabase()
+        {
+            UpdateLabelColor?.Invoke(Color.Cyan);
+            LogInModule logInModule = new LogInModule();
+            string dbName = logInModule.DName;
+            string blankConnectionString = connectionString.Replace($"database={dbName};", "");
+
+            switch (databaseType)
+            {
+                case "mysql":
+                    try
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            string query = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = @dbName";
+                            MySqlCommand cmd = new MySqlCommand(query, connection);
+                            cmd.Parameters.AddWithValue("@dbName", dbName);
+                            var result = cmd.ExecuteScalar();
+                            if (result != null)
+                            {
+                                // Database exists
+                                UpdateLabelColor?.Invoke(Color.LightGreen);
+                                return true;
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException("Database does not exist");
+                            }
+                        }
+                    }
+                    catch (MySqlException ex) when (ex.Number == 1049) // Unknown database error
+                    {
+                        // Database does not exist
+                        try
+                        {
+                            using (MySqlConnection blankConnection = new MySqlConnection(blankConnectionString))
+                            {
+                                blankConnection.Open();
+                                string createQuery = $"CREATE DATABASE `{dbName}`";
+                                MySqlCommand createCmd = new MySqlCommand(createQuery, blankConnection);
+                                await createCmd.ExecuteNonQueryAsync();
+                                UpdateLabelColor?.Invoke(Color.LightGreen);
+                                return true;
+                            }
+                        }
+                        catch (Exception createEx)
+                        {
+                            UpdateLabelColor?.Invoke(Color.DarkRed);
+                            Console.WriteLine($"Error creating database: {createEx.Message}");
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"Unexpected error: {ex.Message}");
+                        return false;
+                    }
+
+                case "postgresql":
+                    UpdateLabelColor?.Invoke(Color.DarkRed);
+                    return false;
+                    /*
+                    try
+                    {
+                        using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            string query = "SELECT datname FROM pg_database WHERE datname = @dbName";
+                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@dbName", dbName);
+                                var result = cmd.ExecuteScalar();
+                                if (result != null)
+                                {
+                                    // Database exists
+                                    UpdateLabelColor?.Invoke(Color.LightGreen);
+                                    return true;
+                                }
+                                else
+                                {
+                                    throw new InvalidOperationException("Database does not exist");
+                                }
+                            }
+                        }
+                    }
+                    catch (PostgresException ex) when (ex.SqlState == "3D000") // Undefined database error
+                    {
+                        // Database does not exist
+                        try
+                        {
+                            using (NpgsqlConnection blankConnection = new NpgsqlConnection(blankConnectionString))
+                            {
+                                blankConnection.Open();
+                                string createQuery = $"CREATE DATABASE \"{dbName}\"";
+                                using (NpgsqlCommand createCmd = new NpgsqlCommand(createQuery, blankConnection))
+                                {
+                                    await createCmd.ExecuteNonQueryAsync();
+                                    UpdateLabelColor?.Invoke(Color.LightGreen);
+                                    return true;
+                                }
+                            }
+                        }
+                        catch (Exception createEx)
+                        {
+                            UpdateLabelColor?.Invoke(Color.DarkRed);
+                            Console.WriteLine($"Error creating database: {createEx.Message}");
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"Unexpected error: {ex.Message}");
+                        return false;
+                    }
+                    */
+                case "sqlite":
+                    UpdateLabelColor?.Invoke(Color.DarkRed);
+                    return false;
+                    /*
+                     
+
+                    try
+                    {
+                        using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                        {
+                            connection.Open();
+                            // SQLite automatically creates the database if it doesn't exist
+                            UpdateLabelColor?.Invoke(Color.LightGreen);
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"Unexpected error: {ex.Message}");
+                        return false;
+                    }
+                     
+                     */
+                case "mongodb":
+                    UpdateLabelColor?.Invoke(Color.DarkRed);
+                    return false;
+                    /*
+                    try
+                    {
+                        var client = new MongoClient(connectionString);
+                        var database = client.GetDatabase(dbName);
+                        var collection = database.GetCollection<BsonDocument>("dummyCollection");
+
+                        // Check if the database exists by attempting to list collections
+                        var collections = database.ListCollectionNames().ToList();
+                        if (collections.Any())
+                        {
+                            // Database exists
+                            UpdateLabelColor?.Invoke(Color.LightGreen);
+                            return true;
+                        }
+                        else
+                        {
+                            // Database does not exist, create it by inserting a dummy document
+                            var dummyDocument = new BsonDocument { { "dummy", "value" } };
+                            await collection.InsertOneAsync(dummyDocument);
+                            UpdateLabelColor?.Invoke(Color.LightGreen);
+                            return true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"Unexpected error: {ex.Message}");
+                        return false;
+                    }
+                    */
+
+                default:
+                    UpdateLabelColor?.Invoke(Color.DarkRed);
+                    throw new NotSupportedException($"Unsupported database type: {databaseType}");
+            }
+        }
+
         public bool ValidateUser(string username, string password, bool register)
         {
             switch (databaseType)
@@ -97,6 +284,7 @@ namespace NStudio
                 case "mongodb":
                     if (register) { return RegisterUserMongoDB(username, password); } else { return LoginUserMongoDB(username, password); }
                 default:
+                    UpdateLabelColor?.Invoke(Color.Black);
                     throw new NotSupportedException($"Unsupported database type: {databaseType}");
             }
         }
@@ -178,11 +366,6 @@ namespace NStudio
         private bool RegisterUserSQLite(string username, string password) { return false; }
 
         private bool RegisterUserMongoDB(string username, string password) { return false; }
-
-        public string SendConnectionString()
-        {
-            if (connectionString != null) { return connectionString; } else { return ""; }
-        }
 
         private void saveButton_Click(object sender, EventArgs e)  // dbSaveButton_Click
         {

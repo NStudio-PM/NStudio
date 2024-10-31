@@ -22,11 +22,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Diagnostics.Eventing.Reader;
 using NStudio.Desktop;
 
-// TODO COLDERVOID
-// remember me checkbox
-// reset password label button
-
-
 namespace NStudio
 {
     public partial class LogInModule : Form
@@ -35,12 +30,23 @@ namespace NStudio
         private Timer connectionStatusTimer;
         private ToolTip toolTip;
         public DatabaseControl dbControl;
-        public static bool logInSkipMode = true;
+        public bool dbCreated = false;
+        public static bool logInSkipMode = false;
 
-        
+        private string DHostname = Properties.Settings.Default.dbHostname;
+        public string DName = Properties.Settings.Default.dbName;
+        private string DUser = Properties.Settings.Default.dbUser;
+        private string DPass = Properties.Settings.Default.dbPass;
+        private string DType = Properties.Settings.Default.dbType;
+
+
         private async void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
         { 
-            await Task.Run(() => dbControl.CheckDatabaseConnection()); 
+            await Task.Run(() => dbControl.CheckDatabaseConnection());
+            if (!dbCreated)
+            {
+                dbCreated = await Task.Run(() => dbControl.ValidateDatabase());
+            }
         }
 
         public LogInModule()
@@ -67,12 +73,6 @@ namespace NStudio
             // usage example by me
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
             Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
-
-            string DHostname = Properties.Settings.Default.dbHostname;
-            string DName = Properties.Settings.Default.dbName;
-            string DUser = Properties.Settings.Default.dbUser;
-            string DPass = Properties.Settings.Default.dbPass;
-            string DType = Properties.Settings.Default.dbType;
 
             string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
             string databaseType = DType;

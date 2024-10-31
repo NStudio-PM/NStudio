@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="logo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -125,7 +128,7 @@
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAF79JREFUeF7tnd2THNV5xnHsBBv8FeMLcwmxKUNhO4gLCBV5viRbsikbgoBwY6cQ
+        wQAADsEBuJFr7QAAF79JREFUeF7tnd2THNV5xnHsBBv8FeMLcwmxKUNhO4gLCBV5viRbsikbgoBwY6cQ
         jrGJnCqDboTYcWm6Z7EWXUgiRkql+DBVSZWQcVWqUiXfoDJ/AFxEQVyFEmAZRVhIc3pYo4/dPG/P27K0
         e8TO7PT56NnnV/XUgrSafs857/P26Z7ucy4jhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBC
         CCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBC
@@ -257,6 +260,9 @@
   <data name="&gt;&gt;logo.ZOrder" xml:space="preserve">
     <value>17</value>
   </data>
+  <metadata name="loginLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="loginLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -290,6 +296,9 @@
   <data name="&gt;&gt;loginLabel.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
+  <metadata name="userInputLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="userInputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -320,6 +329,9 @@
   <data name="&gt;&gt;userInputLabel.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
+  <metadata name="userPic.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="userPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -461,6 +473,9 @@
   <data name="&gt;&gt;userPic.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <metadata name="PassPic.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PassPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -635,6 +650,9 @@
   <data name="&gt;&gt;PassPic.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <metadata name="passInputLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="passInputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -668,6 +686,9 @@
   <data name="&gt;&gt;passInputLabel.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <metadata name="usernameInput.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="usernameInput.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 9.75pt, style=Bold</value>
   </data>
@@ -701,6 +722,9 @@
   <data name="&gt;&gt;usernameInput.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <metadata name="passwordInput.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="passwordInput.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 9.75pt, style=Bold</value>
   </data>
@@ -737,9 +761,15 @@
   <data name="&gt;&gt;passwordInput.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <metadata name="rPassPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="rPassPanel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <metadata name="panel3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="panel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -764,6 +794,9 @@
   <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="rPassPic.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="rPassPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -938,6 +971,9 @@
   <data name="&gt;&gt;rPassPic.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="rPassInputLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="rPassInputLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -971,6 +1007,9 @@
   <data name="&gt;&gt;rPassInputLabel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="rPassInput.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="rPassInput.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 9.75pt, style=Bold</value>
   </data>
@@ -1028,6 +1067,9 @@
   <data name="&gt;&gt;rPassPanel.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <metadata name="loginButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="loginButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -1061,6 +1103,9 @@
   <data name="&gt;&gt;loginButton.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <metadata name="lblConnectionStatus.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="lblConnectionStatus.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 48pt</value>
   </data>
@@ -1091,6 +1136,9 @@
   <data name="&gt;&gt;lblConnectionStatus.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <metadata name="pictureBox3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1348,6 +1396,9 @@
   <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <metadata name="registerButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="registerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -1384,6 +1435,9 @@
   <data name="&gt;&gt;registerButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <metadata name="acceptRulesInput.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="acceptRulesInput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1408,6 +1462,9 @@
   <data name="&gt;&gt;acceptRulesInput.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <metadata name="acceptRulesLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="acceptRulesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1438,6 +1495,9 @@
   <data name="&gt;&gt;acceptRulesLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="userPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="userPanel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1462,6 +1522,9 @@
   <data name="&gt;&gt;userPanel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="passPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="passPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>105, 345</value>
   </data>
@@ -1483,6 +1546,9 @@
   <data name="&gt;&gt;passPanel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <metadata name="returnButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="returnButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -1520,6 +1586,9 @@
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
