@@ -33,6 +33,7 @@ namespace NStudio
         private Timer connectionStatusTimer;
         private ToolTip toolTip;
         public DatabaseControl dbControl;
+        public static bool logInSkipMode = false;
 
         
         private async void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
@@ -42,6 +43,12 @@ namespace NStudio
 
         public LogInModule()
         {
+            _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
+            if (logInSkipMode)
+            {
+                Dashboard dashboard = new Dashboard(dbControl);
+                dashboard.Show();
+            }
 
             InitializeComponent();
             //LogInModule.ChangeLanguage("en");
@@ -52,7 +59,6 @@ namespace NStudio
             acceptRulesLabel.Visible = false;
             rPassPanel.Visible = false;
             returnButton.Visible = false;
-            _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
 
@@ -154,8 +160,8 @@ namespace NStudio
             {
                 connectionStatusTimer.Stop();
                 Dashboard dashboard = new Dashboard(dbControl);
-                dashboard.Show();
                 this.Hide();
+                dashboard.Show();
             }
             else
             {

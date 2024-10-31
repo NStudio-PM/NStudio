@@ -64,3 +64,9 @@ C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\System.Runtim
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.songsForm.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.artistsForm.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.recordsForm.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.settingsForm.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.shopForm.resources

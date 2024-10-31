@@ -70,6 +70,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Artyści.
+        /// </summary>
+        internal static string artistsButton {
+            get {
+                return ResourceManager.GetString("artistsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyjdź.
         /// </summary>
         internal static string dbCancelButton {
@@ -187,6 +196,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Płyty.
+        /// </summary>
+        internal static string recordsButton {
+            get {
+                return ResourceManager.GetString("recordsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zarejestruj się.
         /// </summary>
         internal static string registerButton1 {
@@ -228,6 +246,33 @@ namespace NStudio.Language {
         internal static string rPassInputLabel {
             get {
                 return ResourceManager.GetString("rPassInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ustawienia.
+        /// </summary>
+        internal static string settingsButton {
+            get {
+                return ResourceManager.GetString("settingsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Sklep.
+        /// </summary>
+        internal static string shopButton {
+            get {
+                return ResourceManager.GetString("shopButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Utwory.
+        /// </summary>
+        internal static string songsButton {
+            get {
+                return ResourceManager.GetString("songsButton", resourceCulture);
             }
         }
         

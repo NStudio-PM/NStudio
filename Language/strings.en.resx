@@ -121,6 +121,10 @@
     <value>Accept rules</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="artistsButton" xml:space="preserve">
+    <value>Artists</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="dbCancelButton" xml:space="preserve">
     <value>Cancel</value>
     <comment>DatabaseControl</comment>
@@ -173,6 +177,10 @@
     <value>Password</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="recordsButton" xml:space="preserve">
+    <value>Records</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="registerButton1" xml:space="preserve">
     <value>Sign Up</value>
     <comment>LogInModule</comment>
@@ -192,6 +200,18 @@
   <data name="rPassInputLabel" xml:space="preserve">
     <value>Repeat password</value>
     <comment>LogInModule</comment>
+  </data>
+  <data name="settingsButton" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="shopButton" xml:space="preserve">
+    <value>Shop</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="songsButton" xml:space="preserve">
+    <value>Songs</value>
+    <comment>Dashboard</comment>
   </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Username</value>

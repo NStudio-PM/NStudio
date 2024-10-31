@@ -23,6 +23,8 @@ namespace NStudio
     public partial class DatabaseControl : Form
     {
         public readonly string connectionString;
+        public readonly string username;
+        public readonly int power;
         private readonly string databaseType;
         public Action<Color> UpdateLabelColor { get; set; }
         public DatabaseControl()
