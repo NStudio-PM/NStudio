@@ -19,6 +19,7 @@ using Org.BouncyCastle.Asn1.Crmf;
 using System.Web;
 using Org.BouncyCastle.Asn1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Diagnostics.Eventing.Reader;
 
 // TODO COLDERVOID
 // remember me checkbox
@@ -121,6 +122,12 @@ namespace NStudio
             base.OnPaint(e);
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            Application.Exit();
+        }
+
         private void UpdateStatusLabelColor(Color color)
         {
             if (lblConnectionStatus.InvokeRequired)
@@ -156,16 +163,23 @@ namespace NStudio
             string password = passwordInput.Text;
             bool isConnected = await dbControl.CheckDatabaseConnection();
 
-            if (isConnected && dbControl.ValidateUser(username, password, false))
+            if (password.Length >= 8 && username.Length >= 2)
             {
-                connectionStatusTimer.Stop();
-                Dashboard dashboard = new Dashboard(dbControl);
-                this.Hide();
-                dashboard.Show();
+                if (isConnected && dbControl.ValidateUser(username, password, false))
+                {
+                    connectionStatusTimer.Stop();
+                    Dashboard dashboard = new Dashboard(dbControl);
+                    this.Hide();
+                    dashboard.Show();
+                }
+                else
+                {
+                    // edit to red label not alert message
+                    MessageBox.Show(LogInModule.GetString("logInError"));
+                }
             }
             else
             {
-                // edit to red label not alert message
                 MessageBox.Show(LogInModule.GetString("logInError"));
             }
         }
@@ -197,16 +211,23 @@ namespace NStudio
                 string rPassword = rPassInput.Text;
                 bool isConnected = await dbControl.CheckDatabaseConnection();
 
-                if (password == rPassword && acceptRulesInput.Checked && isConnected && dbControl.ValidateUser(username, password, true))
+                if (password.Length >= 8 && username.Length >= 2 && password == rPassword && acceptRulesInput.Checked)
                 {
-                    connectionStatusTimer.Stop();
-                    Dashboard dashboard = new Dashboard(dbControl);
-                    dashboard.Show();
-                    this.Hide();
+                    if (isConnected && dbControl.ValidateUser(username, password, true))
+                    {
+                        connectionStatusTimer.Stop();
+                        Dashboard dashboard = new Dashboard(dbControl);
+                        dashboard.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        // edit to red label not alert message
+                        MessageBox.Show(LogInModule.GetString("registerError"));
+                    }
                 }
                 else
                 {
-                    // edit to red label not alert message
                     MessageBox.Show(LogInModule.GetString("registerError"));
                 }
             }
@@ -225,5 +246,8 @@ namespace NStudio
             rPassPanel.Visible = false;
             returnButton.Visible = false;
         }
+
+        private void LogInModule_FormClosing(object sender, FormClosingEventArgs e) { if (connectionStatusTimer != null) { connectionStatusTimer.Stop(); } }
+
     }
 }

@@ -248,6 +248,7 @@
             this.Controls.Add(this.logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LogInModule";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogInModule_FormClosing);
             this.Load += new System.EventHandler(this.LogInModule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).EndInit();

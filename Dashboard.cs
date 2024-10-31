@@ -51,6 +51,12 @@ namespace NStudio
             settingsButton.Text = LogInModule.GetString("settingsButton");
         }
 
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            Application.Exit();
+        }
+
         private void OpenChild(Form childForm)
         {
 
