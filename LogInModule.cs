@@ -20,6 +20,7 @@ using System.Web;
 using Org.BouncyCastle.Asn1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Diagnostics.Eventing.Reader;
+using NStudio.Desktop;
 
 // TODO COLDERVOID
 // remember me checkbox
@@ -34,7 +35,7 @@ namespace NStudio
         private Timer connectionStatusTimer;
         private ToolTip toolTip;
         public DatabaseControl dbControl;
-        public static bool logInSkipMode = false;
+        public static bool logInSkipMode = true;
 
         
         private async void ConnectionStatusTimer_Tick(object sender, EventArgs e) 
