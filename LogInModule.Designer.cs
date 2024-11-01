@@ -228,6 +228,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.passPanel);
             this.Controls.Add(this.userPanel);

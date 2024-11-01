@@ -367,6 +367,63 @@ namespace NStudio
 
         private bool RegisterUserMongoDB(string username, string password) { return false; }
 
+        public DataTable ArtistsLoadData()
+        {
+            DataTable dataTable = new DataTable();
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT * FROM artists";
+                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
+                            dataAdapter.Fill(dataTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        return dataTable;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    dataTable = null;
+                    return dataTable;
+            }
+        }
+
+        public bool DeleteRowFromDB(int id, string table) 
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    string query = $"DELETE FROM {table} WHERE id = @id";
+                    using(MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        MySqlCommand command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@id", id);
+                        try
+                        {
+                            connection.Open();
+                            command.ExecuteNonQuery();
+                        }
+                        catch(Exception ex) { MessageBox.Show(ex.Message); return false; }
+                        return true;
+                    }
+
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return false;
+            }
+        }
+
         private void saveButton_Click(object sender, EventArgs e)  // dbSaveButton_Click
         {
 

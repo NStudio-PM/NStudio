@@ -164,7 +164,7 @@ namespace NStudio
             string password = passwordInput.Text;
             bool isConnected = await dbControl.CheckDatabaseConnection();
 
-            if (password.Length >= 8 && username.Length >= 2)
+            if (password.Length >= 0 && username.Length >= 0)
             {
                 if (isConnected && dbControl.ValidateUser(username, password, false))
                 {
