@@ -70,11 +70,74 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dodaj.
+        /// </summary>
+        internal static string aF1Tooltip {
+            get {
+                return ResourceManager.GetString("aF1Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Usuń.
+        /// </summary>
+        internal static string aF2Tooltip {
+            get {
+                return ResourceManager.GetString("aF2Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Edytuj.
+        /// </summary>
+        internal static string aF3Tooltip {
+            get {
+                return ResourceManager.GetString("aF3Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Label.
+        /// </summary>
+        internal static string artistLabel {
+            get {
+                return ResourceManager.GetString("artistLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa.
+        /// </summary>
+        internal static string artistName {
+            get {
+                return ResourceManager.GetString("artistName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pseudonim.
+        /// </summary>
+        internal static string artistNick {
+            get {
+                return ResourceManager.GetString("artistNick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Artyści.
         /// </summary>
         internal static string artistsButton {
             get {
                 return ResourceManager.GetString("artistsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień język.
+        /// </summary>
+        internal static string changeLanguage {
+            get {
+                return ResourceManager.GetString("changeLanguage", resourceCulture);
             }
         }
         

@@ -305,7 +305,7 @@ namespace NStudio
                     bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
                     if (verify)
                     {
-                        string infoQuery = "SELECT id, username, power, address, balance FROM users WHERE username=@username";
+                        string infoQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE username=@username";
                         MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection);
                         infoCmd.Parameters.AddWithValue("@username", username);
                         try

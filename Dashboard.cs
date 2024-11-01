@@ -30,7 +30,7 @@ namespace NStudio
             public static readonly Color settingsColor = Color.FromArgb(237, 28, 36);
 
         }
-        public Dashboard(DatabaseControl dbControl, string username)
+        public Dashboard(DatabaseControl dbControl)
         {
             this.dbControl = dbControl;
             InitializeComponent();
@@ -154,12 +154,14 @@ namespace NStudio
 
         private void profileNameLabel_Click(object sender, EventArgs e)
         {
-            // open profile editor
+            profileForm profileForm = new profileForm();
+            profileForm.ShowDialog();
         }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            // open profile editor
+            profileForm profileForm = new profileForm();
+            profileForm.ShowDialog();
         }
     }
 }

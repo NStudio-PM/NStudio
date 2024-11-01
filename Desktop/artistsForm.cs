@@ -41,10 +41,10 @@ namespace NStudio.Desktop
             dataGridArtists.AlternatingRowsDefaultCellStyle.BackColor= System.Drawing.Color.Gray;
             dataGridArtists.AlternatingRowsDefaultCellStyle.ForeColor= System.Drawing.Color.White;
 
-            dataGridArtists.Columns[0].HeaderText = LogInModule.GetString("dbTooltip"); //ID
-            dataGridArtists.Columns[1].HeaderText = LogInModule.GetString("dbTooltip"); //nazwa
-            dataGridArtists.Columns[2].HeaderText = LogInModule.GetString("dbTooltip"); //pseudo
-            dataGridArtists.Columns[3].HeaderText = LogInModule.GetString("dbTooltip"); //label
+            dataGridArtists.Columns[0].HeaderText = "ID"; //ID
+            dataGridArtists.Columns[1].HeaderText = LogInModule.GetString("artistName"); //nazwa
+            dataGridArtists.Columns[2].HeaderText = LogInModule.GetString("artistNick"); //pseudo
+            dataGridArtists.Columns[3].HeaderText = LogInModule.GetString("artistLabel"); //label
 
             dataGridArtists.Columns[0].Width = 50;
             dataGridArtists.Columns[1].Width = 175;
@@ -55,29 +55,25 @@ namespace NStudio.Desktop
             foreach( var label in uniqueLabels) { LabelBox.Items.Add(label); }
 
             toolTip = new ToolTip();
-            toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("dbTooltip"));
-            toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("dbTooltip"));
-            toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("aF1Tooltip"));
+            toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("aF2Tooltip"));
+            toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("aF3Tooltip"));
 
-            ArtistNameLabel.Text = LogInModule.GetString("dbTooltip");
-            ArtistNickLabel.Text = LogInModule.GetString("dbTooltip");
-            ArtistLabelLabel.Text = LogInModule.GetString("dbTooltip");
+            ArtistNameLabel.Text = LogInModule.GetString("artistName");
+            ArtistNickLabel.Text = LogInModule.GetString("artistNick");
+            ArtistLabelLabel.Text = LogInModule.GetString("artistLabel");
 
             if (power >= 2)
             {
                 ArtistPlusButton.Enabled = true;
                 ArtistMinusButton.Enabled = true;
                 ArtistEditButton.Enabled = true;
-                toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("dbTooltip"));
-                toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("dbTooltip"));
-                toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("dbTooltip"));
             }
         }
 
         private void LoadDataIntoGrid()
         {
             artists = dbControlArtists.ArtistsLoadData();
-            //DataTable artists = dbControl.ArtistsLoadData();
             dataGridArtists.DataSource = artists;
 
 
@@ -102,7 +98,8 @@ namespace NStudio.Desktop
         {
             if (dataGridArtists.SelectedRows.Count > 0)
             {
-                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunac te dane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // MessageBox.Show("Czy na pewno chcesz usunac te dane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(LogInModule.GetString("dbTooltip"), LogInModule.GetString("dbTooltip"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     foreach (DataGridViewRow row in dataGridArtists.SelectedRows)

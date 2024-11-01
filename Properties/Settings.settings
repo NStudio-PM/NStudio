@@ -17,5 +17,8 @@
     <Setting Name="dbType" Type="System.String" Scope="User">
       <Value Profile="(Default)">mysql</Value>
     </Setting>
+    <Setting Name="language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pl</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

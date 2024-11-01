@@ -31,6 +31,7 @@ namespace NStudio
         private ToolTip toolTip;
         public DatabaseControl dbControl;
         public bool dbCreated = false;
+        private static bool isFirstCall = true;
         public static bool logInSkipMode = false;
 
         private string DHostname = Properties.Settings.Default.dbHostname;
@@ -52,15 +53,15 @@ namespace NStudio
         public LogInModule()
         {
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
+            string language = Properties.Settings.Default.language;
+            LogInModule.ChangeLanguage(language);
             if (logInSkipMode)
             {
-                string username = "demo";
-                Dashboard dashboard = new Dashboard(dbControl, username);
+                Dashboard dashboard = new Dashboard(dbControl);
                 dashboard.Show();
             }
 
             InitializeComponent();
-            //LogInModule.ChangeLanguage("en");
             rPassInput.Visible = false;
             rPassInputLabel.Visible = false;
             rPassPic.Visible = false;
@@ -70,10 +71,6 @@ namespace NStudio
             returnButton.Visible = false;
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
-
-            // usage example by me
-            Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
-            Console.WriteLine($"{LogInModule.GetString("hello")} {LogInModule.GetString("world")}");
 
             string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
             string databaseType = DType;
@@ -148,14 +145,39 @@ namespace NStudio
             return _rm.GetString(name);
         }
 
-        public static void ChangeLanguage(string language)
+        public static void ChangeLanguage(string choice)
         {
+            if (isFirstCall)
+            {
+                var cultureInfo = new CultureInfo(choice);
+                CultureInfo.CurrentCulture = cultureInfo;
+                CultureInfo.CurrentUICulture = cultureInfo;
+                isFirstCall = false;
+                return;
+            }
+            if (choice != Properties.Settings.Default.language)
+            {
+                var result = MessageBox.Show("Aby zastosować zmiany, konieczny jest reset aplikacji. Czy chcesz zrestartować?",
+                                              "Zmiana języka",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Information);
 
-            var cultureInfo = new CultureInfo(language);
+                if (result == DialogResult.Yes)
+                {
+                    Properties.Settings.Default.language = choice;
+                    isFirstCall = true;
+                    Properties.Settings.Default.Save();
+                    var cultureInfo = new CultureInfo(choice);
+                    CultureInfo.CurrentCulture = cultureInfo;
+                    CultureInfo.CurrentUICulture = cultureInfo;
 
-            CultureInfo.CurrentCulture = cultureInfo;
-            CultureInfo.CurrentUICulture = cultureInfo;
+                    System.Threading.Thread.Sleep(1000);
 
+                    string exePath = Application.ExecutablePath;
+                    System.Diagnostics.Process.Start(exePath);
+                    Application.Exit();
+                }
+            }
         }
 
         private async void loginButton_Click(object sender, EventArgs e)
@@ -169,7 +191,7 @@ namespace NStudio
                 if (isConnected && dbControl.ValidateUser(username, password, false))
                 {
                     connectionStatusTimer.Stop();
-                    Dashboard dashboard = new Dashboard(dbControl, username);
+                    Dashboard dashboard = new Dashboard(dbControl);
                     this.Hide();
                     dashboard.Show();
                 }
@@ -217,7 +239,7 @@ namespace NStudio
                     if (isConnected && dbControl.ValidateUser(username, password, true))
                     {
                         connectionStatusTimer.Stop();
-                        Dashboard dashboard = new Dashboard(dbControl, username);
+                        Dashboard dashboard = new Dashboard(dbControl);
                         dashboard.Show();
                         this.Hide();
                     }

@@ -121,9 +121,37 @@
     <value>Akceptuje regulamin</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="aF1Tooltip" xml:space="preserve">
+    <value>Dodaj</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="aF2Tooltip" xml:space="preserve">
+    <value>Usuń</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="aF3Tooltip" xml:space="preserve">
+    <value>Edytuj</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="artistLabel" xml:space="preserve">
+    <value>Label</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="artistName" xml:space="preserve">
+    <value>Nazwa</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="artistNick" xml:space="preserve">
+    <value>Pseudonim</value>
+    <comment>artistsForm</comment>
+  </data>
   <data name="artistsButton" xml:space="preserve">
     <value>Artyści</value>
     <comment>Dashboard</comment>
+  </data>
+  <data name="changeLanguage" xml:space="preserve">
+    <value>Zmień język</value>
+    <comment>profileForm</comment>
   </data>
   <data name="dbCancelButton" xml:space="preserve">
     <value>Wyjdź</value>
