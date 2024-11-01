@@ -78,13 +78,16 @@ namespace NStudio.Desktop
 
         private void ArtistMinusButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Czy na pewno chcesz usunac te dane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (dataGridArtists.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow row in dataGridArtists.SelectedRows)
+                DialogResult result = MessageBox.Show("Czy na pewno chcesz usunac te dane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(row.Cells["ID"].Value); // dla bazy
-                    if(dbControlArtists.DeleteRowFromDB(id, table)) { dataGridArtists.Rows.Remove(row); }
+                    foreach (DataGridViewRow row in dataGridArtists.SelectedRows)
+                    {
+                        int id = Convert.ToInt32(row.Cells["ID"].Value); // dla bazy
+                        if (dbControlArtists.DeleteRowFromDB(id, table)) { dataGridArtists.Rows.Remove(row); }
+                    }
                 }
             }
         }
