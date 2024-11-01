@@ -78,6 +78,7 @@ namespace NStudio
             string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
             string databaseType = DType;
             dbControl = new DatabaseControl(connectionString, databaseType);
+            dbControl.userInfo = new DataTable();
             dbControl.UpdateLabelColor = UpdateStatusLabelColor;
             connectionStatusTimer = new Timer();
             connectionStatusTimer.Interval = 5000;

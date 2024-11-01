@@ -242,6 +242,7 @@
             // ArtistEditButton
             // 
             this.ArtistEditButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistEditButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ArtistEditButton.Enabled = false;
             this.ArtistEditButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistEditButton.FlatAppearance.BorderSize = 0;
@@ -262,6 +263,7 @@
             // ArtistMinusButton
             // 
             this.ArtistMinusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistMinusButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ArtistMinusButton.Enabled = false;
             this.ArtistMinusButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistMinusButton.FlatAppearance.BorderSize = 0;
@@ -283,6 +285,7 @@
             // ArtistPlusButton
             // 
             this.ArtistPlusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistPlusButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ArtistPlusButton.Enabled = false;
             this.ArtistPlusButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistPlusButton.FlatAppearance.BorderSize = 0;

@@ -128,7 +128,7 @@
   <data name="logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAF79JREFUeF7tnd2THNV5xnHsBBv8FeMLcwmxKUNhO4gLCBV5viRbsikbgoBwY6cQ
+        vwAADr8BOAVTJAAAF79JREFUeF7tnd2THNV5xnHsBBv8FeMLcwmxKUNhO4gLCBV5viRbsikbgoBwY6cQ
         jrGJnCqDboTYcWm6Z7EWXUgiRkql+DBVSZWQcVWqUiXfoDJ/AFxEQVyFEmAZRVhIc3pYo4/dPG/P27K0
         e8TO7PT56NnnV/XUgrSafs857/P26Z7ucy4jhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBC
         CCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBC
@@ -707,6 +707,9 @@
   <data name="usernameInput.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="usernameInput.Text" xml:space="preserve">
+    <value>ColderVoid</value>
+  </data>
   <data name="usernameInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
@@ -745,6 +748,9 @@
   </data>
   <data name="passwordInput.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="passwordInput.Text" xml:space="preserve">
+    <value>testtest</value>
   </data>
   <data name="passwordInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>

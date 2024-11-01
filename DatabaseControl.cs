@@ -28,8 +28,8 @@ namespace NStudio
     {
         public readonly string connectionString;
         public readonly string username;
-        public readonly int power;
         private readonly string databaseType;
+        public DataTable userInfo { get; set; }
         public Action<Color> UpdateLabelColor { get; set; }
         public DatabaseControl()
         {
@@ -303,6 +303,18 @@ namespace NStudio
                 if (hashedPassword != null)
                 {
                     bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+                    if (verify)
+                    {
+                        string infoQuery = "SELECT id, username, power, address, balance FROM users WHERE username=@username";
+                        MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection);
+                        infoCmd.Parameters.AddWithValue("@username", username);
+                        try
+                        {
+                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(infoCmd);
+                            dataAdapter.Fill(userInfo);
+                        }
+                        catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    }
                     hashedPassword = null;
                     password = null;
                     return verify;
@@ -420,34 +432,6 @@ namespace NStudio
                 case "mongodb":
                 default:
                     return false;
-            }
-        }
-
-        public DataTable GetUserInfo(string username)
-        {
-            DataTable dataTable = new DataTable();
-            switch (databaseType)
-            {
-                case "mysql":
-                    string infoQuery = "SELECT id, username, power, address, balance FROM users WHERE username=@username";
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
-                    {
-                        MySqlCommand command = new MySqlCommand(infoQuery, connection);
-                        command.Parameters.AddWithValue("@username", username);
-                        try
-                        {
-                            connection.Open();
-                            MySqlDataAdapter dataAdapter2 = new MySqlDataAdapter(command);
-                            dataAdapter2.Fill(dataTable);
-                        }
-                        catch (Exception ex) { MessageBox.Show(ex.Message); }
-                        return dataTable;
-                    }
-                case "postgresql":
-                case "sqlite":
-                case "mongodb":
-                default:
-                    return dataTable;
             }
         }
 

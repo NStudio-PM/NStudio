@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,15 +14,16 @@ namespace NStudio.Desktop
 {
     public partial class artistsForm : Form
     {
+        private ToolTip toolTip;
         public DatabaseControl dbControlArtists;
         public readonly string table = "artists";
         DataTable artists;
-        public artistsForm(DatabaseControl dbControl, int power)
+        public artistsForm(DatabaseControl dbControl)
         {
             InitializeComponent();
             dbControlArtists = dbControl;
             LoadDataIntoGrid();
-            InnitView(power);
+            InnitView(Convert.ToInt32(dbControl.userInfo.Rows[0][2]));
         }
 
         private void InnitView(int power)
@@ -38,10 +41,10 @@ namespace NStudio.Desktop
             dataGridArtists.AlternatingRowsDefaultCellStyle.BackColor= System.Drawing.Color.Gray;
             dataGridArtists.AlternatingRowsDefaultCellStyle.ForeColor= System.Drawing.Color.White;
 
-            dataGridArtists.Columns[0].HeaderText = "ID";
-            dataGridArtists.Columns[1].HeaderText = "Nazwa";
-            dataGridArtists.Columns[2].HeaderText = "Pseudonim";
-            dataGridArtists.Columns[3].HeaderText = "Label";
+            dataGridArtists.Columns[0].HeaderText = LogInModule.GetString("dbTooltip"); //ID
+            dataGridArtists.Columns[1].HeaderText = LogInModule.GetString("dbTooltip"); //nazwa
+            dataGridArtists.Columns[2].HeaderText = LogInModule.GetString("dbTooltip"); //pseudo
+            dataGridArtists.Columns[3].HeaderText = LogInModule.GetString("dbTooltip"); //label
 
             dataGridArtists.Columns[0].Width = 50;
             dataGridArtists.Columns[1].Width = 175;
@@ -51,11 +54,23 @@ namespace NStudio.Desktop
             var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
             foreach( var label in uniqueLabels) { LabelBox.Items.Add(label); }
 
-            if(power >= 2)
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("dbTooltip"));
+
+            ArtistNameLabel.Text = LogInModule.GetString("dbTooltip");
+            ArtistNickLabel.Text = LogInModule.GetString("dbTooltip");
+            ArtistLabelLabel.Text = LogInModule.GetString("dbTooltip");
+
+            if (power >= 2)
             {
                 ArtistPlusButton.Enabled = true;
                 ArtistMinusButton.Enabled = true;
                 ArtistEditButton.Enabled = true;
+                toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("dbTooltip"));
+                toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("dbTooltip"));
+                toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("dbTooltip"));
             }
         }
 

@@ -20,8 +20,7 @@ namespace NStudio
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChild;
-        public DataTable userInfo;
-        private struct RGBColors
+        private readonly struct RGBColors
         {
 
             public static readonly Color songsColor = Color.FromArgb(158, 205, 250);
@@ -38,8 +37,7 @@ namespace NStudio
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
-            userInfo = dbControl.GetUserInfo(username);
-            profileNameLabel.Text = userInfo.Rows[0][1].ToString();
+            profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
         }
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -129,7 +127,7 @@ namespace NStudio
         private void artistsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.artistsColor);
-            OpenChild(new artistsForm(dbControl, Convert.ToInt32(userInfo.Rows[0][2])));
+            OpenChild(new artistsForm(dbControl));
         }
 
         private void shopButton_Click(object sender, EventArgs e)

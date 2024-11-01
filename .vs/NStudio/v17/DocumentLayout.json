@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:databasecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:loginmodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,50 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Dashboard.cs",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
               "RelativeDocumentMoniker": "Dashboard.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
               "RelativeToolTip": "Dashboard.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAH8AAAAAAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAcwB8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-01T15:30:14.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DatabaseControl.cs",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\DatabaseControl.cs",
               "RelativeDocumentMoniker": "DatabaseControl.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\DatabaseControl.cs",
               "RelativeToolTip": "DatabaseControl.cs",
-              "ViewState": "AQIAAG0BAAAAAAAAAAAiwLcBAAApAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAPUBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-31T23:50:20.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "LogInModule.cs",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
               "RelativeDocumentMoniker": "LogInModule.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\LogInModule.cs",
               "RelativeToolTip": "LogInModule.cs",
-              "ViewState": "AQIAANYAAAAAAAAAAAAYwK0AAAARAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowFAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-31T22:45:49.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Dashboard.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
               "RelativeDocumentMoniker": "Dashboard.cs",
@@ -89,25 +85,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "artistsForm.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
-              "RelativeDocumentMoniker": "Desktop\\artistsForm.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs [Projekt]",
-              "RelativeToolTip": "Desktop\\artistsForm.cs [Projekt]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T01:27:52.529Z",
-              "EditorCaption": " [Projekt]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "artistsForm.cs",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
               "RelativeDocumentMoniker": "Desktop\\artistsForm.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
               "RelativeToolTip": "Desktop\\artistsForm.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAADQAAAAAAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-31T18:32:43.151Z",
               "EditorCaption": ""
