@@ -32,27 +32,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridArtists = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelBox = new System.Windows.Forms.ComboBox();
+            this.ArtistLabelLabel = new System.Windows.Forms.Label();
+            this.ArtistNickLabel = new System.Windows.Forms.Label();
+            this.nickSearchTextBox = new System.Windows.Forms.TextBox();
+            this.ArtistNameLabel = new System.Windows.Forms.Label();
             this.nameSearchTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelActions = new System.Windows.Forms.Panel();
             this.ArtistEditButton = new FontAwesome.Sharp.IconButton();
             this.ArtistMinusButton = new FontAwesome.Sharp.IconButton();
             this.ArtistPlusButton = new FontAwesome.Sharp.IconButton();
-            this.ArtistNameLabel = new System.Windows.Forms.Label();
-            this.ArtistNickLabel = new System.Windows.Forms.Label();
-            this.nickSearchTextBox = new System.Windows.Forms.TextBox();
-            this.ArtistLabelLabel = new System.Windows.Forms.Label();
-            this.LabelBox = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArtists)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelActions.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -80,6 +80,15 @@
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
             this.panel2.Size = new System.Drawing.Size(754, 336);
             this.panel2.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dataGridArtists);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(90, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(564, 336);
+            this.panel4.TabIndex = 7;
             // 
             // dataGridArtists
             // 
@@ -143,6 +152,62 @@
             this.panel1.Size = new System.Drawing.Size(754, 100);
             this.panel1.TabIndex = 5;
             // 
+            // LabelBox
+            // 
+            this.LabelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.LabelBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelBox.ForeColor = System.Drawing.Color.White;
+            this.LabelBox.FormattingEnabled = true;
+            this.LabelBox.Location = new System.Drawing.Point(344, 19);
+            this.LabelBox.Name = "LabelBox";
+            this.LabelBox.Size = new System.Drawing.Size(135, 24);
+            this.LabelBox.TabIndex = 5;
+            this.LabelBox.SelectedValueChanged += new System.EventHandler(this.LabelBox_SelectedValueChanged);
+            // 
+            // ArtistLabelLabel
+            // 
+            this.ArtistLabelLabel.AutoSize = true;
+            this.ArtistLabelLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ArtistLabelLabel.ForeColor = System.Drawing.Color.White;
+            this.ArtistLabelLabel.Location = new System.Drawing.Point(289, 21);
+            this.ArtistLabelLabel.Name = "ArtistLabelLabel";
+            this.ArtistLabelLabel.Size = new System.Drawing.Size(49, 18);
+            this.ArtistLabelLabel.TabIndex = 4;
+            this.ArtistLabelLabel.Text = "Label";
+            // 
+            // ArtistNickLabel
+            // 
+            this.ArtistNickLabel.AutoSize = true;
+            this.ArtistNickLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ArtistNickLabel.ForeColor = System.Drawing.Color.White;
+            this.ArtistNickLabel.Location = new System.Drawing.Point(23, 51);
+            this.ArtistNickLabel.Name = "ArtistNickLabel";
+            this.ArtistNickLabel.Size = new System.Drawing.Size(88, 18);
+            this.ArtistNickLabel.TabIndex = 3;
+            this.ArtistNickLabel.Text = "Pseudonim";
+            // 
+            // nickSearchTextBox
+            // 
+            this.nickSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.nickSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nickSearchTextBox.ForeColor = System.Drawing.Color.White;
+            this.nickSearchTextBox.Location = new System.Drawing.Point(118, 52);
+            this.nickSearchTextBox.Name = "nickSearchTextBox";
+            this.nickSearchTextBox.Size = new System.Drawing.Size(138, 22);
+            this.nickSearchTextBox.TabIndex = 2;
+            this.nickSearchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // ArtistNameLabel
+            // 
+            this.ArtistNameLabel.AutoSize = true;
+            this.ArtistNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ArtistNameLabel.ForeColor = System.Drawing.Color.White;
+            this.ArtistNameLabel.Location = new System.Drawing.Point(23, 21);
+            this.ArtistNameLabel.Name = "ArtistNameLabel";
+            this.ArtistNameLabel.Size = new System.Drawing.Size(58, 18);
+            this.ArtistNameLabel.TabIndex = 1;
+            this.ArtistNameLabel.Text = "Nazwa";
+            // 
             // nameSearchTextBox
             // 
             this.nameSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
@@ -177,6 +242,7 @@
             // ArtistEditButton
             // 
             this.ArtistEditButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistEditButton.Enabled = false;
             this.ArtistEditButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistEditButton.FlatAppearance.BorderSize = 0;
             this.ArtistEditButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
@@ -196,6 +262,7 @@
             // ArtistMinusButton
             // 
             this.ArtistMinusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistMinusButton.Enabled = false;
             this.ArtistMinusButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistMinusButton.FlatAppearance.BorderSize = 0;
             this.ArtistMinusButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
@@ -216,6 +283,7 @@
             // ArtistPlusButton
             // 
             this.ArtistPlusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ArtistPlusButton.Enabled = false;
             this.ArtistPlusButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.ArtistPlusButton.FlatAppearance.BorderSize = 0;
             this.ArtistPlusButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
@@ -232,71 +300,6 @@
             this.ArtistPlusButton.TabIndex = 0;
             this.ArtistPlusButton.UseVisualStyleBackColor = true;
             // 
-            // ArtistNameLabel
-            // 
-            this.ArtistNameLabel.AutoSize = true;
-            this.ArtistNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistNameLabel.Location = new System.Drawing.Point(23, 21);
-            this.ArtistNameLabel.Name = "ArtistNameLabel";
-            this.ArtistNameLabel.Size = new System.Drawing.Size(58, 18);
-            this.ArtistNameLabel.TabIndex = 1;
-            this.ArtistNameLabel.Text = "Nazwa";
-            // 
-            // ArtistNickLabel
-            // 
-            this.ArtistNickLabel.AutoSize = true;
-            this.ArtistNickLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistNickLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistNickLabel.Location = new System.Drawing.Point(23, 51);
-            this.ArtistNickLabel.Name = "ArtistNickLabel";
-            this.ArtistNickLabel.Size = new System.Drawing.Size(88, 18);
-            this.ArtistNickLabel.TabIndex = 3;
-            this.ArtistNickLabel.Text = "Pseudonim";
-            // 
-            // nickSearchTextBox
-            // 
-            this.nickSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.nickSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nickSearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.nickSearchTextBox.Location = new System.Drawing.Point(118, 52);
-            this.nickSearchTextBox.Name = "nickSearchTextBox";
-            this.nickSearchTextBox.Size = new System.Drawing.Size(138, 22);
-            this.nickSearchTextBox.TabIndex = 2;
-            this.nickSearchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
-            // 
-            // ArtistLabelLabel
-            // 
-            this.ArtistLabelLabel.AutoSize = true;
-            this.ArtistLabelLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistLabelLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistLabelLabel.Location = new System.Drawing.Point(289, 21);
-            this.ArtistLabelLabel.Name = "ArtistLabelLabel";
-            this.ArtistLabelLabel.Size = new System.Drawing.Size(49, 18);
-            this.ArtistLabelLabel.TabIndex = 4;
-            this.ArtistLabelLabel.Text = "Label";
-            // 
-            // LabelBox
-            // 
-            this.LabelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.LabelBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelBox.ForeColor = System.Drawing.Color.White;
-            this.LabelBox.FormattingEnabled = true;
-            this.LabelBox.Location = new System.Drawing.Point(344, 19);
-            this.LabelBox.Name = "LabelBox";
-            this.LabelBox.Size = new System.Drawing.Size(135, 24);
-            this.LabelBox.TabIndex = 5;
-            this.LabelBox.SelectedValueChanged += new System.EventHandler(this.LabelBox_SelectedValueChanged);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.dataGridArtists);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(90, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(564, 336);
-            this.panel4.TabIndex = 7;
-            // 
             // artistsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,11 +312,11 @@
             this.Text = "artistsForm";
             this.panelMain.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridArtists)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelActions.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

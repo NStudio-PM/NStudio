@@ -54,7 +54,8 @@ namespace NStudio
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
             if (logInSkipMode)
             {
-                Dashboard dashboard = new Dashboard(dbControl);
+                string username = "demo";
+                Dashboard dashboard = new Dashboard(dbControl, username);
                 dashboard.Show();
             }
 
@@ -139,14 +140,12 @@ namespace NStudio
             {
                 lblConnectionStatus.ForeColor = color;
             }
-            //lblConnectionStatus.ForeColor = color;
         }
 
         public static string GetString(string name)
         {
             return _rm.GetString(name);
         }
-
 
         public static void ChangeLanguage(string language)
         {
@@ -169,7 +168,7 @@ namespace NStudio
                 if (isConnected && dbControl.ValidateUser(username, password, false))
                 {
                     connectionStatusTimer.Stop();
-                    Dashboard dashboard = new Dashboard(dbControl);
+                    Dashboard dashboard = new Dashboard(dbControl, username);
                     this.Hide();
                     dashboard.Show();
                 }
@@ -217,7 +216,7 @@ namespace NStudio
                     if (isConnected && dbControl.ValidateUser(username, password, true))
                     {
                         connectionStatusTimer.Stop();
-                        Dashboard dashboard = new Dashboard(dbControl);
+                        Dashboard dashboard = new Dashboard(dbControl, username);
                         dashboard.Show();
                         this.Hide();
                     }

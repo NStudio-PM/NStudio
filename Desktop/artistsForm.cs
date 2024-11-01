@@ -15,15 +15,15 @@ namespace NStudio.Desktop
         public DatabaseControl dbControlArtists;
         public readonly string table = "artists";
         DataTable artists;
-        public artistsForm(DatabaseControl dbControl)
+        public artistsForm(DatabaseControl dbControl, int power)
         {
             InitializeComponent();
             dbControlArtists = dbControl;
             LoadDataIntoGrid();
-            InnitView();
+            InnitView(power);
         }
 
-        private void InnitView()
+        private void InnitView(int power)
         {
             dataGridArtists.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.Black;
             dataGridArtists.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
@@ -50,6 +50,13 @@ namespace NStudio.Desktop
 
             var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
             foreach( var label in uniqueLabels) { LabelBox.Items.Add(label); }
+
+            if(power >= 2)
+            {
+                ArtistPlusButton.Enabled = true;
+                ArtistMinusButton.Enabled = true;
+                ArtistEditButton.Enabled = true;
+            }
         }
 
         private void LoadDataIntoGrid()

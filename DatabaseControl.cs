@@ -305,7 +305,6 @@ namespace NStudio
                     bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
                     hashedPassword = null;
                     password = null;
-                    username = null;
                     return verify;
                 }
                 else
@@ -421,6 +420,34 @@ namespace NStudio
                 case "mongodb":
                 default:
                     return false;
+            }
+        }
+
+        public DataTable GetUserInfo(string username)
+        {
+            DataTable dataTable = new DataTable();
+            switch (databaseType)
+            {
+                case "mysql":
+                    string infoQuery = "SELECT id, username, power, address, balance FROM users WHERE username=@username";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        MySqlCommand command = new MySqlCommand(infoQuery, connection);
+                        command.Parameters.AddWithValue("@username", username);
+                        try
+                        {
+                            connection.Open();
+                            MySqlDataAdapter dataAdapter2 = new MySqlDataAdapter(command);
+                            dataAdapter2.Fill(dataTable);
+                        }
+                        catch (Exception ex) { MessageBox.Show(ex.Message); }
+                        return dataTable;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return dataTable;
             }
         }
 

@@ -149,6 +149,7 @@
             this.dbPass.Location = new System.Drawing.Point(114, 99);
             this.dbPass.Multiline = true;
             this.dbPass.Name = "dbPass";
+            this.dbPass.PasswordChar = '*';
             this.dbPass.Size = new System.Drawing.Size(151, 23);
             this.dbPass.TabIndex = 4;
             this.dbPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
