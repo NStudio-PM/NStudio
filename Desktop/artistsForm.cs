@@ -23,7 +23,7 @@ namespace NStudio.Desktop
             InitializeComponent();
             dbControlArtists = dbControl;
             LoadDataIntoGrid();
-            InnitView(Convert.ToInt32(dbControl.userInfo.Rows[0][2]));
+            InnitView(Convert.ToInt32(dbControlArtists.userInfo.Rows[0][2]));
         }
 
         private void InnitView(int power)
@@ -98,8 +98,7 @@ namespace NStudio.Desktop
         {
             if (dataGridArtists.SelectedRows.Count > 0)
             {
-                // MessageBox.Show("Czy na pewno chcesz usunac te dane?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                DialogResult result = MessageBox.Show(LogInModule.GetString("dbTooltip"), LogInModule.GetString("dbTooltip"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"), LogInModule.GetString("msgBox2Artist"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     foreach (DataGridViewRow row in dataGridArtists.SelectedRows)

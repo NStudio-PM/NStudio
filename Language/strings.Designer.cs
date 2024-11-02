@@ -61,6 +61,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Akceptuj.
+        /// </summary>
+        internal static string acceptButton {
+            get {
+                return ResourceManager.GetString("acceptButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Akceptuje regulamin.
         /// </summary>
         internal static string acceptRulesLabel {
@@ -133,11 +142,47 @@ namespace NStudio.Language {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień język.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień zdjęcie.
         /// </summary>
-        internal static string changeLanguage {
+        internal static string changeAvatarButton {
             get {
-                return ResourceManager.GetString("changeLanguage", resourceCulture);
+                return ResourceManager.GetString("changeAvatarButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień dane.
+        /// </summary>
+        internal static string changeProfile {
+            get {
+                return ResourceManager.GetString("changeProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Miasto:.
+        /// </summary>
+        internal static string cityLabel {
+            get {
+                return ResourceManager.GetString("cityLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Państwo:.
+        /// </summary>
+        internal static string countryLabel {
+            get {
+                return ResourceManager.GetString("countryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Edycja profilu.
+        /// </summary>
+        internal static string d1Tooltip {
+            get {
+                return ResourceManager.GetString("d1Tooltip", resourceCulture);
             }
         }
         
@@ -214,6 +259,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu EDYCJA PROFILU.
+        /// </summary>
+        internal static string editProfileLabel {
+            get {
+                return ResourceManager.GetString("editProfileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zaloguj się.
         /// </summary>
         internal static string loginButton {
@@ -250,11 +304,47 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Czy na pewno chcesz usunąć te dane?.
+        /// </summary>
+        internal static string msgBox1Artist {
+            get {
+                return ResourceManager.GetString("msgBox1Artist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Potwierdzenie.
+        /// </summary>
+        internal static string msgBox2Artist {
+            get {
+                return ResourceManager.GetString("msgBox2Artist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło.
         /// </summary>
         internal static string passInputLabel {
             get {
                 return ResourceManager.GetString("passInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło:.
+        /// </summary>
+        internal static string passwordLabel {
+            get {
+                return ResourceManager.GetString("passwordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Kod pocztowy:.
+        /// </summary>
+        internal static string postcodeLabel {
+            get {
+                return ResourceManager.GetString("postcodeLabel", resourceCulture);
             }
         }
         
@@ -291,6 +381,15 @@ namespace NStudio.Language {
         internal static string registerError {
             get {
                 return ResourceManager.GetString("registerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Odrzuć.
+        /// </summary>
+        internal static string rejectButton {
+            get {
+                return ResourceManager.GetString("rejectButton", resourceCulture);
             }
         }
         
@@ -340,11 +439,29 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ulica:.
+        /// </summary>
+        internal static string streetLabel {
+            get {
+                return ResourceManager.GetString("streetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa użytkownika.
         /// </summary>
         internal static string userInputLabel {
             get {
                 return ResourceManager.GetString("userInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa użytkownika:.
+        /// </summary>
+        internal static string usernameLabel {
+            get {
+                return ResourceManager.GetString("usernameLabel", resourceCulture);
             }
         }
     }

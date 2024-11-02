@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Text;
@@ -20,6 +21,7 @@ namespace NStudio
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChild;
+        private ToolTip toolTip;
         private readonly struct RGBColors
         {
 
@@ -38,14 +40,28 @@ namespace NStudio
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
             profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
+
+            if (!DBNull.Value.Equals(dbControl.userInfo.Rows[0][8]))
+            {
+                byte[] avatar = (byte[])dbControl.userInfo.Rows[0][8];
+                using (MemoryStream avatarStream = new MemoryStream(avatar))
+                {
+                    Bitmap bitmap = new Bitmap(avatarStream);
+                    profileButton.BackgroundImage = bitmap;
+                }
+            }
         }
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            toolTip = new ToolTip();
             songsButton.Text = LogInModule.GetString("songsButton");
             recordsButton.Text = LogInModule.GetString("recordsButton");
             artistsButton.Text = LogInModule.GetString("artistsButton");
             shopButton.Text = LogInModule.GetString("shopButton");
             settingsButton.Text = LogInModule.GetString("settingsButton");
+
+            toolTip.SetToolTip(profileButton, LogInModule.GetString("d1Tooltip"));
+            toolTip.SetToolTip(profileNameLabel, LogInModule.GetString("d1Tooltip"));
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)

@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="acceptButton" xml:space="preserve">
+    <value>Akceptuj</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="acceptRulesLabel" xml:space="preserve">
     <value>Akceptuje regulamin</value>
     <comment>LogInModule</comment>
@@ -149,9 +153,25 @@
     <value>Artyści</value>
     <comment>Dashboard</comment>
   </data>
-  <data name="changeLanguage" xml:space="preserve">
-    <value>Zmień język</value>
+  <data name="changeAvatarButton" xml:space="preserve">
+    <value>Zmień zdjęcie</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="changeProfile" xml:space="preserve">
+    <value>Zmień dane</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="cityLabel" xml:space="preserve">
+    <value>Miasto:</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="countryLabel" xml:space="preserve">
+    <value>Państwo:</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="d1Tooltip" xml:space="preserve">
+    <value>Edycja profilu</value>
+    <comment>Dashboard</comment>
   </data>
   <data name="dbCancelButton" xml:space="preserve">
     <value>Wyjdź</value>
@@ -185,6 +205,10 @@
     <value>Nazwa użytkownika</value>
     <comment>DatabaseControl</comment>
   </data>
+  <data name="editProfileLabel" xml:space="preserve">
+    <value>EDYCJA PROFILU</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="loginButton" xml:space="preserve">
     <value>Zaloguj się</value>
     <comment>LogInModule</comment>
@@ -201,9 +225,25 @@
     <value>REJESTRACJA</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="msgBox1Artist" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć te dane?</value>
+    <comment>artistsForm</comment>
+  </data>
+  <data name="msgBox2Artist" xml:space="preserve">
+    <value>Potwierdzenie</value>
+    <comment>artistsForm</comment>
+  </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Hasło</value>
     <comment>LogInModule</comment>
+  </data>
+  <data name="passwordLabel" xml:space="preserve">
+    <value>Zmień hasło:</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="postcodeLabel" xml:space="preserve">
+    <value>Kod pocztowy:</value>
+    <comment>profileForm</comment>
   </data>
   <data name="recordsButton" xml:space="preserve">
     <value>Płyty</value>
@@ -220,6 +260,10 @@
   <data name="registerError" xml:space="preserve">
     <value>Błąd rejestracji.</value>
     <comment>LogInModule</comment>
+  </data>
+  <data name="rejectButton" xml:space="preserve">
+    <value>Odrzuć</value>
+    <comment>profileForm</comment>
   </data>
   <data name="returnButton" xml:space="preserve">
     <value>Powrót</value>
@@ -241,8 +285,16 @@
     <value>Utwory</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="streetLabel" xml:space="preserve">
+    <value>Ulica:</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Nazwa użytkownika</value>
     <comment>LogInModule</comment>
+  </data>
+  <data name="usernameLabel" xml:space="preserve">
+    <value>Nazwa użytkownika:</value>
+    <comment>profileForm</comment>
   </data>
 </root>
