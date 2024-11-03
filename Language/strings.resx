@@ -157,6 +157,10 @@
     <value>Zmień zdjęcie</value>
     <comment>profileForm</comment>
   </data>
+  <data name="changePasswordLabel" xml:space="preserve">
+    <value>Zmień hasło:</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="changeProfile" xml:space="preserve">
     <value>Zmień dane</value>
     <comment>profileForm</comment>

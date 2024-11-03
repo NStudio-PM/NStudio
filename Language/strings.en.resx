@@ -157,6 +157,10 @@
     <value>Change avatar</value>
     <comment>profileForm</comment>
   </data>
+  <data name="changePasswordLabel" xml:space="preserve">
+    <value>Change password:</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="changeProfile" xml:space="preserve">
     <value>Change profile info</value>
     <comment>profileForm</comment>

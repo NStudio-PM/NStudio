@@ -38,8 +38,8 @@
             this.editProfileLabel = new System.Windows.Forms.Label();
             this.panelProfileBuffor = new System.Windows.Forms.Panel();
             this.panelProfileMain = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.passwordLabel = new System.Windows.Forms.Label();
+            this.changePasswordButton = new System.Windows.Forms.Button();
+            this.changePasswordLabel = new System.Windows.Forms.Label();
             this.streetBox = new System.Windows.Forms.TextBox();
             this.postcodeBox = new System.Windows.Forms.TextBox();
             this.cityBox = new System.Windows.Forms.TextBox();
@@ -170,8 +170,8 @@
             // panelProfileMain
             // 
             this.panelProfileMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.panelProfileMain.Controls.Add(this.button1);
-            this.panelProfileMain.Controls.Add(this.passwordLabel);
+            this.panelProfileMain.Controls.Add(this.changePasswordButton);
+            this.panelProfileMain.Controls.Add(this.changePasswordLabel);
             this.panelProfileMain.Controls.Add(this.streetBox);
             this.panelProfileMain.Controls.Add(this.postcodeBox);
             this.panelProfileMain.Controls.Add(this.cityBox);
@@ -194,36 +194,36 @@
             this.panelProfileMain.Size = new System.Drawing.Size(454, 563);
             this.panelProfileMain.TabIndex = 6;
             // 
-            // button1
+            // changePasswordButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.button1.ForeColor = System.Drawing.Color.DimGray;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(198, 69);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = false;
+            this.changePasswordButton.BackColor = System.Drawing.Color.Transparent;
+            this.changePasswordButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("changePasswordButton.BackgroundImage")));
+            this.changePasswordButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.changePasswordButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.changePasswordButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.changePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changePasswordButton.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.changePasswordButton.ForeColor = System.Drawing.Color.DimGray;
+            this.changePasswordButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.changePasswordButton.Location = new System.Drawing.Point(198, 69);
+            this.changePasswordButton.Margin = new System.Windows.Forms.Padding(0);
+            this.changePasswordButton.Name = "changePasswordButton";
+            this.changePasswordButton.Size = new System.Drawing.Size(25, 25);
+            this.changePasswordButton.TabIndex = 3;
+            this.changePasswordButton.UseVisualStyleBackColor = false;
             // 
-            // passwordLabel
+            // changePasswordLabel
             // 
-            this.passwordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.passwordLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordLabel.ForeColor = System.Drawing.Color.White;
-            this.passwordLabel.Location = new System.Drawing.Point(46, 69);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.passwordLabel.Size = new System.Drawing.Size(146, 22);
-            this.passwordLabel.TabIndex = 20;
-            this.passwordLabel.Text = "passwordLabel";
-            this.passwordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.changePasswordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.changePasswordLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.changePasswordLabel.ForeColor = System.Drawing.Color.White;
+            this.changePasswordLabel.Location = new System.Drawing.Point(46, 69);
+            this.changePasswordLabel.Name = "changePasswordLabel";
+            this.changePasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.changePasswordLabel.Size = new System.Drawing.Size(146, 22);
+            this.changePasswordLabel.TabIndex = 20;
+            this.changePasswordLabel.Text = "changePasswordLabel";
+            this.changePasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // streetBox
             // 
@@ -302,6 +302,7 @@
             this.rejectButton.TabIndex = 19;
             this.rejectButton.Text = "rejectButton";
             this.rejectButton.UseVisualStyleBackColor = false;
+            this.rejectButton.Click += new System.EventHandler(this.rejectButton_Click);
             // 
             // acceptButton
             // 
@@ -319,6 +320,7 @@
             this.acceptButton.TabIndex = 18;
             this.acceptButton.Text = "acceptButton";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // changeAvatarButton
             // 
@@ -336,6 +338,7 @@
             this.changeAvatarButton.TabIndex = 17;
             this.changeAvatarButton.Text = "changeAvatarButton";
             this.changeAvatarButton.UseVisualStyleBackColor = false;
+            this.changeAvatarButton.Click += new System.EventHandler(this.changeAvatarButton_Click);
             // 
             // avatarBox
             // 
@@ -484,7 +487,7 @@
         private System.Windows.Forms.Button changeAvatarButton;
         private System.Windows.Forms.Button rejectButton;
         private System.Windows.Forms.Button acceptButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button changePasswordButton;
+        private System.Windows.Forms.Label changePasswordLabel;
     }
 }

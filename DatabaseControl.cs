@@ -21,6 +21,7 @@ using Org.BouncyCastle.Crmf;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
 using System.Text.Json;
+using System.Runtime.Remoting.Messaging;
 
 namespace NStudio
 {
@@ -406,6 +407,22 @@ namespace NStudio
                     dataTable = null;
                     return dataTable;
             }
+        }
+
+        public bool ChangeUserInfo(DataTable userInfo)
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    // kodzik do walidacji i wpisania do bazy userInfo (wszystko z wiersza z tabeli user oprocz 'password')
+                    break;
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return false;
+            }
+            return true;
         }
 
         public bool DeleteRowFromDB(int id, string table) 

@@ -151,6 +151,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło:.
+        /// </summary>
+        internal static string changePasswordLabel {
+            get {
+                return ResourceManager.GetString("changePasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień dane.
         /// </summary>
         internal static string changeProfile {
