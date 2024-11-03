@@ -170,13 +170,13 @@ namespace NStudio
 
         private void profileNameLabel_Click(object sender, EventArgs e)
         {
-            profileForm profileForm = new profileForm();
+            profileForm profileForm = new profileForm(dbControl.userInfo);
             profileForm.ShowDialog();
         }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            profileForm profileForm = new profileForm();
+            profileForm profileForm = new profileForm(dbControl.userInfo);
             profileForm.ShowDialog();
         }
     }

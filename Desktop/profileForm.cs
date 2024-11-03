@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,13 @@ namespace NStudio.Desktop
     public partial class profileForm : Form
     {
         private string tempString = "";
-        public profileForm()
+        public profileForm(DataTable userInfo)
         {
             InitializeComponent();
-            Innit();
+            Innit(userInfo);
         }
 
-        private void Innit()
+        private void Innit(DataTable userInfo)
         {
             this.Text = LogInModule.GetString("changeProfile");
             editProfileLabel.Text = LogInModule.GetString("editProfileLabel");
@@ -31,6 +32,27 @@ namespace NStudio.Desktop
             changeAvatarButton.Text = LogInModule.GetString("changeAvatarButton");
             acceptButton.Text = LogInModule.GetString("acceptButton");
             rejectButton.Text = LogInModule.GetString("rejectButton");
+
+            usernameBox.Text = userInfo.Rows[0][1].ToString();
+            countryBox.Text = userInfo.Rows[0][3].ToString();
+            postcodeBox.Text = userInfo.Rows[0][4].ToString();
+            cityBox.Text = userInfo.Rows[0][5].ToString();
+            streetBox.Text = userInfo.Rows[0][6].ToString();
+            if(userInfo.Rows[0][8] != DBNull.Value)
+            {
+                byte[] avatar = (byte[])userInfo.Rows[0][8];
+                using (MemoryStream ms = new MemoryStream(avatar))
+                {
+                    Bitmap bitmap = new Bitmap(ms);
+                    avatarBox.Image = bitmap;
+                }
+            }
+            else
+            {
+                avatarBox.Image = Properties.Resources.defaultAvatar;
+            }
+            avatarBox.SizeMode = PictureBoxSizeMode.Zoom;
+
             List<TextBox> list = new List<TextBox> { usernameBox, countryBox, cityBox, postcodeBox, streetBox };
             foreach (TextBox txt in list) { txt.Enter += TextBox_Enter; txt.Leave += TextBox_Leave; }
 

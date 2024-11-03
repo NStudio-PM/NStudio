@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profileForm));
             this.l1 = new FontAwesome.Sharp.IconButton();
             this.l2 = new FontAwesome.Sharp.IconButton();
             this.p2 = new FontAwesome.Sharp.IconButton();
@@ -196,18 +197,19 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.Color.DimGray;
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.button1.Location = new System.Drawing.Point(198, 69);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 25);
+            this.button1.Size = new System.Drawing.Size(25, 25);
             this.button1.TabIndex = 21;
-            this.button1.Text = "baton";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // passwordLabel
@@ -229,6 +231,7 @@
             this.streetBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.streetBox.ForeColor = System.Drawing.Color.White;
             this.streetBox.Location = new System.Drawing.Point(198, 251);
+            this.streetBox.MaxLength = 32;
             this.streetBox.Name = "streetBox";
             this.streetBox.Size = new System.Drawing.Size(154, 22);
             this.streetBox.TabIndex = 14;
@@ -240,6 +243,7 @@
             this.postcodeBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.postcodeBox.ForeColor = System.Drawing.Color.White;
             this.postcodeBox.Location = new System.Drawing.Point(198, 215);
+            this.postcodeBox.MaxLength = 6;
             this.postcodeBox.Name = "postcodeBox";
             this.postcodeBox.Size = new System.Drawing.Size(68, 22);
             this.postcodeBox.TabIndex = 12;
@@ -252,6 +256,7 @@
             this.cityBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cityBox.ForeColor = System.Drawing.Color.White;
             this.cityBox.Location = new System.Drawing.Point(198, 174);
+            this.cityBox.MaxLength = 32;
             this.cityBox.Name = "cityBox";
             this.cityBox.Size = new System.Drawing.Size(154, 22);
             this.cityBox.TabIndex = 10;
@@ -263,6 +268,7 @@
             this.countryBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.countryBox.ForeColor = System.Drawing.Color.White;
             this.countryBox.Location = new System.Drawing.Point(198, 133);
+            this.countryBox.MaxLength = 32;
             this.countryBox.Name = "countryBox";
             this.countryBox.Size = new System.Drawing.Size(154, 22);
             this.countryBox.TabIndex = 8;
@@ -274,6 +280,7 @@
             this.usernameBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.usernameBox.ForeColor = System.Drawing.Color.White;
             this.usernameBox.Location = new System.Drawing.Point(198, 37);
+            this.usernameBox.MaxLength = 24;
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(154, 22);
             this.usernameBox.TabIndex = 4;
@@ -333,6 +340,7 @@
             // avatarBox
             // 
             this.avatarBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.avatarBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.avatarBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.avatarBox.Location = new System.Drawing.Point(166, 290);
             this.avatarBox.Name = "avatarBox";

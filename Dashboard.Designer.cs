@@ -41,8 +41,8 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.userInfoPanel = new System.Windows.Forms.Panel();
-            this.profileNameLabel = new System.Windows.Forms.Label();
             this.profileButton = new FontAwesome.Sharp.IconButton();
+            this.profileNameLabel = new System.Windows.Forms.Label();
             this.panelTopBuffor = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
@@ -249,18 +249,6 @@
             this.userInfoPanel.Size = new System.Drawing.Size(211, 44);
             this.userInfoPanel.TabIndex = 0;
             // 
-            // profileNameLabel
-            // 
-            this.profileNameLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.profileNameLabel.ForeColor = System.Drawing.Color.White;
-            this.profileNameLabel.Location = new System.Drawing.Point(5, 3);
-            this.profileNameLabel.Name = "profileNameLabel";
-            this.profileNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.profileNameLabel.Size = new System.Drawing.Size(144, 38);
-            this.profileNameLabel.TabIndex = 1;
-            this.profileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.profileNameLabel.Click += new System.EventHandler(this.profileNameLabel_Click);
-            // 
             // profileButton
             // 
             this.profileButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -280,6 +268,18 @@
             this.profileButton.TabIndex = 0;
             this.profileButton.UseVisualStyleBackColor = true;
             this.profileButton.Click += new System.EventHandler(this.profileButton_Click);
+            // 
+            // profileNameLabel
+            // 
+            this.profileNameLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.profileNameLabel.ForeColor = System.Drawing.Color.White;
+            this.profileNameLabel.Location = new System.Drawing.Point(5, 3);
+            this.profileNameLabel.Name = "profileNameLabel";
+            this.profileNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.profileNameLabel.Size = new System.Drawing.Size(144, 38);
+            this.profileNameLabel.TabIndex = 1;
+            this.profileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.profileNameLabel.Click += new System.EventHandler(this.profileNameLabel_Click);
             // 
             // panelTopBuffor
             // 
