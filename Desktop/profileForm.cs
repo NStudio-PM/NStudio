@@ -100,7 +100,7 @@ namespace NStudio.Desktop
                     if (!CompareTwoByteTable(byteArray1, byteArray2)) { return false; }
                 }else 
                 {
-                    if (!originalUserInfo.Rows[0][i].Equals(newUserInfo.Rows[0][i])) { return false; }
+                    if (originalUserInfo.Rows[0][i].ToString() != newUserInfo.Rows[0][i].ToString()) { return false; }
                 }
             }
             return true;
