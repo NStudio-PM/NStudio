@@ -233,9 +233,25 @@
     <value>Are you sure you want to delete this record(s)?</value>
     <comment>artistsForm</comment>
   </data>
+  <data name="msgBox1Profile" xml:space="preserve">
+    <value>Do you want update this?</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="msgBox2Artist" xml:space="preserve">
     <value>Confirm</value>
     <comment>artistsForm</comment>
+  </data>
+  <data name="msgBox2Profile" xml:space="preserve">
+    <value>Data updated</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox3Profile" xml:space="preserve">
+    <value>Previous data restored</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox4Profile" xml:space="preserve">
+    <value>File too big. 64KB max.</value>
+    <comment>profileForm</comment>
   </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Password</value>

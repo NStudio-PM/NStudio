@@ -89,11 +89,9 @@ namespace NStudio
             
         }
 
-        public async Task<bool> ValidateDatabase()
+        public async Task<bool> ValidateDatabase(string dbName)
         {
             UpdateLabelColor?.Invoke(Color.Cyan);
-            LogInModule logInModule = new LogInModule();
-            string dbName = logInModule.DName;
             string blankConnectionString = connectionString.Replace($"database={dbName};", "");
 
             switch (databaseType)

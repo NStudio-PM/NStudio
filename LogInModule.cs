@@ -46,7 +46,7 @@ namespace NStudio
             await Task.Run(() => dbControl.CheckDatabaseConnection());
             if (!dbCreated)
             {
-                dbCreated = await Task.Run(() => dbControl.ValidateDatabase());
+                dbCreated = await Task.Run(() => dbControl.ValidateDatabase(DName));
             }
         }
 

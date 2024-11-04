@@ -233,9 +233,25 @@
     <value>Czy na pewno chcesz usunąć te dane?</value>
     <comment>artistsForm</comment>
   </data>
+  <data name="msgBox1Profile" xml:space="preserve">
+    <value>Czy chcesz zaktualizowac te dane?</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="msgBox2Artist" xml:space="preserve">
     <value>Potwierdzenie</value>
     <comment>artistsForm</comment>
+  </data>
+  <data name="msgBox2Profile" xml:space="preserve">
+    <value>Dane zapisane</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox3Profile" xml:space="preserve">
+    <value>Przywrocono poprzednie dane</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox4Profile" xml:space="preserve">
+    <value>Plik za duży. 64KB maks.</value>
+    <comment>profileForm</comment>
   </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Hasło</value>

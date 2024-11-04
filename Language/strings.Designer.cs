@@ -322,11 +322,47 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Czy chcesz zaktualizowac te dane?.
+        /// </summary>
+        internal static string msgBox1Profile {
+            get {
+                return ResourceManager.GetString("msgBox1Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Potwierdzenie.
         /// </summary>
         internal static string msgBox2Artist {
             get {
                 return ResourceManager.GetString("msgBox2Artist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dane zapisane.
+        /// </summary>
+        internal static string msgBox2Profile {
+            get {
+                return ResourceManager.GetString("msgBox2Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Przywrocono poprzednie dane.
+        /// </summary>
+        internal static string msgBox3Profile {
+            get {
+                return ResourceManager.GetString("msgBox3Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Plik za duży. 64KB maks..
+        /// </summary>
+        internal static string msgBox4Profile {
+            get {
+                return ResourceManager.GetString("msgBox4Profile", resourceCulture);
             }
         }
         

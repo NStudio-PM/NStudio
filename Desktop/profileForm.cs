@@ -133,7 +133,7 @@ namespace NStudio.Desktop
                     FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
                     if (fileInfo.Length > 64 * 1024)
                     {
-                        MessageBox.Show("File too big. 64KB max.");
+                        MessageBox.Show(LogInModule.GetString("msgBox4Profile"));
                         return;
                     }
 
@@ -175,16 +175,16 @@ namespace NStudio.Desktop
 
             if(!CompareTwoDataTable(dbControlProfile.userInfo, newUserInfo))
             {
-                var result = MessageBox.Show("Czy chcesz zaktualizowac te dane?",
+                var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
                                               "UserInfo",
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
                 if(result == DialogResult.Yes)
                 {
-                    if (dbControlProfile.ChangeUserInfo(newUserInfo)) { MessageBox.Show("Dane zapisane"); } 
+                    if (dbControlProfile.ChangeUserInfo(newUserInfo)) { MessageBox.Show(LogInModule.GetString("msgBox2Profile")); } 
                     else { MessageBox.Show("ERR01"); }
                 }
-                else { MessageBox.Show("Przywrocono poprzednie dane"); }
+                else { MessageBox.Show(LogInModule.GetString("msgBox3Profile")); }
                 tempString = "";
                 this.Close();
             }
