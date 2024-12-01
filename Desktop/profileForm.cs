@@ -195,5 +195,11 @@ namespace NStudio.Desktop
 
             }
         }
+
+        private void changePasswordButton_Click(object sender, EventArgs e)
+        {
+            passwordForm passwordForm = new passwordForm();
+            passwordForm.ShowDialog();
+        }
     }
 }

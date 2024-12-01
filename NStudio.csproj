@@ -381,6 +381,12 @@
     <Compile Include="Desktop\artistsForm.Designer.cs">
       <DependentUpon>artistsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\passwordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\passwordForm.Designer.cs">
+      <DependentUpon>passwordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\profileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\artistsForm.resx">
       <DependentUpon>artistsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\passwordForm.resx">
+      <DependentUpon>passwordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\profileForm.resx">
       <DependentUpon>profileForm.cs</DependentUpon>

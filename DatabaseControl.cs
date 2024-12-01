@@ -412,7 +412,7 @@ namespace NStudio
             switch (databaseType)
             {
                 case "mysql":
-                    // kodzik do walidacji i wpisania do bazy userInfo (wszystko z wiersza z tabeli user oprocz 'password')
+                    // kodzik do walidacji i wpisania do bazy userInfo (wszystko z wiersza z tabeli user oprocz 'password' i 'power')
                     break;
                 case "postgresql":
                 case "sqlite":

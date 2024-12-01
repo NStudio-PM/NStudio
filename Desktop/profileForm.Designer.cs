@@ -211,6 +211,7 @@
             this.changePasswordButton.Size = new System.Drawing.Size(25, 25);
             this.changePasswordButton.TabIndex = 3;
             this.changePasswordButton.UseVisualStyleBackColor = false;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
             // 
             // changePasswordLabel
             // 
