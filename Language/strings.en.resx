@@ -153,6 +153,18 @@
     <value>Artists</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="ArtistUCLabelLabel" xml:space="preserve">
+    <value>Label:</value>
+    <comment>ArtistsUC</comment>
+  </data>
+  <data name="ArtistUCNameLabel" xml:space="preserve">
+    <value>Name:</value>
+    <comment>ArtistsUC</comment>
+  </data>
+  <data name="ArtistUCNickLabel" xml:space="preserve">
+    <value>Nickname:</value>
+    <comment>ArtistsUC</comment>
+  </data>
   <data name="changeAvatarButton" xml:space="preserve">
     <value>Change avatar</value>
     <comment>profileForm</comment>

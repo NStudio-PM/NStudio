@@ -142,6 +142,33 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Label:.
+        /// </summary>
+        internal static string ArtistUCLabelLabel {
+            get {
+                return ResourceManager.GetString("ArtistUCLabelLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nazwa:.
+        /// </summary>
+        internal static string ArtistUCNameLabel {
+            get {
+                return ResourceManager.GetString("ArtistUCNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Pseudonim:.
+        /// </summary>
+        internal static string ArtistUCNickLabel {
+            get {
+                return ResourceManager.GetString("ArtistUCNickLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień zdjęcie.
         /// </summary>
         internal static string changeAvatarButton {

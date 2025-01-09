@@ -188,7 +188,7 @@ namespace NStudio
 
             if (password.Length >= 0 && username.Length >= 0)
             {
-                if (isConnected && dbControl.ValidateUser(username, password, false))
+                if (isConnected && dbControl.LoginUser(username, password))
                 {
                     connectionStatusTimer.Stop();
                     Dashboard dashboard = new Dashboard(dbControl);
@@ -236,7 +236,7 @@ namespace NStudio
 
                 if (password.Length >= 8 && username.Length >= 2 && password == rPassword && acceptRulesInput.Checked)
                 {
-                    if (isConnected && dbControl.ValidateUser(username, password, true))
+                    if (isConnected && dbControl.RegisterUser(username, password))
                     {
                         connectionStatusTimer.Stop();
                         Dashboard dashboard = new Dashboard(dbControl);

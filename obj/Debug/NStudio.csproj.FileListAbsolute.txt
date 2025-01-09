@@ -67,5 +67,6 @@ C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\System.Securi
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\bin\Debug\System.Text.Encoding.CodePages.xml
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.profileForm.resources
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.passwordForm.resources
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Controls.artistsUC.resources
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.csproj.Fody.CopyLocal.cache
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.csproj.Fody.RuntimeCopyLocal.cache

@@ -22,6 +22,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Collections;
 using System.Text.Json;
 using System.Runtime.Remoting.Messaging;
+using Microsoft.Win32;
 
 namespace NStudio
 {
@@ -270,112 +271,109 @@ namespace NStudio
             }
         }
 
-        public bool ValidateUser(string username, string password, bool register)
+        public bool LoginUser(string username, string password)
         {
             switch (databaseType)
             {
                 case "mysql":
-                    if (register) { return RegisterUserMySQL(username, password); } else { return LoginUserMySQL(username, password); }
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string query = "SELECT password FROM users WHERE username=@username";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@username", username);
+                        string hashedPassword = (string)cmd.ExecuteScalar();
+                        cmd.Dispose();
+
+                        if (hashedPassword != null)
+                        {
+                            bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+                            if (verify)
+                            {
+                                string infoQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE username=@username";
+                                MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection);
+                                infoCmd.Parameters.AddWithValue("@username", username);
+                                try
+                                {
+                                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(infoCmd);
+                                    dataAdapter.Fill(userInfo);
+                                }
+                                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                            }
+                            hashedPassword = null;
+                            password = null;
+                            return verify;
+                        }
+                        else
+                        {
+                            hashedPassword = null;
+                            password = null;
+                            username = null;
+                            return false;
+                        }
+                    }
+
                 case "postgresql":
-                    if (register) { return RegisterUserPostgreSQL(username, password); } else { return LoginUserPostgreSQL(username, password); }
+                    return false;
                 case "sqlite":
-                    if (register) { return RegisterUserSQLite(username, password); } else { return LoginUserSQLite(username, password); }
+                    return false;
                 case "mongodb":
-                    if (register) { return RegisterUserMongoDB(username, password); } else { return LoginUserMongoDB(username, password); }
+                    return false;
                 default:
                     UpdateLabelColor?.Invoke(Color.Black);
                     throw new NotSupportedException($"Unsupported database type: {databaseType}");
             }
         }
 
-        private bool LoginUserMySQL(string username, string password)
+        public bool RegisterUser(string username, string password)
         {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            switch (databaseType)
             {
-                connection.Open();
-                string query = "SELECT password FROM users WHERE username=@username";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@username", username);
-                string hashedPassword = (string)cmd.ExecuteScalar();
-                cmd.Dispose();
-
-                if (hashedPassword != null)
-                {
-                    bool verify = BCrypt.Net.BCrypt.Verify(password, hashedPassword);
-                    if (verify)
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        string infoQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE username=@username";
-                        MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection);
-                        infoCmd.Parameters.AddWithValue("@username", username);
-                        try
+                        bool freeUsername = false;
+                        bool firstUser = false;
+                        connection.Open();
+                        string freeQuery = "SELECT COUNT(*) FROM users WHERE username=@username";
+                        MySqlCommand cmd1 = new MySqlCommand(freeQuery, connection);
+                        cmd1.Parameters.AddWithValue("@username", username);
+                        if (Convert.ToInt32(cmd1.ExecuteScalar()) == 0) { freeUsername = true; } else { freeUsername = false; }
+
+                        string firstQuery = "SELECT COUNT(*) FROM users";
+                        MySqlCommand cmd2 = new MySqlCommand(firstQuery, connection);
+                        if (Convert.ToInt32(cmd2.ExecuteScalar()) == 0) { firstUser = true; } else { firstUser = false; }
+
+                        if (freeUsername)
                         {
-                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(infoCmd);
-                            dataAdapter.Fill(userInfo);
+                            int power = 1;
+                            if (firstUser) { power = 3; }
+                            string registerQuery = "INSERT INTO users (username, password, power) VALUES (@username, @password, @power)";
+                            using (MySqlCommand cmd = new MySqlCommand(registerQuery, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@username", username);
+                                cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(password));
+                                cmd.Parameters.AddWithValue("@power", power);
+
+                                cmd.ExecuteNonQuery();
+                                password = "";
+                            }
+                            return true;
                         }
-                        catch (Exception ex) { MessageBox.Show(ex.Message); }
+                        else { return false; }
+
                     }
-                    hashedPassword = null;
-                    password = null;
-                    return verify;
-                }
-                else
-                {
-                    hashedPassword = null;
-                    password = null;
-                    username = null;
+                case "postgresql":
                     return false;
-                }
+                case "sqlite":
+                    return false;
+                case "mongodb":
+                    return false;
+                default:
+                    UpdateLabelColor?.Invoke(Color.Black);
+                    throw new NotSupportedException($"Unsupported database type: {databaseType}");
             }
         }
-
-        private bool LoginUserPostgreSQL(string username, string password) { return false; }
-
-        private bool LoginUserSQLite(string username, string password) { return false; }
-
-        private bool LoginUserMongoDB(string username, string password) { return false; }
-
-        private bool RegisterUserMySQL(string username, string password) 
-        {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                bool freeUsername = false;
-                bool firstUser = false;
-                connection.Open();
-                string freeQuery = "SELECT COUNT(*) FROM users WHERE username=@username";
-                MySqlCommand cmd1 = new MySqlCommand(freeQuery, connection);
-                cmd1.Parameters.AddWithValue("@username", username);
-                if(Convert.ToInt32(cmd1.ExecuteScalar()) == 0) { freeUsername = true; } else { freeUsername = false; }
-
-                string firstQuery = "SELECT COUNT(*) FROM users";
-                MySqlCommand cmd2 = new MySqlCommand(firstQuery, connection);
-                if (Convert.ToInt32(cmd2.ExecuteScalar()) == 0) { firstUser = true; } else { firstUser = false; }
-
-                if (freeUsername)
-                {
-                    int power = 1;
-                    if (firstUser) { power = 3; }
-                    string registerQuery = "INSERT INTO users (username, password, power) VALUES (@username, @password, @power)";
-                    using (MySqlCommand cmd = new MySqlCommand(registerQuery, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(password));
-                        cmd.Parameters.AddWithValue("@power", power);
-
-                        cmd.ExecuteNonQuery();
-                        password = "";
-                    }
-                    return true;
-                }
-                else { return false; }
-
-            }
-        }
-
-        private bool RegisterUserPostgreSQL(string username, string password) { return false; }
-
-        private bool RegisterUserSQLite(string username, string password) { return false; }
-
-        private bool RegisterUserMongoDB(string username, string password) { return false; }
 
         public DataTable ArtistsLoadData()
         {
