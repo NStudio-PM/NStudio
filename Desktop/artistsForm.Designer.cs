@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridArtists = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelBox = new System.Windows.Forms.ComboBox();
@@ -47,10 +44,10 @@
             this.ArtistEditButton = new FontAwesome.Sharp.IconButton();
             this.ArtistMinusButton = new FontAwesome.Sharp.IconButton();
             this.ArtistPlusButton = new FontAwesome.Sharp.IconButton();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridArtists)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelActions.SuspendLayout();
             this.SuspendLayout();
@@ -83,52 +80,12 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridArtists);
+            this.panel4.Controls.Add(this.flowPanel);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(90, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(564, 336);
             this.panel4.TabIndex = 7;
-            // 
-            // dataGridArtists
-            // 
-            this.dataGridArtists.AllowUserToAddRows = false;
-            this.dataGridArtists.AllowUserToDeleteRows = false;
-            this.dataGridArtists.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridArtists.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.dataGridArtists.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridArtists.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = "NaN";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridArtists.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridArtists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridArtists.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridArtists.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridArtists.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.dataGridArtists.Location = new System.Drawing.Point(0, 0);
-            this.dataGridArtists.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.dataGridArtists.Name = "dataGridArtists";
-            this.dataGridArtists.ReadOnly = true;
-            this.dataGridArtists.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridArtists.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridArtists.ShowCellToolTips = false;
-            this.dataGridArtists.ShowEditingIcon = false;
-            this.dataGridArtists.ShowRowErrors = false;
-            this.dataGridArtists.Size = new System.Drawing.Size(564, 336);
-            this.dataGridArtists.TabIndex = 3;
             // 
             // panel3
             // 
@@ -305,6 +262,16 @@
             this.ArtistPlusButton.TabIndex = 0;
             this.ArtistPlusButton.UseVisualStyleBackColor = true;
             // 
+            // flowPanel
+            // 
+            this.flowPanel.AutoScroll = true;
+            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanel.Location = new System.Drawing.Point(0, 0);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(564, 336);
+            this.flowPanel.TabIndex = 0;
+            // 
             // artistsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +285,6 @@
             this.panelMain.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridArtists)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelActions.ResumeLayout(false);
@@ -329,7 +295,6 @@
         #endregion
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelActions;
-        private System.Windows.Forms.DataGridView dataGridArtists;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
@@ -344,5 +309,6 @@
         private System.Windows.Forms.Label ArtistNameLabel;
         private System.Windows.Forms.ComboBox LabelBox;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.FlowLayoutPanel flowPanel;
     }
 }

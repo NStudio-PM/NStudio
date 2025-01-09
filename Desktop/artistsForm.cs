@@ -1,8 +1,10 @@
-﻿using System;
+﻿using NStudio.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
@@ -22,36 +24,60 @@ namespace NStudio.Desktop
         {
             InitializeComponent();
             dbControlArtists = dbControl;
-            LoadDataIntoGrid();
             InnitView(Convert.ToInt32(dbControlArtists.userInfo.Rows[0][2]));
+            flowPanel.FlowDirection = FlowDirection.TopDown; // lub LeftToRight
+            flowPanel.WrapContents = true;
+            flowPanel.AutoSize = true;
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
+        private void LoadArtistsToFlowPanel(DataTable artistsTable, FlowLayoutPanel flowPanel)
+        {
+            flowPanel.Controls.Clear();
+
+            foreach (DataRow row in artistsTable.Rows){
+                int id = row["id"] != DBNull.Value ? Convert.ToInt32(row["id"]) : 0;
+                string name = row["name"]?.ToString() ?? "Brak nazwy";
+                string nickname = row["nickname"]?.ToString() ?? "Brak pseudonimu";
+                string label = row["label"]?.ToString() ?? "Brak labelu";
+                byte[] avatarBlob;
+                if (row["avatar"] != DBNull.Value)
+                {
+                    avatarBlob = (byte[])row["avatar"];
+                }
+                else{
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        Properties.Resources.defaultAvatar.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        avatarBlob = ms.ToArray();
+                    }
+                }
+                Image avatar = null;
+                if (avatarBlob != null && avatarBlob.Length > 0)
+                {
+                    using (var ms = new MemoryStream(avatarBlob))
+                    {
+                        avatar = Image.FromStream(ms);
+                    }
+                }
+
+                artistsUC artistControl = new artistsUC();
+                artistControl.SetData(id, name, nickname, label, avatar);
+                flowPanel.Controls.Add(artistControl);
+            }
         }
 
         private void InnitView(int power)
         {
-            dataGridArtists.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.Black;
-            dataGridArtists.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            dataGridArtists.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 10, System.Drawing.FontStyle.Bold);
-            dataGridArtists.EnableHeadersVisualStyles = false;
-            dataGridArtists.Margin = new Padding(0, 0, 0, 0);
+            flowPanel.Dock = DockStyle.Fill;
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = true;
+            flowPanel.AutoScroll = true;
 
-            dataGridArtists.RowsDefaultCellStyle.BackColor = System.Drawing.Color.Black;
-            dataGridArtists.RowsDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            dataGridArtists.RowsDefaultCellStyle.Font = new System.Drawing.Font("Arial", 10);
+            DataTable artistsTable = dbControlArtists.ArtistsLoadData();
+            LoadArtistsToFlowPanel(artistsTable, flowPanel);
 
-            dataGridArtists.AlternatingRowsDefaultCellStyle.BackColor= System.Drawing.Color.Gray;
-            dataGridArtists.AlternatingRowsDefaultCellStyle.ForeColor= System.Drawing.Color.White;
-
-            dataGridArtists.Columns[0].HeaderText = "ID"; //ID
-            dataGridArtists.Columns[1].HeaderText = LogInModule.GetString("artistName"); //nazwa
-            dataGridArtists.Columns[2].HeaderText = LogInModule.GetString("artistNick"); //pseudo
-            dataGridArtists.Columns[3].HeaderText = LogInModule.GetString("artistLabel"); //label
-
-            dataGridArtists.Columns[0].Width = 50;
-            dataGridArtists.Columns[1].Width = 175;
-            dataGridArtists.Columns[2].Width = 150;
-            dataGridArtists.Columns[3].Width = 150;
-
-            var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
+            var uniqueLabels = artistsTable.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
             foreach( var label in uniqueLabels) { LabelBox.Items.Add(label); }
 
             toolTip = new ToolTip();
@@ -71,31 +97,28 @@ namespace NStudio.Desktop
             }
         }
 
-        private void LoadDataIntoGrid()
-        {
-            artists = dbControlArtists.ArtistsLoadData();
-            dataGridArtists.DataSource = artists;
-
-
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("name LIKE '%{0}%'", nameSearchTextBox.Text);
+            // dzm
+            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("name LIKE '%{0}%'", nameSearchTextBox.Text);
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("nickname LIKE '%{0}%'", nickSearchTextBox.Text);
+            // dzm
+            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("nickname LIKE '%{0}%'", nickSearchTextBox.Text);
         }
 
         private void LabelBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("label LIKE '%{0}%'", LabelBox.SelectedItem);
+            // dzm
+            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("label LIKE '%{0}%'", LabelBox.SelectedItem);
         }
 
         private void ArtistMinusButton_Click(object sender, EventArgs e)
         {
+            /*
+            // dzm
             if (dataGridArtists.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"), LogInModule.GetString("msgBox2Artist"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -108,6 +131,7 @@ namespace NStudio.Desktop
                     }
                 }
             }
+            */
         }
     }
 }

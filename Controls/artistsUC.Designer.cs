@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.artistAvatar = new System.Windows.Forms.PictureBox();
             this.ArtistUCNameLabel = new System.Windows.Forms.Label();
             this.ArtistUCNickLabel = new System.Windows.Forms.Label();
             this.ArtistUCLabelLabel = new System.Windows.Forms.Label();
@@ -36,17 +36,17 @@
             this.AUCNameData = new System.Windows.Forms.Label();
             this.AUCNickData = new System.Windows.Forms.Label();
             this.AUCLabelData = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.artistID = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.artistAvatar)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // artistAvatar
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 115);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.artistAvatar.Location = new System.Drawing.Point(3, 3);
+            this.artistAvatar.Name = "artistAvatar";
+            this.artistAvatar.Size = new System.Drawing.Size(115, 115);
+            this.artistAvatar.TabIndex = 0;
+            this.artistAvatar.TabStop = false;
             // 
             // ArtistUCNameLabel
             // 
@@ -139,25 +139,25 @@
             this.AUCLabelData.Text = "AUCLabelData";
             this.AUCLabelData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // artistID
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(361, 96);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(23, 22);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "1";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.artistID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.artistID.Font = new System.Drawing.Font("Century Gothic", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.artistID.ForeColor = System.Drawing.Color.White;
+            this.artistID.Location = new System.Drawing.Point(361, 96);
+            this.artistID.Name = "artistID";
+            this.artistID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.artistID.Size = new System.Drawing.Size(23, 22);
+            this.artistID.TabIndex = 13;
+            this.artistID.Text = "1";
+            this.artistID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // artistsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.artistID);
             this.Controls.Add(this.AUCLabelData);
             this.Controls.Add(this.AUCNickData);
             this.Controls.Add(this.AUCNameData);
@@ -165,19 +165,21 @@
             this.Controls.Add(this.ArtistUCLabelLabel);
             this.Controls.Add(this.ArtistUCNickLabel);
             this.Controls.Add(this.ArtistUCNameLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.artistAvatar);
             this.MaximumSize = new System.Drawing.Size(400, 124);
             this.MinimumSize = new System.Drawing.Size(400, 124);
             this.Name = "artistsUC";
             this.Size = new System.Drawing.Size(400, 124);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MouseEnter += new System.EventHandler(this.artistsUC_MouseHover);
+            this.MouseLeave += new System.EventHandler(this.artistsUC_MouseLeave);
+            ((System.ComponentModel.ISupportInitialize)(this.artistAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox artistAvatar;
         private System.Windows.Forms.Label ArtistUCNameLabel;
         private System.Windows.Forms.Label ArtistUCNickLabel;
         private System.Windows.Forms.Label ArtistUCLabelLabel;
@@ -185,6 +187,6 @@
         private System.Windows.Forms.Label AUCNameData;
         private System.Windows.Forms.Label AUCNickData;
         private System.Windows.Forms.Label AUCLabelData;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label artistID;
     }
 }
