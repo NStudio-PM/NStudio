@@ -454,7 +454,7 @@ namespace NStudio
                                 }
                                 else
                                 {
-                                    MessageBox.Show(LogInModule.GetString("wrongOldPass"));
+                                    // wrong old password
                                     return false;
                                 }
                             }

@@ -86,13 +86,6 @@ namespace NStudio
 
         }
 
-        public void logOut()
-        {
-            string exePath = Application.ExecutablePath;
-            System.Diagnostics.Process.Start(exePath);
-            Application.Exit();
-        }
-
         private void ActivateButton(object sender, Color color)
         {
             if (sender != null)
@@ -160,7 +153,7 @@ namespace NStudio
         private void settingsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.settingsColor);
-            OpenChild(new settingsForm(this));
+            OpenChild(new settingsForm());
         }
 
         private void logo_Click(object sender, EventArgs e)

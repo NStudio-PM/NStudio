@@ -13,11 +13,9 @@ namespace NStudio.Desktop
 {
     public partial class settingsForm : Form
     {
-        private Dashboard dashboard;
         private bool isEnglish;
-        public settingsForm(Dashboard dashboard)
+        public settingsForm()
         {
-            this.dashboard = dashboard;
             if (Properties.Settings.Default.language == "pl") { isEnglish = false; }
             else { isEnglish = true; }
 
@@ -42,7 +40,9 @@ namespace NStudio.Desktop
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
-            dashboard.logOut();
+            string exePath = Application.ExecutablePath;
+            System.Diagnostics.Process.Start(exePath);
+            Application.Exit();
         }
     }
 }

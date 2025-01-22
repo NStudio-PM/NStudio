@@ -205,6 +205,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień język programu.
+        /// </summary>
+        internal static string changeLanguageTooltip {
+            get {
+                return ResourceManager.GetString("changeLanguageTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło:.
         /// </summary>
         internal static string changePasswordLabel {
@@ -457,6 +466,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło zostało zmienione.
+        /// </summary>
+        internal static string passwordChanged {
+            get {
+                return ResourceManager.GetString("passwordChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło.
         /// </summary>
         internal static string passwordFormTitle {
@@ -471,6 +489,24 @@ namespace NStudio.Language {
         internal static string passwordLabel {
             get {
                 return ResourceManager.GetString("passwordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu ZMIANA HASŁA.
+        /// </summary>
+        internal static string passwordMessage {
+            get {
+                return ResourceManager.GetString("passwordMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowe hasło nie spełnia wymagań.
+        /// </summary>
+        internal static string passwordNotMeetReq {
+            get {
+                return ResourceManager.GetString("passwordNotMeetReq", resourceCulture);
             }
         }
         
@@ -556,6 +592,25 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu REGULAMIN:
+        ///Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec egestas tincidunt. Praesent vel augue volutpat, pharetra quam eget, ultrices magna. Duis ac odio enim. Suspendisse mattis in eros ac gravida. Nulla ligula lectus, tincidunt id sapien id, sodales hendrerit sem. Sed consectetur facilisis est et dictum. Sed gravida eros turpis, id euismod quam commodo ac. In turpis nibh, vehicula fermentum tellus at, eleifend congue neque. Nunc molestie vel arcu ut tempor. Mauris luctus, [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        internal static string rules {
+            get {
+                return ResourceManager.GetString("rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Regulamin.
+        /// </summary>
+        internal static string rulesTitle {
+            get {
+                return ResourceManager.GetString("rulesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ustawienia.
         /// </summary>
         internal static string settingsButton {
@@ -624,6 +679,15 @@ namespace NStudio.Language {
         internal static string wrongOldPass {
             get {
                 return ResourceManager.GetString("wrongOldPass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Złe hasło.
+        /// </summary>
+        internal static string wrongPassword {
+            get {
+                return ResourceManager.GetString("wrongPassword", resourceCulture);
             }
         }
     }

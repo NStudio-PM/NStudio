@@ -181,6 +181,10 @@
     <value>Zmiana języka</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="changeLanguageTooltip" xml:space="preserve">
+    <value>Zmień język programu</value>
+    <comment>LogInModule</comment>
+  </data>
   <data name="changePasswordLabel" xml:space="preserve">
     <value>Zmień hasło:</value>
     <comment>profileForm</comment>
@@ -293,6 +297,10 @@
     <value>Hasło</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="passwordChanged" xml:space="preserve">
+    <value>Hasło zostało zmienione</value>
+    <comment>passwordForm</comment>
+  </data>
   <data name="passwordFormTitle" xml:space="preserve">
     <value>Zmień hasło</value>
     <comment>passwordForm</comment>
@@ -300,6 +308,14 @@
   <data name="passwordLabel" xml:space="preserve">
     <value>Zmień hasło:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="passwordMessage" xml:space="preserve">
+    <value>ZMIANA HASŁA</value>
+    <comment>passwordForm</comment>
+  </data>
+  <data name="passwordNotMeetReq" xml:space="preserve">
+    <value>Nowe hasło nie spełnia wymagań</value>
+    <comment>passwordForm</comment>
   </data>
   <data name="postcodeLabel" xml:space="preserve">
     <value>Kod pocztowy:</value>
@@ -337,6 +353,15 @@
     <value>Powtórz hasło</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="rules" xml:space="preserve">
+    <value>REGULAMIN:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec egestas tincidunt. Praesent vel augue volutpat, pharetra quam eget, ultrices magna. Duis ac odio enim. Suspendisse mattis in eros ac gravida. Nulla ligula lectus, tincidunt id sapien id, sodales hendrerit sem. Sed consectetur facilisis est et dictum. Sed gravida eros turpis, id euismod quam commodo ac. In turpis nibh, vehicula fermentum tellus at, eleifend congue neque. Nunc molestie vel arcu ut tempor. Mauris luctus, nunc vehicula malesuada porta, leo tellus dignissim ligula, vitae iaculis ligula sem quis dui. Vestibulum semper magna placerat imperdiet lacinia. Donec bibendum ipsum quis ipsum egestas faucibus. Donec mattis vehicula augue, non suscipit turpis malesuada eu. Donec quis consequat ante, vel congue sapien.</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="rulesTitle" xml:space="preserve">
+    <value>Regulamin</value>
+    <comment>LogInModule</comment>
+  </data>
   <data name="settingsButton" xml:space="preserve">
     <value>Ustawienia</value>
     <comment>Dashboard</comment>
@@ -368,5 +393,9 @@
   <data name="wrongOldPass" xml:space="preserve">
     <value>Stare hasło jest nieprawidłowe.</value>
     <comment>DatabaseControl</comment>
+  </data>
+  <data name="wrongPassword" xml:space="preserve">
+    <value>Złe hasło</value>
+    <comment>passwordForm</comment>
   </data>
 </root>

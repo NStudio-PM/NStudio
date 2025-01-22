@@ -19,13 +19,14 @@ namespace NStudio.Desktop
         private ToolTip toolTip;
         public DatabaseControl dbControlArtists;
         public readonly string table = "artists";
-        DataTable artists;
+        private DataTable artists;
+
         public artistsForm(DatabaseControl dbControl)
         {
             InitializeComponent();
             dbControlArtists = dbControl;
             InnitView(Convert.ToInt32(dbControlArtists.userInfo.Rows[0][2]));
-            flowPanel.FlowDirection = FlowDirection.TopDown; // lub LeftToRight
+            flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
             flowPanel.AutoSize = true;
             flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -35,7 +36,8 @@ namespace NStudio.Desktop
         {
             flowPanel.Controls.Clear();
 
-            foreach (DataRow row in artistsTable.Rows){
+            foreach (DataRow row in artistsTable.Rows)
+            {
                 int id = row["id"] != DBNull.Value ? Convert.ToInt32(row["id"]) : 0;
                 string name = row["name"]?.ToString() ?? "Brak nazwy";
                 string nickname = row["nickname"]?.ToString() ?? "Brak pseudonimu";
@@ -45,7 +47,8 @@ namespace NStudio.Desktop
                 {
                     avatarBlob = (byte[])row["avatar"];
                 }
-                else{
+                else
+                {
                     using (MemoryStream ms = new MemoryStream())
                     {
                         Properties.Resources.defaultAvatar.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
@@ -74,11 +77,11 @@ namespace NStudio.Desktop
             flowPanel.WrapContents = true;
             flowPanel.AutoScroll = true;
 
-            DataTable artistsTable = dbControlArtists.ArtistsLoadData();
-            LoadArtistsToFlowPanel(artistsTable, flowPanel);
+            artists = dbControlArtists.ArtistsLoadData();
+            LoadArtistsToFlowPanel(artists, flowPanel);
 
-            var uniqueLabels = artistsTable.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
-            foreach( var label in uniqueLabels) { LabelBox.Items.Add(label); }
+            var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
+            foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
 
             toolTip = new ToolTip();
             toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("aF1Tooltip"));
@@ -97,41 +100,52 @@ namespace NStudio.Desktop
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ApplyFilter(string labelFilter, string nameFilter = null, string nicknameFilter = null)
         {
-            // dzm
-            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("name LIKE '%{0}%'", nameSearchTextBox.Text);
-        }
+            if (artists != null)
+            {
+                List<string> filters = new List<string>();
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            // dzm
-            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("nickname LIKE '%{0}%'", nickSearchTextBox.Text);
+                if (!string.IsNullOrEmpty(labelFilter))
+                {
+                    filters.Add($"label LIKE '%{labelFilter}%'");
+                }
+
+                if (!string.IsNullOrEmpty(nameFilter))
+                {
+                    filters.Add($"name LIKE '%{nameFilter}%'");
+                }
+
+                if (!string.IsNullOrEmpty(nicknameFilter))
+                {
+                    filters.Add($"nickname LIKE '%{nicknameFilter}%'");
+                }
+
+                string filterExpression = string.Join(" AND ", filters);
+                DataView view = artists.DefaultView;
+                view.RowFilter = filterExpression;
+                LoadArtistsToFlowPanel(view.ToTable(), flowPanel);
+            }
         }
 
         private void LabelBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            // dzm
-            // (dataGridArtists.DataSource as DataTable).DefaultView.RowFilter = string.Format("label LIKE '%{0}%'", LabelBox.SelectedItem);
+            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
+        }
+
+        private void nameSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
+        }
+
+        private void nickSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
         }
 
         private void ArtistMinusButton_Click(object sender, EventArgs e)
         {
-            /*
-            // dzm
-            if (dataGridArtists.SelectedRows.Count > 0)
-            {
-                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"), LogInModule.GetString("msgBox2Artist"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    foreach (DataGridViewRow row in dataGridArtists.SelectedRows)
-                    {
-                        int id = Convert.ToInt32(row.Cells["ID"].Value); // dla bazy
-                        if (dbControlArtists.DeleteRowFromDB(id, table)) { dataGridArtists.Rows.Remove(row); }
-                    }
-                }
-            }
-            */
+            // Implementacja usuwania artysty
         }
     }
 }

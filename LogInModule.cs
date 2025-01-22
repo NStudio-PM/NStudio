@@ -31,6 +31,7 @@ namespace NStudio
         private ToolTip toolTip;
         public DatabaseControl dbControl;
         public bool dbCreated = false;
+        private bool isEnglish;
         private static bool isFirstCall = true;
         public static bool logInSkipMode = false;
 
@@ -55,6 +56,8 @@ namespace NStudio
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
             string language = Properties.Settings.Default.language;
             LogInModule.ChangeLanguage(language);
+            if (Properties.Settings.Default.language == "pl") { isEnglish = false; }
+            else { isEnglish = true; }
             if (logInSkipMode)
             {
                 Dashboard dashboard = new Dashboard(dbControl);
@@ -71,6 +74,7 @@ namespace NStudio
             returnButton.Visible = false;
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(changeLanguageButton, LogInModule.GetString("changeLanguageTooltip"));
 
             string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
             string databaseType = DType;
@@ -272,5 +276,23 @@ namespace NStudio
 
         private void LogInModule_FormClosing(object sender, FormClosingEventArgs e) { if (connectionStatusTimer != null) { connectionStatusTimer.Stop(); } }
 
+        private void changeLanguageButton_Click(object sender, EventArgs e)
+        {
+            if (isEnglish)
+            {
+                LogInModule.ChangeLanguage("pl");
+                isEnglish = false;
+            }
+            else
+            {
+                LogInModule.ChangeLanguage("en");
+                isEnglish = true;
+            }
+        }
+
+        private void acceptRulesLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(LogInModule.GetString("rules"), LogInModule.GetString("rulesTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -37,8 +37,10 @@
             this.logoutPanel = new System.Windows.Forms.Panel();
             this.logOutLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.mainPanel.SuspendLayout();
             this.logoutPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // changeLanguageLabel
@@ -46,16 +48,18 @@
             this.changeLanguageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.changeLanguageLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.changeLanguageLabel.ForeColor = System.Drawing.Color.White;
-            this.changeLanguageLabel.Location = new System.Drawing.Point(104, 9);
+            this.changeLanguageLabel.Location = new System.Drawing.Point(70, 13);
+            this.changeLanguageLabel.MaximumSize = new System.Drawing.Size(252, 28);
+            this.changeLanguageLabel.MinimumSize = new System.Drawing.Size(252, 28);
             this.changeLanguageLabel.Name = "changeLanguageLabel";
-            this.changeLanguageLabel.Size = new System.Drawing.Size(232, 28);
+            this.changeLanguageLabel.Size = new System.Drawing.Size(252, 28);
             this.changeLanguageLabel.TabIndex = 1;
             this.changeLanguageLabel.Text = "changeLanguageLabel";
             this.changeLanguageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // changeLanguageButton
             // 
-            this.changeLanguageButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.changeLanguageButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.changeLanguageButton.BackColor = System.Drawing.Color.Transparent;
             this.changeLanguageButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("changeLanguageButton.BackgroundImage")));
             this.changeLanguageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -66,8 +70,10 @@
             this.changeLanguageButton.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.changeLanguageButton.ForeColor = System.Drawing.Color.White;
             this.changeLanguageButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.changeLanguageButton.Location = new System.Drawing.Point(200, 58);
+            this.changeLanguageButton.Location = new System.Drawing.Point(325, 11);
             this.changeLanguageButton.Margin = new System.Windows.Forms.Padding(0);
+            this.changeLanguageButton.MaximumSize = new System.Drawing.Size(40, 40);
+            this.changeLanguageButton.MinimumSize = new System.Drawing.Size(40, 40);
             this.changeLanguageButton.Name = "changeLanguageButton";
             this.changeLanguageButton.Size = new System.Drawing.Size(40, 40);
             this.changeLanguageButton.TabIndex = 21;
@@ -92,9 +98,8 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Controls.Add(this.logoutPanel);
-            this.mainPanel.Controls.Add(this.changeLanguageButton);
-            this.mainPanel.Controls.Add(this.changeLanguageLabel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(150, 0);
             this.mainPanel.Name = "mainPanel";
@@ -117,6 +122,8 @@
             this.logOutLabel.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.logOutLabel.ForeColor = System.Drawing.Color.White;
             this.logOutLabel.Location = new System.Drawing.Point(125, 10);
+            this.logOutLabel.MaximumSize = new System.Drawing.Size(139, 30);
+            this.logOutLabel.MinimumSize = new System.Drawing.Size(139, 30);
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(139, 30);
             this.logOutLabel.TabIndex = 22;
@@ -125,7 +132,7 @@
             // 
             // logOutButton
             // 
-            this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.logOutButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.logOutButton.BackColor = System.Drawing.Color.Transparent;
             this.logOutButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logOutButton.BackgroundImage")));
             this.logOutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -138,11 +145,23 @@
             this.logOutButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.logOutButton.Location = new System.Drawing.Point(278, 9);
             this.logOutButton.Margin = new System.Windows.Forms.Padding(0);
+            this.logOutButton.MaximumSize = new System.Drawing.Size(44, 40);
+            this.logOutButton.MinimumSize = new System.Drawing.Size(44, 40);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(44, 40);
             this.logOutButton.TabIndex = 23;
             this.logOutButton.UseVisualStyleBackColor = false;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.changeLanguageLabel);
+            this.panel1.Controls.Add(this.changeLanguageButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 345);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(454, 58);
+            this.panel1.TabIndex = 25;
             // 
             // settingsForm
             // 
@@ -157,6 +176,7 @@
             this.Text = "settingsForm";
             this.mainPanel.ResumeLayout(false);
             this.logoutPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -171,5 +191,6 @@
         private System.Windows.Forms.Label logOutLabel;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Panel logoutPanel;
+        private System.Windows.Forms.Panel panel1;
     }
 }

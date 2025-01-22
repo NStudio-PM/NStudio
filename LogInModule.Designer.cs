@@ -51,6 +51,7 @@
             this.userPanel = new System.Windows.Forms.Panel();
             this.passPanel = new System.Windows.Forms.Panel();
             this.returnButton = new System.Windows.Forms.Button();
+            this.changeLanguageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PassPic)).BeginInit();
@@ -201,6 +202,7 @@
             this.acceptRulesLabel.BackColor = System.Drawing.Color.Transparent;
             this.acceptRulesLabel.Name = "acceptRulesLabel";
             this.acceptRulesLabel.TabStop = true;
+            this.acceptRulesLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.acceptRulesLabel_LinkClicked);
             // 
             // userPanel
             // 
@@ -224,11 +226,25 @@
             this.returnButton.UseVisualStyleBackColor = false;
             this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
+            // changeLanguageButton
+            // 
+            resources.ApplyResources(this.changeLanguageButton, "changeLanguageButton");
+            this.changeLanguageButton.BackColor = System.Drawing.Color.Transparent;
+            this.changeLanguageButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.changeLanguageButton.FlatAppearance.BorderSize = 0;
+            this.changeLanguageButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.changeLanguageButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.changeLanguageButton.ForeColor = System.Drawing.Color.White;
+            this.changeLanguageButton.Name = "changeLanguageButton";
+            this.changeLanguageButton.UseVisualStyleBackColor = false;
+            this.changeLanguageButton.Click += new System.EventHandler(this.changeLanguageButton_Click);
+            // 
             // LogInModule
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.changeLanguageButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.passPanel);
             this.Controls.Add(this.userPanel);
@@ -287,6 +303,7 @@
         private System.Windows.Forms.Panel userPanel;
         private System.Windows.Forms.Panel passPanel;
         private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Button changeLanguageButton;
     }
 }
 

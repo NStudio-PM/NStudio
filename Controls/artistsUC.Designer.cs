@@ -147,9 +147,9 @@
             this.artistID.Location = new System.Drawing.Point(361, 96);
             this.artistID.Name = "artistID";
             this.artistID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.artistID.Size = new System.Drawing.Size(23, 22);
+            this.artistID.Size = new System.Drawing.Size(27, 22);
             this.artistID.TabIndex = 13;
-            this.artistID.Text = "1";
+            this.artistID.Text = "N/A";
             this.artistID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // artistsUC

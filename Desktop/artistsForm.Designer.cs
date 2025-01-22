@@ -153,7 +153,7 @@
             this.nickSearchTextBox.Name = "nickSearchTextBox";
             this.nickSearchTextBox.Size = new System.Drawing.Size(138, 22);
             this.nickSearchTextBox.TabIndex = 2;
-            this.nickSearchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.nickSearchTextBox.TextChanged += new System.EventHandler(this.nickSearchTextBox_TextChanged);
             // 
             // ArtistNameLabel
             // 
@@ -176,7 +176,7 @@
             this.nameSearchTextBox.Name = "nameSearchTextBox";
             this.nameSearchTextBox.Size = new System.Drawing.Size(138, 22);
             this.nameSearchTextBox.TabIndex = 0;
-            this.nameSearchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nameSearchTextBox.TextChanged += new System.EventHandler(this.nameSearchTextBox_TextChanged);
             // 
             // flowLayoutPanel1
             // 
