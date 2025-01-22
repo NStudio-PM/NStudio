@@ -146,6 +146,21 @@ namespace NStudio.Desktop
         private void ArtistMinusButton_Click(object sender, EventArgs e)
         {
             // Implementacja usuwania artysty
+            /*
+            // dzm
+            if (dataGridArtists.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"), LogInModule.GetString("msgBox2Artist"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dataGridArtists.SelectedRows)
+                    {
+                        int id = Convert.ToInt32(row.Cells["ID"].Value); // dla bazy
+                        if (dbControlArtists.DeleteRowFromDB(id, table)) { dataGridArtists.Rows.Remove(row); }
+                    }
+                }
+            }
+            */
         }
     }
 }
