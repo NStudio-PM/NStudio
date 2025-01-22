@@ -170,8 +170,6 @@
             this.MinimumSize = new System.Drawing.Size(400, 124);
             this.Name = "artistsUC";
             this.Size = new System.Drawing.Size(400, 124);
-            this.MouseEnter += new System.EventHandler(this.artistsUC_MouseHover);
-            this.MouseLeave += new System.EventHandler(this.artistsUC_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.artistAvatar)).EndInit();
             this.ResumeLayout(false);
 

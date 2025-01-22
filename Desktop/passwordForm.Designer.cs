@@ -36,8 +36,8 @@
             this.rNewPasswordLabel = new System.Windows.Forms.Label();
             this.acceptButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -136,6 +136,7 @@
             this.acceptButton.TabIndex = 20;
             this.acceptButton.Text = "acceptButton";
             this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // panel1
             // 
@@ -148,14 +149,6 @@
             this.panel1.Size = new System.Drawing.Size(236, 50);
             this.panel1.TabIndex = 21;
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(55, 50);
-            this.panel2.TabIndex = 0;
-            // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -163,6 +156,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(55, 50);
             this.panel3.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(55, 50);
+            this.panel2.TabIndex = 0;
             // 
             // passwordForm
             // 

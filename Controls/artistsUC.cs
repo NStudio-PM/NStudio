@@ -31,24 +31,5 @@ namespace NStudio.Controls
             artistAvatar.Image = avatar ;
 
         }
-
-        private void artistsUC_MouseHover(object sender, EventArgs e)
-        {
-            if (!hovered)
-            {
-                this.BackColor = Color.FromArgb(41, 41, 41);
-                hovered = true;
-            }
-            else
-            {
-                hovered = false;
-            }
-        }
-
-        private void artistsUC_MouseLeave(object sender, EventArgs e)
-        {
-            this.BackColor = Color.FromArgb(31, 31, 31);
-            hovered = false;
-        }
     }
 }

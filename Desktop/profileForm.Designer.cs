@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profileForm));
-            this.l1 = new FontAwesome.Sharp.IconButton();
-            this.l2 = new FontAwesome.Sharp.IconButton();
-            this.p2 = new FontAwesome.Sharp.IconButton();
-            this.p1 = new FontAwesome.Sharp.IconButton();
             this.panelProfileHeader = new System.Windows.Forms.Panel();
             this.panelProfileLbl = new System.Windows.Forms.Panel();
             this.editProfileLabel = new System.Windows.Forms.Label();
@@ -60,72 +56,7 @@
             this.panelProfileLbl.SuspendLayout();
             this.panelProfileMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).BeginInit();
-            this.panelProfileBufforRight.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // l1
-            // 
-            this.l1.BackColor = System.Drawing.Color.Transparent;
-            this.l1.FlatAppearance.BorderSize = 0;
-            this.l1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.l1.ForeColor = System.Drawing.Color.White;
-            this.l1.IconChar = FontAwesome.Sharp.IconChar.E;
-            this.l1.IconColor = System.Drawing.Color.White;
-            this.l1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.l1.Location = new System.Drawing.Point(13, 37);
-            this.l1.Name = "l1";
-            this.l1.Size = new System.Drawing.Size(25, 44);
-            this.l1.TabIndex = 0;
-            this.l1.UseVisualStyleBackColor = false;
-            this.l1.Visible = false;
-            // 
-            // l2
-            // 
-            this.l2.BackColor = System.Drawing.Color.Transparent;
-            this.l2.FlatAppearance.BorderSize = 0;
-            this.l2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.l2.ForeColor = System.Drawing.Color.White;
-            this.l2.IconChar = FontAwesome.Sharp.IconChar.N;
-            this.l2.IconColor = System.Drawing.Color.White;
-            this.l2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.l2.Location = new System.Drawing.Point(43, 37);
-            this.l2.Name = "l2";
-            this.l2.Size = new System.Drawing.Size(25, 44);
-            this.l2.TabIndex = 1;
-            this.l2.UseVisualStyleBackColor = false;
-            this.l2.Visible = false;
-            // 
-            // p2
-            // 
-            this.p2.BackColor = System.Drawing.Color.Transparent;
-            this.p2.FlatAppearance.BorderSize = 0;
-            this.p2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.p2.ForeColor = System.Drawing.Color.White;
-            this.p2.IconChar = FontAwesome.Sharp.IconChar.L;
-            this.p2.IconColor = System.Drawing.Color.White;
-            this.p2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.p2.Location = new System.Drawing.Point(33, 99);
-            this.p2.Name = "p2";
-            this.p2.Size = new System.Drawing.Size(40, 53);
-            this.p2.TabIndex = 3;
-            this.p2.UseVisualStyleBackColor = false;
-            this.p2.Visible = false;
-            // 
-            // p1
-            // 
-            this.p1.BackColor = System.Drawing.Color.Transparent;
-            this.p1.FlatAppearance.BorderSize = 0;
-            this.p1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.p1.ForeColor = System.Drawing.Color.White;
-            this.p1.IconChar = FontAwesome.Sharp.IconChar.P;
-            this.p1.IconColor = System.Drawing.Color.White;
-            this.p1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.p1.Location = new System.Drawing.Point(3, 99);
-            this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(40, 53);
-            this.p1.TabIndex = 2;
-            this.p1.UseVisualStyleBackColor = false;
-            this.p1.Visible = false;
             // 
             // panelProfileHeader
             // 
@@ -406,10 +337,6 @@
             // 
             // panelProfileBufforRight
             // 
-            this.panelProfileBufforRight.Controls.Add(this.l2);
-            this.panelProfileBufforRight.Controls.Add(this.l1);
-            this.panelProfileBufforRight.Controls.Add(this.p1);
-            this.panelProfileBufforRight.Controls.Add(this.p2);
             this.panelProfileBufforRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelProfileBufforRight.Location = new System.Drawing.Point(374, 0);
             this.panelProfileBufforRight.Name = "panelProfileBufforRight";
@@ -456,17 +383,11 @@
             this.panelProfileMain.ResumeLayout(false);
             this.panelProfileMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatarBox)).EndInit();
-            this.panelProfileBufforRight.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton l1;
-        private FontAwesome.Sharp.IconButton l2;
-        private FontAwesome.Sharp.IconButton p2;
-        private FontAwesome.Sharp.IconButton p1;
         private System.Windows.Forms.Panel panelProfileHeader;
         private System.Windows.Forms.Panel panelProfileLbl;
         private System.Windows.Forms.Label editProfileLabel;

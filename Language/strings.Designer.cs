@@ -178,6 +178,33 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień język.
+        /// </summary>
+        internal static string changeLanguageLabel {
+            get {
+                return ResourceManager.GetString("changeLanguageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Aby zastosować zmiany, konieczny jest reset aplikacji. Czy chcesz zrestartować?.
+        /// </summary>
+        internal static string changeLanguageRequest {
+            get {
+                return ResourceManager.GetString("changeLanguageRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmiana języka.
+        /// </summary>
+        internal static string changeLanguageTitle {
+            get {
+                return ResourceManager.GetString("changeLanguageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło:.
         /// </summary>
         internal static string changePasswordLabel {
@@ -340,6 +367,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wyloguj.
+        /// </summary>
+        internal static string logOutLabel {
+            get {
+                return ResourceManager.GetString("logOutLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Czy na pewno chcesz usunąć te dane?.
         /// </summary>
         internal static string msgBox1Artist {
@@ -394,11 +430,38 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowe hasło.
+        /// </summary>
+        internal static string newPasswordLabel {
+            get {
+                return ResourceManager.GetString("newPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stare hasło.
+        /// </summary>
+        internal static string oldPasswordLabel {
+            get {
+                return ResourceManager.GetString("oldPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hasło.
         /// </summary>
         internal static string passInputLabel {
             get {
                 return ResourceManager.GetString("passInputLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień hasło.
+        /// </summary>
+        internal static string passwordFormTitle {
+            get {
+                return ResourceManager.GetString("passwordFormTitle", resourceCulture);
             }
         }
         
@@ -475,6 +538,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powtórz nowe hasło.
+        /// </summary>
+        internal static string rNewPasswordLabel {
+            get {
+                return ResourceManager.GetString("rNewPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Powtórz hasło.
         /// </summary>
         internal static string rPassInputLabel {
@@ -498,6 +570,15 @@ namespace NStudio.Language {
         internal static string shopButton {
             get {
                 return ResourceManager.GetString("shopButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Coś poszło nie tak..
+        /// </summary>
+        internal static string somethingWrong {
+            get {
+                return ResourceManager.GetString("somethingWrong", resourceCulture);
             }
         }
         
@@ -534,6 +615,15 @@ namespace NStudio.Language {
         internal static string usernameLabel {
             get {
                 return ResourceManager.GetString("usernameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stare hasło jest nieprawidłowe..
+        /// </summary>
+        internal static string wrongOldPass {
+            get {
+                return ResourceManager.GetString("wrongOldPass", resourceCulture);
             }
         }
     }

@@ -169,6 +169,18 @@
     <value>Zmień zdjęcie</value>
     <comment>profileForm</comment>
   </data>
+  <data name="changeLanguageLabel" xml:space="preserve">
+    <value>Zmień język</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="changeLanguageRequest" xml:space="preserve">
+    <value>Aby zastosować zmiany, konieczny jest reset aplikacji. Czy chcesz zrestartować?</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="changeLanguageTitle" xml:space="preserve">
+    <value>Zmiana języka</value>
+    <comment>LogInModule</comment>
+  </data>
   <data name="changePasswordLabel" xml:space="preserve">
     <value>Zmień hasło:</value>
     <comment>profileForm</comment>
@@ -241,6 +253,10 @@
     <value>REJESTRACJA</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="logOutLabel" xml:space="preserve">
+    <value>Wyloguj</value>
+    <comment>settingsForm</comment>
+  </data>
   <data name="msgBox1Artist" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć te dane?</value>
     <comment>artistsForm</comment>
@@ -265,9 +281,21 @@
     <value>Plik za duży. 64KB maks.</value>
     <comment>profileForm</comment>
   </data>
+  <data name="newPasswordLabel" xml:space="preserve">
+    <value>Nowe hasło</value>
+    <comment>passwordForm</comment>
+  </data>
+  <data name="oldPasswordLabel" xml:space="preserve">
+    <value>Stare hasło</value>
+    <comment>passwordForm</comment>
+  </data>
   <data name="passInputLabel" xml:space="preserve">
     <value>Hasło</value>
     <comment>LogInModule</comment>
+  </data>
+  <data name="passwordFormTitle" xml:space="preserve">
+    <value>Zmień hasło</value>
+    <comment>passwordForm</comment>
   </data>
   <data name="passwordLabel" xml:space="preserve">
     <value>Zmień hasło:</value>
@@ -301,6 +329,10 @@
     <value>Powrót</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="rNewPasswordLabel" xml:space="preserve">
+    <value>Powtórz nowe hasło</value>
+    <comment>passwordForm</comment>
+  </data>
   <data name="rPassInputLabel" xml:space="preserve">
     <value>Powtórz hasło</value>
     <comment>LogInModule</comment>
@@ -312,6 +344,10 @@
   <data name="shopButton" xml:space="preserve">
     <value>Sklep</value>
     <comment>Dashboard</comment>
+  </data>
+  <data name="somethingWrong" xml:space="preserve">
+    <value>Coś poszło nie tak.</value>
+    <comment>DatabaseControl</comment>
   </data>
   <data name="songsButton" xml:space="preserve">
     <value>Utwory</value>
@@ -328,5 +364,9 @@
   <data name="usernameLabel" xml:space="preserve">
     <value>Nazwa użytkownika:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="wrongOldPass" xml:space="preserve">
+    <value>Stare hasło jest nieprawidłowe.</value>
+    <comment>DatabaseControl</comment>
   </data>
 </root>

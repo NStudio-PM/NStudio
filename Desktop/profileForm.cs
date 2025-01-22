@@ -67,11 +67,6 @@ namespace NStudio.Desktop
 
             List<TextBox> list = new List<TextBox> { usernameBox, countryBox, cityBox, postcodeBox, streetBox };
             foreach (TextBox txt in list) { txt.Enter += TextBox_Enter; txt.Leave += TextBox_Leave; }
-
-            l1.Click += new EventHandler(ChangeToEn);
-            l2.Click += new EventHandler(ChangeToEn);
-            p1.Click += new EventHandler(ChangeToPl);
-            p2.Click += new EventHandler(ChangeToPl);
         }
 
         private void TextBox_Enter(object sender, EventArgs e)
@@ -86,9 +81,6 @@ namespace NStudio.Desktop
             TextBox textBox = sender as TextBox;
             if (textBox.Text == "") { textBox.Text = tempString; }
         }
-
-        private void ChangeToEn(object sender, EventArgs e) { LogInModule.ChangeLanguage("en"); Console.WriteLine("Changed to EN"); }
-        private void ChangeToPl(object sender, EventArgs e) { LogInModule.ChangeLanguage("pl"); Console.WriteLine("Changed to PL"); }
 
         private bool CompareTwoDataTable(DataTable originalUserInfo, DataTable newUserInfo)
         {
@@ -198,7 +190,7 @@ namespace NStudio.Desktop
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
-            passwordForm passwordForm = new passwordForm();
+            passwordForm passwordForm = new passwordForm(dbControlProfile);
             passwordForm.ShowDialog();
         }
     }

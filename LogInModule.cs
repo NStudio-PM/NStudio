@@ -157,8 +157,8 @@ namespace NStudio
             }
             if (choice != Properties.Settings.Default.language)
             {
-                var result = MessageBox.Show("Aby zastosować zmiany, konieczny jest reset aplikacji. Czy chcesz zrestartować?",
-                                              "Zmiana języka",
+                var result = MessageBox.Show(GetString("changeLanguageRequest"),
+                                              GetString("changeLanguageTitle"),
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
 

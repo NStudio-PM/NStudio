@@ -421,6 +421,70 @@ namespace NStudio
             return true;
         }
 
+        public bool ChangePassword(string oldPassword, string newPassword)
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT password FROM users WHERE username=@username";
+                            MySqlCommand cmd = new MySqlCommand(query, connection);
+                            cmd.Parameters.AddWithValue("@username", userInfo.Rows[0][1].ToString());
+
+                            string hashedPassword = (string)cmd.ExecuteScalar();
+                            cmd.Dispose();
+                            if (hashedPassword != null)
+                            {
+                                bool verify = BCrypt.Net.BCrypt.Verify(oldPassword, hashedPassword);
+                                if (verify)
+                                {
+                                    string updateQuery = "UPDATE users SET password=@newPassword WHERE username=@username";
+                                    MySqlCommand updateCmd = new MySqlCommand(updateQuery, connection);
+                                    updateCmd.Parameters.AddWithValue("@username", userInfo.Rows[0][1].ToString());
+                                    updateCmd.Parameters.AddWithValue("@newPassword", BCrypt.Net.BCrypt.HashPassword(newPassword));
+
+                                    updateCmd.ExecuteNonQuery();
+                                    updateCmd.Dispose();
+
+                                    return true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show(LogInModule.GetString("wrongOldPass"));
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                // bledy username, zazwyczaj null dziwny
+                                return false;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                            // ex, jak na razie nie wysweitlany
+                            return false;
+                        }
+                    }
+
+                case "postgresql":
+                    return false;
+                case "sqlite":
+                    return false;
+                case "mongodb":
+                    return false;
+                default:
+                    UpdateLabelColor?.Invoke(Color.Black);
+                    throw new NotSupportedException($"Unsupported database type: {databaseType}");
+            }
+        }
+
         public bool DeleteRowFromDB(int id, string table) 
         {
             switch (databaseType)
