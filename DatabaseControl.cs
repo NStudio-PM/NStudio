@@ -358,9 +358,21 @@ namespace NStudio
                                 cmd.ExecuteNonQuery();
                                 password = "";
                             }
-                            return true;
+                            string infoQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE username=@username";
+                            using (MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection))
+                            {
+                                infoCmd.Parameters.AddWithValue("@username", username);
+                                try
+                                {
+                                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(infoCmd);
+                                    dataAdapter.Fill(userInfo);
+                                }
+                                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                            }
+
+                            return true; // rejestracja udana
                         }
-                        else { return false; }
+                        return false; // uzytkownik zajety
 
                     }
                 case "postgresql":
@@ -410,15 +422,32 @@ namespace NStudio
             switch (databaseType)
             {
                 case "mysql":
-                    // kodzik do walidacji i wpisania do bazy userInfo (wszystko z wiersza z tabeli user oprocz 'password' i 'power')
-                    break;
+                    string selectQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE id=" + userInfo.Rows[0][0].ToString();
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(selectQuery, connection);
+                        MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(adapter);
+
+                        try
+                        {
+                            connection.Open();
+                            adapter.Update(userInfo);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(LogInModule.GetString("somethingWrong") + ex);
+                            // ex, jak na razie nie wysweitlany
+                            return false;
+                        }
+                    }
+                    return true;
+
                 case "postgresql":
                 case "sqlite":
                 case "mongodb":
                 default:
                     return false;
             }
-            return true;
         }
 
         public bool ChangePassword(string oldPassword, string newPassword)
@@ -467,7 +496,7 @@ namespace NStudio
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                            MessageBox.Show(LogInModule.GetString("somethingWrong") + ex);
                             // ex, jak na razie nie wysweitlany
                             return false;
                         }
@@ -482,6 +511,22 @@ namespace NStudio
                 default:
                     UpdateLabelColor?.Invoke(Color.Black);
                     throw new NotSupportedException($"Unsupported database type: {databaseType}");
+            }
+        }
+
+        public bool UserExists(string username)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT id FROM users WHERE username=@username";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@username", username);
+                var result = cmd.ExecuteScalar();
+                cmd.Dispose();
+
+                if (result == null) { return false; }
+                return true;
             }
         }
 

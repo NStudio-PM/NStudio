@@ -12,7 +12,6 @@ namespace NStudio.Controls
 {
     public partial class artistsUC : UserControl
     {
-        private bool hovered = false;
         public artistsUC()
         {
             InitializeComponent();

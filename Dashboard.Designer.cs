@@ -212,7 +212,7 @@
             this.lblLogo.TabIndex = 1;
             this.lblLogo.Text = "NStudio";
             this.lblLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLogo.Click += new System.EventHandler(this.lblLogo_Click);
+            this.lblLogo.Click += new System.EventHandler(this.logo_Click);
             // 
             // logo
             // 
@@ -279,7 +279,7 @@
             this.profileNameLabel.Size = new System.Drawing.Size(144, 38);
             this.profileNameLabel.TabIndex = 1;
             this.profileNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.profileNameLabel.Click += new System.EventHandler(this.profileNameLabel_Click);
+            this.profileNameLabel.Click += new System.EventHandler(this.profileButton_Click);
             // 
             // panelTopBuffor
             // 

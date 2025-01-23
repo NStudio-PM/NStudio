@@ -161,21 +161,21 @@ namespace NStudio
             Reset();
         }
 
-        private void lblLogo_Click(object sender, EventArgs e)
-        {
-            Reset();
-        }
-
-        private void profileNameLabel_Click(object sender, EventArgs e)
-        {
-            profileForm profileForm = new profileForm(dbControl);
-            profileForm.ShowDialog();
-        }
-
         private void profileButton_Click(object sender, EventArgs e)
         {
             profileForm profileForm = new profileForm(dbControl);
             profileForm.ShowDialog();
+
+            profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
+            if (!DBNull.Value.Equals(dbControl.userInfo.Rows[0][8]))
+            {
+                byte[] avatar = (byte[])dbControl.userInfo.Rows[0][8];
+                using (MemoryStream avatarStream = new MemoryStream(avatar))
+                {
+                    Bitmap bitmap = new Bitmap(avatarStream);
+                    profileButton.BackgroundImage = bitmap;
+                }
+            }
         }
     }
 }

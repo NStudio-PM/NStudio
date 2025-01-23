@@ -698,11 +698,8 @@
   <data name="usernameInput.MaxLength" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="usernameInput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="usernameInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
+    <value>180, 23</value>
   </data>
   <data name="usernameInput.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -737,14 +734,11 @@
   <data name="passwordInput.MaxLength" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="passwordInput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="passwordInput.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="passwordInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
+    <value>180, 23</value>
   </data>
   <data name="passwordInput.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1025,14 +1019,11 @@
   <data name="rPassInput.MaxLength" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="rPassInput.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="rPassInput.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>*</value>
   </data>
   <data name="rPassInput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 20</value>
+    <value>180, 23</value>
   </data>
   <data name="rPassInput.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -1597,7 +1588,7 @@
   <data name="changeLanguageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        1QAADdUBPdZY8QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHFDSURBVHhe7d15
+        1AAADdQB75G6FQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHFDSURBVHhe7d15
         /H3VvD/wX6PmeU6l0lwqTcjYQKhI4SIJFVEpJUWKkpKKIjKERBRdRYYMURnKUKYkU8g8lDHcy72/14vz
         vXbL63w+Z3i/93Refzwf7l19P+f9Xu+9zznr7L32Wv/vf//3f83MzGzGyEYzMzPrN9loZmZm/SYbzczM
         rN9ko5mZmfWbbDQzM7N+k41mZmbWb7LRzMzM+k02mpmZWb/JRjMzM+s32WhmZmb9JhvNrF02XO9ei8Jq

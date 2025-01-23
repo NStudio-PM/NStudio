@@ -82,6 +82,8 @@ namespace NStudio.Desktop
 
             var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
             foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
+            var emptySlot = "";
+            if (!LabelBox.Items.Contains(emptySlot)) {  LabelBox.Items.Add(emptySlot); }
 
             toolTip = new ToolTip();
             toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("aF1Tooltip"));

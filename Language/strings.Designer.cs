@@ -439,6 +439,24 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Dane nie zostały zapisane w bazie.
+        /// </summary>
+        internal static string msgBox5Profile {
+            get {
+                return ResourceManager.GetString("msgBox5Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Użytkownik już istnieje.
+        /// </summary>
+        internal static string msgBox6Profile {
+            get {
+                return ResourceManager.GetString("msgBox6Profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowe hasło.
         /// </summary>
         internal static string newPasswordLabel {
@@ -629,7 +647,7 @@ namespace NStudio.Language {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Coś poszło nie tak..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Coś poszło nie tak .
         /// </summary>
         internal static string somethingWrong {
             get {

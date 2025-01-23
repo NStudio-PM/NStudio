@@ -285,6 +285,14 @@
     <value>File too big. 64KB max.</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox5Profile" xml:space="preserve">
+    <value>Data not saved into database</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox6Profile" xml:space="preserve">
+    <value>Username already exists</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="newPasswordLabel" xml:space="preserve">
     <value>New password</value>
     <comment>passwordForm</comment>
@@ -371,7 +379,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <comment>Dashboard</comment>
   </data>
   <data name="somethingWrong" xml:space="preserve">
-    <value>Something went wrong</value>
+    <value>Something went wrong </value>
     <comment>DatabaseControl</comment>
   </data>
   <data name="songsButton" xml:space="preserve">

@@ -285,6 +285,14 @@
     <value>Plik za duży. 64KB maks.</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox5Profile" xml:space="preserve">
+    <value>Dane nie zostały zapisane w bazie</value>
+    <comment>profileForm</comment>
+  </data>
+  <data name="msgBox6Profile" xml:space="preserve">
+    <value>Użytkownik już istnieje</value>
+    <comment>profileForm</comment>
+  </data>
   <data name="newPasswordLabel" xml:space="preserve">
     <value>Nowe hasło</value>
     <comment>passwordForm</comment>
@@ -371,7 +379,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <comment>Dashboard</comment>
   </data>
   <data name="somethingWrong" xml:space="preserve">
-    <value>Coś poszło nie tak.</value>
+    <value>Coś poszło nie tak </value>
     <comment>DatabaseControl</comment>
   </data>
   <data name="songsButton" xml:space="preserve">

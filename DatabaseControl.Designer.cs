@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseControl));
             this.dbSaveButton = new System.Windows.Forms.Button();
             this.dbHostname = new ZBobb.AlphaBlendTextBox();
             this.dbName = new ZBobb.AlphaBlendTextBox();
@@ -238,6 +239,7 @@
             this.Controls.Add(this.dbHostname);
             this.Controls.Add(this.dbSaveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DatabaseControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DatabaseControl";

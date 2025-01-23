@@ -19,7 +19,7 @@ namespace NStudio.Desktop
         private bool avatarChanged;
         private bool avatarNull;
         public DatabaseControl dbControlProfile;
-        DataTable userInfo;
+        public DataTable userInfo;
         public profileForm(DatabaseControl dbControl)
         {
             this.dbControlProfile = dbControl;
@@ -150,8 +150,19 @@ namespace NStudio.Desktop
         {
             DataTable newUserInfo = dbControlProfile.userInfo.Clone();
             foreach(DataRow row in dbControlProfile.userInfo.Rows) { newUserInfo.ImportRow(row); }
+            if(usernameBox.Text != dbControlProfile.userInfo.Rows[0][1].ToString())
+            {
+                if (dbControlProfile.UserExists(usernameBox.Text))
+                {
+                    newUserInfo.Rows[0][1] = dbControlProfile.userInfo.Rows[0][1].ToString();
+                    MessageBox.Show(LogInModule.GetString("msgBox6Profile"));
+                }
+                else
+                {
+                    newUserInfo.Rows[0][1] = usernameBox.Text;
+                }
+            }
 
-            newUserInfo.Rows[0][1] = usernameBox.Text;
             newUserInfo.Rows[0][3] = countryBox.Text;
             newUserInfo.Rows[0][4] = postcodeBox.Text;
             newUserInfo.Rows[0][5] = cityBox.Text;
@@ -173,8 +184,11 @@ namespace NStudio.Desktop
                                               MessageBoxIcon.Information);
                 if(result == DialogResult.Yes)
                 {
-                    if (dbControlProfile.ChangeUserInfo(newUserInfo)) { MessageBox.Show(LogInModule.GetString("msgBox2Profile")); } 
-                    else { MessageBox.Show("ERR01"); }
+                    if (dbControlProfile.ChangeUserInfo(newUserInfo)) {
+                        dbControlProfile.userInfo = newUserInfo;
+                        MessageBox.Show(LogInModule.GetString("msgBox2Profile")); 
+                    } 
+                    else { MessageBox.Show(LogInModule.GetString("msgBox5Profile")); }
                 }
                 else { MessageBox.Show(LogInModule.GetString("msgBox3Profile")); }
                 tempString = "";
