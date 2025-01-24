@@ -369,6 +369,12 @@
     <Compile Include="Controls\artistsUC.Designer.cs">
       <DependentUpon>artistsUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\recordsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\recordsUC.Designer.cs">
+      <DependentUpon>recordsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\songsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -410,6 +416,12 @@
     </Compile>
     <Compile Include="Desktop\Query\artistInfo.Designer.cs">
       <DependentUpon>artistInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Query\recordInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\Query\recordInfo.Designer.cs">
+      <DependentUpon>recordInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Desktop\recordsForm.cs">
       <SubType>Form</SubType>
@@ -457,6 +469,9 @@
     <EmbeddedResource Include="Controls\artistsUC.resx">
       <DependentUpon>artistsUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\recordsUC.resx">
+      <DependentUpon>recordsUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\songsUC.resx">
       <DependentUpon>songsUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +492,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\Query\artistInfo.resx">
       <DependentUpon>artistInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\Query\recordInfo.resx">
+      <DependentUpon>recordInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\recordsForm.resx">
       <DependentUpon>recordsForm.cs</DependentUpon>
@@ -540,6 +558,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AlphaBlendTextBox.dll" />
+    <None Include="Resources\notes.png" />
     <None Include="Resources\vinyl.png" />
     <None Include="Assets\defaultAvatar.png" />
     <Content Include="nstudio-icon.ico" />

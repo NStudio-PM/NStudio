@@ -137,6 +137,10 @@
     <value>Edit record</value>
     <comment>artistsForm</comment>
   </data>
+  <data name="artistInfoTitle" xml:space="preserve">
+    <value>Artist information</value>
+    <comment>artistInfo</comment>
+  </data>
   <data name="artistLabel" xml:space="preserve">
     <value>Label</value>
     <comment>artistsForm</comment>
@@ -265,6 +269,10 @@
     <value>Label:</value>
     <comment>artistInfo</comment>
   </data>
+  <data name="labelLabel-" xml:space="preserve">
+    <value>Label</value>
+    <comment>recordsForm</comment>
+  </data>
   <data name="loginButton" xml:space="preserve">
     <value>Log In</value>
     <comment>LogInModule</comment>
@@ -316,6 +324,10 @@
   <data name="msgBox6Profile" xml:space="preserve">
     <value>Username already exists</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="msgBoxAdd" xml:space="preserve">
+    <value>Do you want send this data to DB?</value>
+    <comment>msgBox</comment>
   </data>
   <data name="msgBoxError" xml:space="preserve">
     <value>Error</value>
@@ -377,9 +389,25 @@
     <value>Postcode:</value>
     <comment>profileForm</comment>
   </data>
+  <data name="recordInfoTitle" xml:space="preserve">
+    <value>Record information</value>
+    <comment>recordInfo</comment>
+  </data>
   <data name="recordLabel" xml:space="preserve">
     <value>Record:</value>
     <comment>songInfo</comment>
+  </data>
+  <data name="recordLabel-" xml:space="preserve">
+    <value>Record</value>
+    <comment>songsForm</comment>
+  </data>
+  <data name="recordPanelAddLabel" xml:space="preserve">
+    <value>ADD RECORD</value>
+    <comment>recordInfo</comment>
+  </data>
+  <data name="recordPanelEditLabel" xml:space="preserve">
+    <value>EDIT RECORD</value>
+    <comment>recordInfo</comment>
   </data>
   <data name="recordsButton" xml:space="preserve">
     <value>Records</value>
@@ -434,6 +462,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Something went wrong </value>
     <comment>DatabaseControl</comment>
   </data>
+  <data name="songInfoTitle" xml:space="preserve">
+    <value>Song info</value>
+    <comment>songInfo</comment>
+  </data>
   <data name="songPanelAddLabel" xml:space="preserve">
     <value>ADD SONG</value>
     <comment>songInfo</comment>
@@ -474,6 +506,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Title:</value>
     <comment>songInfo</comment>
   </data>
+  <data name="titleLabel-" xml:space="preserve">
+    <value>Title</value>
+    <comment>songsForm</comment>
+  </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Username</value>
     <comment>LogInModule</comment>
@@ -489,5 +525,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   <data name="yearLabel" xml:space="preserve">
     <value>Year:</value>
     <comment>songInfo</comment>
+  </data>
+  <data name="yearLabel-" xml:space="preserve">
+    <value>Year</value>
+    <comment>songsForm</comment>
   </data>
 </root>

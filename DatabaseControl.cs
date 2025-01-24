@@ -504,6 +504,36 @@ namespace NStudio
             }
         }
 
+        public DataTable RecordsLoadData()
+        {
+            DataTable dataTable = new DataTable();
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT * FROM records";
+                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
+                            dataAdapter.Fill(dataTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        return dataTable;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    dataTable = null;
+                    return dataTable;
+            }
+        }
+
 
         public bool ChangeUserInfo(DataTable userInfo)
         {
@@ -713,6 +743,35 @@ namespace NStudio
                                 }
                             }
                         case "records":
+                            insertQuery = "INSERT INTO records (title, author, label, year, cost, image) " +
+                                           "VALUES (@title, @author, @label, @year, @cost, @image)";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+                                    command.Parameters.AddWithValue("@title", row["title"]);
+                                    command.Parameters.AddWithValue("@author", row["author"]);
+                                    command.Parameters.AddWithValue("@label", row["label"]);
+                                    command.Parameters.AddWithValue("@year", Convert.ToInt32(row["year"]));
+                                    command.Parameters.AddWithValue("@cost", Convert.ToInt32(row["cost"]));
+                                    if (row["image"] != DBNull.Value && row["image"] is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@image", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@image", DBNull.Value);
+                                    }
+                                    if (command.ExecuteNonQuery() > 0) { return true; }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
                         default:
                             return false;
                     }

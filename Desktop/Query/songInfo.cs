@@ -28,6 +28,7 @@ namespace NStudio.Desktop
             avatarChanged = false;
             InitializeComponent();
             imageBox.SizeMode = PictureBoxSizeMode.Zoom;
+            this.Text = LogInModule.GetString("songInfoTitle");
             titleLabel.Text = LogInModule.GetString("titleLabel");
             authorLabel.Text = LogInModule.GetString("authorLabel");
             recordLabel.Text = LogInModule.GetString("recordLabel");
@@ -155,7 +156,7 @@ namespace NStudio.Desktop
                 if(!dbControl.CompareTwoDataTable(data, newData))
                 {
                     var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
-                                              "songInfo",
+                                              LogInModule.GetString("songInfoTitle"),
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
@@ -204,8 +205,8 @@ namespace NStudio.Desktop
                 }
                 else { newRow[6] = null; }
 
-                var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
-                                              "songInfo",
+                var result = MessageBox.Show(LogInModule.GetString("msgBoxAdd"),
+                                              LogInModule.GetString("songInfoTitle"),
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)

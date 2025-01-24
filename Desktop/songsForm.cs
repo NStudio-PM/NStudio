@@ -55,7 +55,7 @@ namespace NStudio.Desktop
                 {
                     using (MemoryStream ms = new MemoryStream())
                     {
-                        Properties.Resources.vinyl.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                        Properties.Resources.notes.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                         imageBlob = ms.ToArray();
                     }
                 }
@@ -84,19 +84,20 @@ namespace NStudio.Desktop
             songs = dbControlSongs.SongsLoadData();
             LoadSongsToFlowPanel(songs, flowPanel);
 
-            //var uniqueLabels = songs.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
-            //foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
+            var uniqueRecords = songs.AsEnumerable().Select(row => row["record"].ToString()).Distinct().ToList();
+            foreach (var record in uniqueRecords) { recordBox.Items.Add(record); }
             var emptySlot = "";
-            if (!LabelBox.Items.Contains(emptySlot)) { LabelBox.Items.Add(emptySlot); }
+            if (!recordBox.Items.Contains(emptySlot)) { recordBox.Items.Add(emptySlot); }
 
             toolTip = new ToolTip();
             toolTip.SetToolTip(SongsPlusButton, LogInModule.GetString("aF1Tooltip"));
             toolTip.SetToolTip(SongsMinusButton, LogInModule.GetString("aF2Tooltip"));
             toolTip.SetToolTip(SongsEditButton, LogInModule.GetString("aF3Tooltip"));
 
-            ArtistNameLabel.Text = LogInModule.GetString("artistName");
-            ArtistNickLabel.Text = LogInModule.GetString("artistNick");
-            ArtistLabelLabel.Text = LogInModule.GetString("artistLabel");
+            titleLabel.Text = LogInModule.GetString("titleLabel-");
+            authorLabel.Text = LogInModule.GetString("artistNick");
+            recordLabel.Text = LogInModule.GetString("recordLabel-");
+            yearLabel.Text = LogInModule.GetString("yearLabel-");
 
             if (power >= 2)
             {
@@ -106,25 +107,33 @@ namespace NStudio.Desktop
             }
         }
 
-        private void ApplyFilter(string labelFilter, string nameFilter = null, string nicknameFilter = null)
+        private void ApplyFilter(string recordFilter, string titleFilter = null, string authorFilter = null, string yearFilter = null)
         {
             if (songs != null)
             {
                 List<string> filters = new List<string>();
 
-                if (!string.IsNullOrEmpty(labelFilter))
+                if (!string.IsNullOrEmpty(recordFilter))
                 {
-                    filters.Add($"label LIKE '%{labelFilter}%'");
+                    filters.Add($"record LIKE '%{recordFilter}%'");
                 }
 
-                if (!string.IsNullOrEmpty(nameFilter))
+                if (!string.IsNullOrEmpty(titleFilter))
                 {
-                    filters.Add($"name LIKE '%{nameFilter}%'");
+                    filters.Add($"title LIKE '%{titleFilter}%'");
                 }
 
-                if (!string.IsNullOrEmpty(nicknameFilter))
+                if (!string.IsNullOrEmpty(authorFilter))
                 {
-                    filters.Add($"nickname LIKE '%{nicknameFilter}%'");
+                    filters.Add($"author LIKE '%{authorFilter}%'");
+                }
+
+                if (!string.IsNullOrEmpty(yearFilter))
+                {
+                    if (int.TryParse(yearFilter, out int year))
+                    {
+                        filters.Add($"year = {year}");
+                    }
                 }
 
                 string filterExpression = string.Join(" AND ", filters);
@@ -134,19 +143,24 @@ namespace NStudio.Desktop
             }
         }
 
-        private void LabelBox_SelectedValueChanged(object sender, EventArgs e)
+        private void RecordBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
+            ApplyFilter(recordBox.SelectedItem?.ToString(), titleSearchBox.Text, authorSearchBox.Text, yearBox.Text);
         }
 
-        private void nameSearchTextBox_TextChanged(object sender, EventArgs e)
+        private void TitleSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
+            ApplyFilter(recordBox.SelectedItem?.ToString(), titleSearchBox.Text, authorSearchBox.Text, yearBox.Text);
         }
 
-        private void nickSearchTextBox_TextChanged(object sender, EventArgs e)
+        private void AuthorSearchTextBox_TextChanged(object sender, EventArgs e)
         {
-            ApplyFilter(LabelBox.SelectedItem?.ToString(), nameSearchTextBox.Text, nickSearchTextBox.Text);
+            ApplyFilter(recordBox.SelectedItem?.ToString(), titleSearchBox.Text, authorSearchBox.Text, yearBox.Text);
+        }
+
+        private void YearSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ApplyFilter(recordBox.SelectedItem?.ToString(), titleSearchBox.Text, authorSearchBox.Text, yearBox.Text);
         }
 
         private void SongsPlusButton_Click(object sender, EventArgs e)
@@ -243,7 +257,7 @@ namespace NStudio.Desktop
                         using (MemoryStream ms = new MemoryStream())
                         {
                             isImageNull = true;
-                            Properties.Resources.vinyl.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            Properties.Resources.notes.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
                             imageBlob = ms.ToArray();
                         }
                     }

@@ -26,6 +26,7 @@ namespace NStudio.Desktop.Query
             avatarChanged = false;
             InitializeComponent();
             imageBox.SizeMode = PictureBoxSizeMode.Zoom;
+            this.Text = LogInModule.GetString("artistInfoTitle");
             nameLabel.Text = LogInModule.GetString("nameLabel");
             nicknameLabel.Text = LogInModule.GetString("nicknameLabel");
             labelLabel.Text = LogInModule.GetString("labelLabel");
@@ -129,7 +130,7 @@ namespace NStudio.Desktop.Query
                 if (!dbControl.CompareTwoDataTable(data, newData))
                 {
                     var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
-                                              "artistInfo",
+                                              LogInModule.GetString("artistInfoTitle"),
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
                     if (result == DialogResult.Yes)
@@ -159,8 +160,8 @@ namespace NStudio.Desktop.Query
                 }
                 else { newRow[4] = null; }
 
-                var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
-                                              "artistInfo",
+                var result = MessageBox.Show(LogInModule.GetString("msgBoxAdd"),
+                                              LogInModule.GetString("artistInfoTitle"),
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)

@@ -34,12 +34,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelBox = new System.Windows.Forms.ComboBox();
-            this.ArtistLabelLabel = new System.Windows.Forms.Label();
-            this.ArtistNickLabel = new System.Windows.Forms.Label();
-            this.nickSearchTextBox = new System.Windows.Forms.TextBox();
-            this.ArtistNameLabel = new System.Windows.Forms.Label();
-            this.nameSearchTextBox = new System.Windows.Forms.TextBox();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.yearBox = new System.Windows.Forms.TextBox();
+            this.recordBox = new System.Windows.Forms.ComboBox();
+            this.recordLabel = new System.Windows.Forms.Label();
+            this.authorLabel = new System.Windows.Forms.Label();
+            this.authorSearchBox = new System.Windows.Forms.TextBox();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.titleSearchBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelActions = new System.Windows.Forms.Panel();
             this.SongsEditButton = new FontAwesome.Sharp.IconButton();
@@ -107,83 +109,112 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.LabelBox);
-            this.panel1.Controls.Add(this.ArtistLabelLabel);
-            this.panel1.Controls.Add(this.ArtistNickLabel);
-            this.panel1.Controls.Add(this.nickSearchTextBox);
-            this.panel1.Controls.Add(this.ArtistNameLabel);
-            this.panel1.Controls.Add(this.nameSearchTextBox);
+            this.panel1.Controls.Add(this.yearLabel);
+            this.panel1.Controls.Add(this.yearBox);
+            this.panel1.Controls.Add(this.recordBox);
+            this.panel1.Controls.Add(this.recordLabel);
+            this.panel1.Controls.Add(this.authorLabel);
+            this.panel1.Controls.Add(this.authorSearchBox);
+            this.panel1.Controls.Add(this.titleLabel);
+            this.panel1.Controls.Add(this.titleSearchBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 361);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(674, 100);
             this.panel1.TabIndex = 5;
             // 
-            // LabelBox
+            // yearLabel
             // 
-            this.LabelBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.LabelBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelBox.ForeColor = System.Drawing.Color.White;
-            this.LabelBox.FormattingEnabled = true;
-            this.LabelBox.Location = new System.Drawing.Point(344, 19);
-            this.LabelBox.Name = "LabelBox";
-            this.LabelBox.Size = new System.Drawing.Size(135, 24);
-            this.LabelBox.TabIndex = 5;
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.yearLabel.ForeColor = System.Drawing.Color.White;
+            this.yearLabel.Location = new System.Drawing.Point(273, 53);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.yearLabel.Size = new System.Drawing.Size(42, 18);
+            this.yearLabel.TabIndex = 7;
+            this.yearLabel.Text = "Year";
             // 
-            // ArtistLabelLabel
+            // yearBox
             // 
-            this.ArtistLabelLabel.AutoSize = true;
-            this.ArtistLabelLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistLabelLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistLabelLabel.Location = new System.Drawing.Point(289, 21);
-            this.ArtistLabelLabel.Name = "ArtistLabelLabel";
-            this.ArtistLabelLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ArtistLabelLabel.Size = new System.Drawing.Size(49, 18);
-            this.ArtistLabelLabel.TabIndex = 4;
-            this.ArtistLabelLabel.Text = "Label";
+            this.yearBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.yearBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.yearBox.ForeColor = System.Drawing.Color.White;
+            this.yearBox.Location = new System.Drawing.Point(344, 52);
+            this.yearBox.MaxLength = 4;
+            this.yearBox.Name = "yearBox";
+            this.yearBox.Size = new System.Drawing.Size(67, 22);
+            this.yearBox.TabIndex = 6;
+            this.yearBox.TextChanged += new System.EventHandler(this.YearSearchTextBox_TextChanged);
             // 
-            // ArtistNickLabel
+            // recordBox
             // 
-            this.ArtistNickLabel.AutoSize = true;
-            this.ArtistNickLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistNickLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistNickLabel.Location = new System.Drawing.Point(23, 51);
-            this.ArtistNickLabel.Name = "ArtistNickLabel";
-            this.ArtistNickLabel.Size = new System.Drawing.Size(88, 18);
-            this.ArtistNickLabel.TabIndex = 3;
-            this.ArtistNickLabel.Text = "Pseudonim";
+            this.recordBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.recordBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.recordBox.ForeColor = System.Drawing.Color.White;
+            this.recordBox.FormattingEnabled = true;
+            this.recordBox.Location = new System.Drawing.Point(344, 19);
+            this.recordBox.Name = "recordBox";
+            this.recordBox.Size = new System.Drawing.Size(135, 24);
+            this.recordBox.TabIndex = 5;
+            this.recordBox.SelectedValueChanged += new System.EventHandler(this.RecordBox_SelectedValueChanged);
             // 
-            // nickSearchTextBox
+            // recordLabel
             // 
-            this.nickSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.nickSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nickSearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.nickSearchTextBox.Location = new System.Drawing.Point(118, 52);
-            this.nickSearchTextBox.Name = "nickSearchTextBox";
-            this.nickSearchTextBox.Size = new System.Drawing.Size(138, 22);
-            this.nickSearchTextBox.TabIndex = 2;
+            this.recordLabel.AutoSize = true;
+            this.recordLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.recordLabel.ForeColor = System.Drawing.Color.White;
+            this.recordLabel.Location = new System.Drawing.Point(273, 21);
+            this.recordLabel.Name = "recordLabel";
+            this.recordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.recordLabel.Size = new System.Drawing.Size(62, 18);
+            this.recordLabel.TabIndex = 4;
+            this.recordLabel.Text = "Record";
             // 
-            // ArtistNameLabel
+            // authorLabel
             // 
-            this.ArtistNameLabel.AutoSize = true;
-            this.ArtistNameLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArtistNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ArtistNameLabel.Location = new System.Drawing.Point(23, 21);
-            this.ArtistNameLabel.Name = "ArtistNameLabel";
-            this.ArtistNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ArtistNameLabel.Size = new System.Drawing.Size(58, 18);
-            this.ArtistNameLabel.TabIndex = 1;
-            this.ArtistNameLabel.Text = "Nazwa";
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.authorLabel.ForeColor = System.Drawing.Color.White;
+            this.authorLabel.Location = new System.Drawing.Point(23, 51);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(56, 18);
+            this.authorLabel.TabIndex = 3;
+            this.authorLabel.Text = "Author";
             // 
-            // nameSearchTextBox
+            // authorSearchBox
             // 
-            this.nameSearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.nameSearchTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nameSearchTextBox.ForeColor = System.Drawing.Color.White;
-            this.nameSearchTextBox.Location = new System.Drawing.Point(118, 19);
-            this.nameSearchTextBox.Name = "nameSearchTextBox";
-            this.nameSearchTextBox.Size = new System.Drawing.Size(138, 22);
-            this.nameSearchTextBox.TabIndex = 0;
+            this.authorSearchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.authorSearchBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.authorSearchBox.ForeColor = System.Drawing.Color.White;
+            this.authorSearchBox.Location = new System.Drawing.Point(118, 52);
+            this.authorSearchBox.Name = "authorSearchBox";
+            this.authorSearchBox.Size = new System.Drawing.Size(138, 22);
+            this.authorSearchBox.TabIndex = 2;
+            this.authorSearchBox.TextChanged += new System.EventHandler(this.AuthorSearchTextBox_TextChanged);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(23, 21);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.titleLabel.Size = new System.Drawing.Size(36, 18);
+            this.titleLabel.TabIndex = 1;
+            this.titleLabel.Text = "Title";
+            // 
+            // titleSearchBox
+            // 
+            this.titleSearchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.titleSearchBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titleSearchBox.ForeColor = System.Drawing.Color.White;
+            this.titleSearchBox.Location = new System.Drawing.Point(118, 19);
+            this.titleSearchBox.Name = "titleSearchBox";
+            this.titleSearchBox.Size = new System.Drawing.Size(138, 22);
+            this.titleSearchBox.TabIndex = 0;
+            this.titleSearchBox.TextChanged += new System.EventHandler(this.TitleSearchTextBox_TextChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -298,17 +329,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox LabelBox;
-        private System.Windows.Forms.Label ArtistLabelLabel;
-        private System.Windows.Forms.Label ArtistNickLabel;
-        private System.Windows.Forms.TextBox nickSearchTextBox;
-        private System.Windows.Forms.Label ArtistNameLabel;
-        private System.Windows.Forms.TextBox nameSearchTextBox;
+        private System.Windows.Forms.ComboBox recordBox;
+        private System.Windows.Forms.Label recordLabel;
+        private System.Windows.Forms.Label authorLabel;
+        private System.Windows.Forms.TextBox authorSearchBox;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.TextBox titleSearchBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panelActions;
         private FontAwesome.Sharp.IconButton SongsEditButton;
         private FontAwesome.Sharp.IconButton SongsMinusButton;
         private FontAwesome.Sharp.IconButton SongsPlusButton;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.TextBox yearBox;
     }
 }

@@ -332,7 +332,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(454, 570);
+            this.ClientSize = new System.Drawing.Size(454, 560);
             this.Controls.Add(this.panelProfileMain);
             this.Controls.Add(this.panelProfileBuffor);
             this.Controls.Add(this.panelProfileHeader);
@@ -342,7 +342,7 @@
             this.Name = "songInfo";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SONG PANEL";
+            this.Text = "PANEL";
             this.panelProfileHeader.ResumeLayout(false);
             this.panelProfileLbl.ResumeLayout(false);
             this.panelProfileMain.ResumeLayout(false);
