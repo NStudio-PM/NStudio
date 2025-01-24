@@ -129,7 +129,7 @@ namespace NStudio
         private void songsButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.songsColor);
-            OpenChild(new songsForm());
+            OpenChild(new songsForm(dbControl));
         }
 
         private void recordsButton_Click(object sender, EventArgs e)

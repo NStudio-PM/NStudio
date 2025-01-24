@@ -1,4 +1,5 @@
 ﻿using NStudio.Controls;
+using NStudio.Desktop.Query;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -146,23 +147,123 @@ namespace NStudio.Desktop
         }
 
         private void ArtistMinusButton_Click(object sender, EventArgs e)
-        {
-            // Implementacja usuwania artysty
-            /*
-            // dzm
-            if (dataGridArtists.SelectedRows.Count > 0)
+        { 
+            var selectedControls = flowPanel.Controls
+                .OfType<artistsUC>()
+                .Where(uc => uc.IsSelected())
+                .ToList();
+
+            if (selectedControls.Count > 0)
             {
-                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"), LogInModule.GetString("msgBox2Artist"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1Artist"),
+                                                      LogInModule.GetString("msgBox2Artist"),
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    foreach (DataGridViewRow row in dataGridArtists.SelectedRows)
+                    foreach (var artistUC in selectedControls)
                     {
-                        int id = Convert.ToInt32(row.Cells["ID"].Value); // dla bazy
-                        if (dbControlArtists.DeleteRowFromDB(id, table)) { dataGridArtists.Rows.Remove(row); }
+                        int id = Convert.ToInt32(artistUC.GetArtistID());
+                        if (dbControlArtists.DeleteRowFromDB(id, "artists"))
+                        {
+                            flowPanel.Controls.Remove(artistUC);
+                        }
                     }
                 }
             }
-            */
+            else
+            {
+                MessageBox.Show(LogInModule.GetString("msgBoxNoSelection"),
+                                LogInModule.GetString("msgBoxError"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ArtistEditButton_Click(object sender, EventArgs e)
+        {
+            bool isImageNull = false;
+            var selectedControls = flowPanel.Controls
+                .OfType<artistsUC>()
+                .Where(uc => uc.IsSelected())
+                .ToList();
+
+            if (selectedControls.Count == 0)
+            {
+                MessageBox.Show(LogInModule.GetString("msgBoxNoSelection"),
+                                LogInModule.GetString("msgBoxError"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+            else if (selectedControls.Count == 1)
+            {
+                artistInfo artistInfo = new artistInfo(dbControlArtists, isEdited: true);
+                int id = Convert.ToInt32(selectedControls[0].GetArtistID());
+                DataRow[] rows = artists.Select($"id = {id}");
+                if (rows.Length > 0)
+                {
+                    DataRow row = rows[0];
+                    string name = row["name"].ToString();
+                    string nickname = row["nickname"].ToString();
+                    string label = row["label"].ToString();
+                    byte[] imageBlob;
+
+                    if (row["avatar"] != DBNull.Value)
+                    {
+                        imageBlob = (byte[])row["avatar"];
+                    }
+                    else
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            Properties.Resources.defaultAvatar.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            imageBlob = ms.ToArray();
+                        }
+                    }
+
+                    DataTable data = new DataTable();
+                    data.Columns.Add("id", typeof(int));
+                    data.Columns.Add("name", typeof(string));
+                    data.Columns.Add("nickname", typeof(string));
+                    data.Columns.Add("label", typeof(string));
+                    data.Columns.Add("avatar", typeof(byte[]));
+                    data.Rows.Add(id, name, nickname, label, imageBlob);
+
+                    artistInfo.SetData(data, isImageNull);
+                    data.Dispose();
+                    if (artistInfo.ShowDialog() == DialogResult.OK)
+                    {
+                        artists = dbControlArtists.ArtistsLoadData();
+                        LoadArtistsToFlowPanel(artists, flowPanel);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(LogInModule.GetString("msgBoxTooManySelections"),
+                                LogInModule.GetString("msgBoxError"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
+        private void ArtistPlusButton_Click(object sender, EventArgs e)
+        {
+            artistInfo artistInfo = new artistInfo(dbControlArtists, isEdited: false);
+            DataTable data = new DataTable();
+            data.Columns.Add("id", typeof(int));
+            data.Columns.Add("name", typeof(string));
+            data.Columns.Add("nickname", typeof(string));
+            data.Columns.Add("label", typeof(string));
+            data.Columns.Add("avatar", typeof(byte[]));
+
+            artistInfo.SetData(data);
+            data.Dispose();
+            if (artistInfo.ShowDialog() == DialogResult.OK)
+            {
+                artists = dbControlArtists.ArtistsLoadData();
+                LoadArtistsToFlowPanel(artists, flowPanel);
+            }
         }
     }
 }

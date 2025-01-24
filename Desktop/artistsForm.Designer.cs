@@ -31,6 +31,7 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelBox = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.ArtistEditButton = new FontAwesome.Sharp.IconButton();
             this.ArtistMinusButton = new FontAwesome.Sharp.IconButton();
             this.ArtistPlusButton = new FontAwesome.Sharp.IconButton();
-            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelMain.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -86,6 +86,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(564, 336);
             this.panel4.TabIndex = 7;
+            // 
+            // flowPanel
+            // 
+            this.flowPanel.AutoScroll = true;
+            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanel.Location = new System.Drawing.Point(0, 0);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(564, 336);
+            this.flowPanel.TabIndex = 0;
             // 
             // panel3
             // 
@@ -218,6 +228,7 @@
             this.ArtistEditButton.Size = new System.Drawing.Size(55, 46);
             this.ArtistEditButton.TabIndex = 2;
             this.ArtistEditButton.UseVisualStyleBackColor = true;
+            this.ArtistEditButton.Click += new System.EventHandler(this.ArtistEditButton_Click);
             // 
             // ArtistMinusButton
             // 
@@ -261,16 +272,7 @@
             this.ArtistPlusButton.Size = new System.Drawing.Size(55, 46);
             this.ArtistPlusButton.TabIndex = 0;
             this.ArtistPlusButton.UseVisualStyleBackColor = true;
-            // 
-            // flowPanel
-            // 
-            this.flowPanel.AutoScroll = true;
-            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanel.Location = new System.Drawing.Point(0, 0);
-            this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(564, 336);
-            this.flowPanel.TabIndex = 0;
+            this.ArtistPlusButton.Click += new System.EventHandler(this.ArtistPlusButton_Click);
             // 
             // artistsForm
             // 

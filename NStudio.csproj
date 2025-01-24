@@ -369,6 +369,12 @@
     <Compile Include="Controls\artistsUC.Designer.cs">
       <DependentUpon>artistsUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\songsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\songsUC.Designer.cs">
+      <DependentUpon>songsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,12 @@
     <Compile Include="Desktop\profileForm.Designer.cs">
       <DependentUpon>profileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\Query\artistInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\Query\artistInfo.Designer.cs">
+      <DependentUpon>artistInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\recordsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +428,12 @@
     </Compile>
     <Compile Include="Desktop\shopForm.Designer.cs">
       <DependentUpon>shopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop\Query\songInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\Query\songInfo.Designer.cs">
+      <DependentUpon>songInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Desktop\songsForm.cs">
       <SubType>Form</SubType>
@@ -439,6 +457,9 @@
     <EmbeddedResource Include="Controls\artistsUC.resx">
       <DependentUpon>artistsUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\songsUC.resx">
+      <DependentUpon>songsUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +475,9 @@
     <EmbeddedResource Include="Desktop\profileForm.resx">
       <DependentUpon>profileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\Query\artistInfo.resx">
+      <DependentUpon>artistInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Desktop\recordsForm.resx">
       <DependentUpon>recordsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,6 +486,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\shopForm.resx">
       <DependentUpon>shopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\Query\songInfo.resx">
+      <DependentUpon>songInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\songsForm.resx">
       <DependentUpon>songsForm.cs</DependentUpon>
@@ -472,7 +499,7 @@
     <EmbeddedResource Include="Language\strings.en.resx" />
     <EmbeddedResource Include="Language\strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>strings.Designer.cs</LastGenOutput>
+      <LastGenOutput>strings1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -513,6 +540,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AlphaBlendTextBox.dll" />
+    <None Include="Resources\vinyl.png" />
     <None Include="Assets\defaultAvatar.png" />
     <Content Include="nstudio-icon.ico" />
     <None Include="Resources\defaultAvatar.png" />

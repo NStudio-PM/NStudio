@@ -127,15 +127,15 @@
   </data>
   <data name="aF1Tooltip" xml:space="preserve">
     <value>Dodaj</value>
-    <comment>artistsForm</comment>
+    <comment>controls</comment>
   </data>
   <data name="aF2Tooltip" xml:space="preserve">
     <value>Usuń</value>
-    <comment>artistsForm</comment>
+    <comment>controls</comment>
   </data>
   <data name="aF3Tooltip" xml:space="preserve">
     <value>Edytuj</value>
-    <comment>artistsForm</comment>
+    <comment>controls</comment>
   </data>
   <data name="artistLabel" xml:space="preserve">
     <value>Label</value>
@@ -148,6 +148,14 @@
   <data name="artistNick" xml:space="preserve">
     <value>Pseudonim</value>
     <comment>artistsForm</comment>
+  </data>
+  <data name="artistPanelAddLabel" xml:space="preserve">
+    <value>DODAJ ARTYSTE</value>
+    <comment>artistInfo</comment>
+  </data>
+  <data name="artistPanelEditLabel" xml:space="preserve">
+    <value>EDYTUJ ARTYSTE</value>
+    <comment>artistInfo</comment>
   </data>
   <data name="artistsButton" xml:space="preserve">
     <value>Artyści</value>
@@ -165,9 +173,17 @@
     <value>Pseudonim:</value>
     <comment>ArtistsUC</comment>
   </data>
+  <data name="authorLabel" xml:space="preserve">
+    <value>Autor:</value>
+    <comment>songInfo</comment>
+  </data>
   <data name="changeAvatarButton" xml:space="preserve">
     <value>Zmień zdjęcie</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="changeImageButton" xml:space="preserve">
+    <value>Zmień obraz</value>
+    <comment>songInfo</comment>
   </data>
   <data name="changeLanguageLabel" xml:space="preserve">
     <value>Zmień język</value>
@@ -196,6 +212,10 @@
   <data name="cityLabel" xml:space="preserve">
     <value>Miasto:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="costLabel" xml:space="preserve">
+    <value>Cena:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="countryLabel" xml:space="preserve">
     <value>Państwo:</value>
@@ -240,6 +260,10 @@
   <data name="editProfileLabel" xml:space="preserve">
     <value>EDYCJA PROFILU</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="labelLabel" xml:space="preserve">
+    <value>Label:</value>
+    <comment>artistInfo</comment>
   </data>
   <data name="loginButton" xml:space="preserve">
     <value>Zaloguj się</value>
@@ -293,9 +317,33 @@
     <value>Użytkownik już istnieje</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBoxError" xml:space="preserve">
+    <value>Błąd</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxFormatException" xml:space="preserve">
+    <value>Błędny format ceny.</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxNoSelection" xml:space="preserve">
+    <value>Brak zaznaczonych przedmiotów</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxTooManySelections" xml:space="preserve">
+    <value>Zbyt dużo wybranych elementów</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="nameLabel" xml:space="preserve">
+    <value>Nazwa:</value>
+    <comment>artistInfo</comment>
+  </data>
   <data name="newPasswordLabel" xml:space="preserve">
     <value>Nowe hasło</value>
     <comment>passwordForm</comment>
+  </data>
+  <data name="nicknameLabel" xml:space="preserve">
+    <value>Pseudonim:</value>
+    <comment>artistInfo</comment>
   </data>
   <data name="oldPasswordLabel" xml:space="preserve">
     <value>Stare hasło</value>
@@ -328,6 +376,10 @@
   <data name="postcodeLabel" xml:space="preserve">
     <value>Kod pocztowy:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="recordLabel" xml:space="preserve">
+    <value>Płyta:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="recordsButton" xml:space="preserve">
     <value>Płyty</value>
@@ -382,13 +434,45 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Coś poszło nie tak </value>
     <comment>DatabaseControl</comment>
   </data>
+  <data name="songPanelAddLabel" xml:space="preserve">
+    <value>DODAJ UTWÓR</value>
+    <comment>songInfo</comment>
+  </data>
+  <data name="songPanelEditLabel" xml:space="preserve">
+    <value>EDYTUJ UTWÓR</value>
+    <comment>songInfo</comment>
+  </data>
   <data name="songsButton" xml:space="preserve">
     <value>Utwory</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="SongsUCAuthorLabel" xml:space="preserve">
+    <value>Autor:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCCostLabel" xml:space="preserve">
+    <value>Cena:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCRecordLabel" xml:space="preserve">
+    <value>Płyta:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCTitleLabel" xml:space="preserve">
+    <value>Tytuł:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCYearLabel" xml:space="preserve">
+    <value>Rok:</value>
+    <comment>SongsUC</comment>
+  </data>
   <data name="streetLabel" xml:space="preserve">
     <value>Ulica:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="titleLabel" xml:space="preserve">
+    <value>Tytuł:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Nazwa użytkownika</value>
@@ -405,5 +489,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   <data name="wrongPassword" xml:space="preserve">
     <value>Złe hasło</value>
     <comment>passwordForm</comment>
+  </data>
+  <data name="yearLabel" xml:space="preserve">
+    <value>Rok:</value>
+    <comment>songInfo</comment>
   </data>
 </root>

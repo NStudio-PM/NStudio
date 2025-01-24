@@ -149,6 +149,14 @@
     <value>Nickname</value>
     <comment>artistsForm</comment>
   </data>
+  <data name="artistPanelAddLabel" xml:space="preserve">
+    <value>ADD ARTIST</value>
+    <comment>artistInfo</comment>
+  </data>
+  <data name="artistPanelEditLabel" xml:space="preserve">
+    <value>EDIT ARTIST</value>
+    <comment>artistInfo</comment>
+  </data>
   <data name="artistsButton" xml:space="preserve">
     <value>Artists</value>
     <comment>Dashboard</comment>
@@ -165,9 +173,17 @@
     <value>Nickname:</value>
     <comment>ArtistsUC</comment>
   </data>
+  <data name="authorLabel" xml:space="preserve">
+    <value>Author:</value>
+    <comment>songInfo</comment>
+  </data>
   <data name="changeAvatarButton" xml:space="preserve">
     <value>Change avatar</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="changeImageButton" xml:space="preserve">
+    <value>Change image</value>
+    <comment>songInfo</comment>
   </data>
   <data name="changeLanguageLabel" xml:space="preserve">
     <value>Change Language</value>
@@ -196,6 +212,10 @@
   <data name="cityLabel" xml:space="preserve">
     <value>City:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="costLabel" xml:space="preserve">
+    <value>Price:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="countryLabel" xml:space="preserve">
     <value>Country:</value>
@@ -240,6 +260,10 @@
   <data name="editProfileLabel" xml:space="preserve">
     <value>EDIT PROFILE</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="labelLabel" xml:space="preserve">
+    <value>Label:</value>
+    <comment>artistInfo</comment>
   </data>
   <data name="loginButton" xml:space="preserve">
     <value>Log In</value>
@@ -293,9 +317,33 @@
     <value>Username already exists</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBoxError" xml:space="preserve">
+    <value>Error</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxFormatException" xml:space="preserve">
+    <value>Price format error</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxNoSelection" xml:space="preserve">
+    <value>Zero selected items</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="msgBoxTooManySelections" xml:space="preserve">
+    <value>Too many selected items</value>
+    <comment>msgBox</comment>
+  </data>
+  <data name="nameLabel" xml:space="preserve">
+    <value>Name:</value>
+    <comment>artistInfo</comment>
+  </data>
   <data name="newPasswordLabel" xml:space="preserve">
     <value>New password</value>
     <comment>passwordForm</comment>
+  </data>
+  <data name="nicknameLabel" xml:space="preserve">
+    <value>Nickname:</value>
+    <comment>artistInfo</comment>
   </data>
   <data name="oldPasswordLabel" xml:space="preserve">
     <value>Old password</value>
@@ -328,6 +376,10 @@
   <data name="postcodeLabel" xml:space="preserve">
     <value>Postcode:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="recordLabel" xml:space="preserve">
+    <value>Record:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="recordsButton" xml:space="preserve">
     <value>Records</value>
@@ -382,13 +434,45 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Something went wrong </value>
     <comment>DatabaseControl</comment>
   </data>
+  <data name="songPanelAddLabel" xml:space="preserve">
+    <value>ADD SONG</value>
+    <comment>songInfo</comment>
+  </data>
+  <data name="songPanelEditLabel" xml:space="preserve">
+    <value>EDIT SONG</value>
+    <comment>songInfo</comment>
+  </data>
   <data name="songsButton" xml:space="preserve">
     <value>Songs</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="SongsUCAuthorLabel" xml:space="preserve">
+    <value>Author:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCCostLabel" xml:space="preserve">
+    <value>Price:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCRecordLabel" xml:space="preserve">
+    <value>Record:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCTitleLabel" xml:space="preserve">
+    <value>Title:</value>
+    <comment>SongsUC</comment>
+  </data>
+  <data name="SongsUCYearLabel" xml:space="preserve">
+    <value>Year:</value>
+    <comment>SongsUC</comment>
+  </data>
   <data name="streetLabel" xml:space="preserve">
     <value>Street:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="titleLabel" xml:space="preserve">
+    <value>Title:</value>
+    <comment>songInfo</comment>
   </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Username</value>
@@ -401,5 +485,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   <data name="wrongPassword" xml:space="preserve">
     <value>Wrong old password</value>
     <comment>passwordForm</comment>
+  </data>
+  <data name="yearLabel" xml:space="preserve">
+    <value>Year:</value>
+    <comment>songInfo</comment>
   </data>
 </root>

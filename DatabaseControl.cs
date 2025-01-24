@@ -23,6 +23,7 @@ using System.Collections;
 using System.Text.Json;
 using System.Runtime.Remoting.Messaging;
 using Microsoft.Win32;
+using System.IO;
 
 namespace NStudio
 {
@@ -127,9 +128,65 @@ namespace NStudio
                             using (MySqlConnection blankConnection = new MySqlConnection(blankConnectionString))
                             {
                                 blankConnection.Open();
-                                string createQuery = $"CREATE DATABASE `{dbName}`";
-                                MySqlCommand createCmd = new MySqlCommand(createQuery, blankConnection);
-                                await createCmd.ExecuteNonQueryAsync();
+                                string createDbQuery = $"CREATE DATABASE `{dbName}`";
+                                MySqlCommand createDbCmd = new MySqlCommand(createDbQuery, blankConnection);
+                                await createDbCmd.ExecuteNonQueryAsync();
+
+                                string useDbQuery = $"USE `{dbName}`";
+                                MySqlCommand useDbCmd = new MySqlCommand(useDbQuery, blankConnection);
+                                await useDbCmd.ExecuteNonQueryAsync();
+
+                                string createArtistsTable = @"
+                                    CREATE TABLE `artists` (
+                                        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                                        name VARCHAR(24),
+                                        nickname VARCHAR(24),
+                                        label VARCHAR(24),
+                                        avatar BLOB
+                                    )";
+
+                                string createRecordsTable = @"
+                                    CREATE TABLE `records` (
+                                        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                                        title VARCHAR(36),
+                                        author VARCHAR(36),
+                                        label VARCHAR(36),
+                                        year INT(11),
+                                        cost INT(11),
+                                        image BLOB
+                                    )";
+
+                                string createSongsTable = @"
+                                    CREATE TABLE `songs` (
+                                        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                                        title VARCHAR(36),
+                                        author VARCHAR(24),
+                                        record VARCHAR(24),
+                                        year INT(11),
+                                        cost INT(11),
+                                        image BLOB
+                                    )";
+
+                                string createUsersTable = @"
+                                    CREATE TABLE `users` (
+                                        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                                        username VARCHAR(24),
+                                        password VARCHAR(65),
+                                        power TINYINT(4),
+                                        country VARCHAR(32),
+                                        postcode VARCHAR(32),
+                                        city VARCHAR(32),
+                                        street VARCHAR(32),
+                                        balance INT(11) DEFAULT 50000,
+                                        avatar BLOB
+                                    )";
+
+                                var createTableCommands = new List<string> { createArtistsTable, createRecordsTable, createSongsTable, createUsersTable };
+                                foreach (var query in createTableCommands)
+                                {
+                                    MySqlCommand createTableCmd = new MySqlCommand(query, blankConnection);
+                                    await createTableCmd.ExecuteNonQueryAsync();
+                                }
                                 UpdateLabelColor?.Invoke(Color.LightGreen);
                                 return true;
                             }
@@ -417,6 +474,37 @@ namespace NStudio
             }
         }
 
+        public DataTable SongsLoadData()
+        {
+            DataTable dataTable = new DataTable();
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT * FROM songs";
+                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(query, connection);
+                            dataAdapter.Fill(dataTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        return dataTable;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    dataTable = null;
+                    return dataTable;
+            }
+        }
+
+
         public bool ChangeUserInfo(DataTable userInfo)
         {
             switch (databaseType)
@@ -554,6 +642,294 @@ namespace NStudio
                 case "mongodb":
                 default:
                     return false;
+            }
+        }
+
+        public bool AddRowToDB(DataTable data, string table)
+        {
+            string insertQuery;
+            switch (databaseType)
+            {
+                case "mysql":
+                    switch (table)
+                    {
+                        case "songs":
+                            insertQuery = "INSERT INTO songs (title, author, record, year, cost, image) " +
+                                           "VALUES (@title, @author, @record, @year, @cost, @image)";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+                                    command.Parameters.AddWithValue("@title", row["title"]);
+                                    command.Parameters.AddWithValue("@author", row["author"]);
+                                    command.Parameters.AddWithValue("@record", row["record"]);
+                                    command.Parameters.AddWithValue("@year", Convert.ToInt32(row["year"]));
+                                    command.Parameters.AddWithValue("@cost", Convert.ToInt32(row["cost"]));
+                                    if (row["image"] != DBNull.Value && row["image"] is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@image", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@image", DBNull.Value);
+                                    }
+                                    if (command.ExecuteNonQuery() > 0) { return true; }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+
+                        case "artists":
+                            insertQuery = "INSERT INTO artists (name, nickname, label, avatar) " +
+                                          "VALUES (@name, @nickname, @label, @avatar)";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+                                    command.Parameters.AddWithValue("@name", row["name"]);
+                                    command.Parameters.AddWithValue("@nickname", row["nickname"]);
+                                    command.Parameters.AddWithValue("@label", row["label"]);
+                                    if (row["avatar"] != DBNull.Value && row["avatar"] is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@avatar", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@avatar", DBNull.Value);
+                                    }
+                                    if (command.ExecuteNonQuery() > 0) { return true; }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+                        case "records":
+                        default:
+                            return false;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return false;
+            }
+
+        }
+
+        public bool ChangeRow(DataTable data, int id, string table)
+        {
+            string updateQuery;
+            switch (databaseType)
+            {
+                case "mysql":
+                    switch (table)
+                    {
+                        case "songs":
+                            updateQuery = "UPDATE songs SET " +
+                                            "title = @title, " +
+                                            "author = @author, " +
+                                            "record = @record, " +
+                                            "year = @year, " +
+                                            "cost = @cost, " +
+                                            "image = @image " +
+                                            "WHERE id = @id";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+
+                                    command.Parameters.AddWithValue("@id", id);
+                                    command.Parameters.AddWithValue("@title", row["title"]);
+                                    command.Parameters.AddWithValue("@author", row["author"]);
+                                    command.Parameters.AddWithValue("@record", row["record"]);
+                                    command.Parameters.AddWithValue("@year", Convert.ToInt32(row["year"]));
+                                    command.Parameters.AddWithValue("@cost", Convert.ToInt32(row["cost"]));
+                                    var image = row["image"];
+                                    if (image != DBNull.Value && image is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@image", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@image", DBNull.Value);
+                                    }
+
+                                    if (command.ExecuteNonQuery() > 0)
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+
+                        case "artists":
+                            updateQuery = "UPDATE artists SET " +
+                                            "name = @name, " +
+                                            "nickname = @nickname, " +
+                                            "label = @label, " +
+                                            "avatar = @avatar " +
+                                            "WHERE id = @id";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+
+                                    command.Parameters.AddWithValue("@id", id);
+                                    command.Parameters.AddWithValue("@name", row["name"]);
+                                    command.Parameters.AddWithValue("@nickname", row["nickname"]);
+                                    command.Parameters.AddWithValue("@label", row["label"]);
+                                    if (row["avatar"] != DBNull.Value && row["avatar"] is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@avatar", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@avatar", DBNull.Value);
+                                    }
+
+                                    if (command.ExecuteNonQuery() > 0)
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+
+                        case "records":
+                            updateQuery = "UPDATE records SET " +
+                                            "title = @title, " +
+                                            "author = @author, " +
+                                            "label = @label, " +
+                                            "year = @year, " +
+                                            "cost = @cost, " +
+                                            "image = @image " +
+                                            "WHERE id = @id";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(updateQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+
+                                    command.Parameters.AddWithValue("@id", id);
+                                    command.Parameters.AddWithValue("@title", row["title"]);
+                                    command.Parameters.AddWithValue("@author", row["author"]);
+                                    command.Parameters.AddWithValue("@label", row["label"]);
+                                    command.Parameters.AddWithValue("@year", Convert.ToInt32(row["year"]));
+                                    command.Parameters.AddWithValue("@cost", Convert.ToInt32(row["cost"]));
+                                    if (row["image"] != DBNull.Value && row["image"] is byte[] imageBytes)
+                                    {
+                                        command.Parameters.AddWithValue("@image", imageBytes);
+                                    }
+                                    else
+                                    {
+                                        command.Parameters.AddWithValue("@image", DBNull.Value);
+                                    }
+
+                                    if (command.ExecuteNonQuery() > 0)
+                                    {
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+
+                        default:
+                            return false;
+                    }
+
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return false;
+            }
+        }
+
+        public bool CompareTwoUserInfo(DataTable originalUserInfo, DataTable newUserInfo)
+        {
+            for (int i = 0; i < originalUserInfo.Columns.Count; i++)
+            {
+                if (i == 8)
+                {
+                    if(originalUserInfo.Rows[0][i] == DBNull.Value && newUserInfo.Rows[0][i] is byte[])
+                    {
+                        return false;
+                    }
+                    if (originalUserInfo.Rows[0][i] is byte[] byteArray1 && newUserInfo.Rows[0][i] is byte[] byteArray2)
+                    {
+                        if (!CompareTwoByteTable(byteArray1, byteArray2)) { return false; }
+                    }
+                }
+                else
+                {
+                    if (originalUserInfo.Rows[0][i].ToString() != newUserInfo.Rows[0][i].ToString()) { return false; }
+                }
+            }
+            return true;
+        }
+
+        public bool CompareTwoDataTable(DataTable originalDataTable, DataTable newDataTable)
+        {
+            for (int i = 0; i < originalDataTable.Columns.Count; i++)
+            {
+                if (originalDataTable.Rows[0][i] is byte[])
+                {
+                    if (originalDataTable.Rows[0][i] is byte[] byteArray1 && newDataTable.Rows[0][i] is byte[] byteArray2)
+                        if (!CompareTwoByteTable(byteArray1, byteArray2)) { return false; }
+                }
+                else
+                {
+                    if (originalDataTable.Rows[0][i].ToString() != newDataTable.Rows[0][i].ToString()) { return false; }
+                }
+            }
+            return true;
+        }
+
+        public bool CompareTwoByteTable(byte[] byteArray1, byte[] byteArray2)
+        {
+            if (byteArray1.Length != byteArray2.Length) { return false; }
+            for (int i = 0; i < byteArray1.Length; i++)
+            {
+                if (byteArray1[i] != byteArray2[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public byte[] AvatarToByteArray(PictureBox pictureBox)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                pictureBox.Image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+                return memoryStream.ToArray();
             }
         }
 

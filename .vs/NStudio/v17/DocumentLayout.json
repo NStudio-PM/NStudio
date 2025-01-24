@@ -3,40 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\databasecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:databasecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\language\\strings.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:language\\strings.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\language\\strings.en.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:language\\strings.en.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\desktop\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\query\\artistinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\query\\artistinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\desktop\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\databasecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:databasecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\query\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\query\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\query\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\query\\songinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\artistsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\songsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\songsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\songsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\songsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\query\\artistinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\query\\artistinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|c:\\users\\jakub\\documents\\github projects\\nstudio\\nstudio\\desktop\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F880EBDC-6FE9-4B90-9059-9EE1BC67F692}|NStudio.csproj|solutionrelative:desktop\\profileform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,125 +53,147 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 266,
-          "SelectedChildIndex": 6,
+          "DockedWidth": 226,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "settingsForm.cs",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\settingsForm.cs",
-              "RelativeDocumentMoniker": "Desktop\\settingsForm.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\settingsForm.cs",
-              "RelativeToolTip": "Desktop\\settingsForm.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAhwC4AAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "songInfo.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\songInfo.cs",
+              "RelativeDocumentMoniker": "Desktop\\Query\\songInfo.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\songInfo.cs [Projekt]",
+              "RelativeToolTip": "Desktop\\Query\\songInfo.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T14:52:37.798Z",
+              "WhenOpened": "2025-01-23T21:29:42.595Z",
+              "IsPinned": true,
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "songInfo.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\songInfo.cs",
+              "RelativeDocumentMoniker": "Desktop\\Query\\songInfo.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\songInfo.cs",
+              "RelativeToolTip": "Desktop\\Query\\songInfo.cs",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAuwHIAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T21:40:18.818Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "settingsForm.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\settingsForm.cs",
-              "RelativeDocumentMoniker": "Desktop\\settingsForm.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\settingsForm.cs [Projekt]",
-              "RelativeToolTip": "Desktop\\settingsForm.cs [Projekt]",
+              "DocumentIndex": 9,
+              "Title": "artistInfo.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\artistInfo.cs",
+              "RelativeDocumentMoniker": "Desktop\\Query\\artistInfo.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\artistInfo.cs [Projekt]",
+              "RelativeToolTip": "Desktop\\Query\\artistInfo.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T14:51:24.289Z",
+              "WhenOpened": "2025-01-24T10:28:35.811Z",
               "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "artistsForm.cs",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
-              "RelativeDocumentMoniker": "Desktop\\artistsForm.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
-              "RelativeToolTip": "Desktop\\artistsForm.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAE8AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T00:25:00.821Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "artistsForm.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
               "RelativeDocumentMoniker": "Desktop\\artistsForm.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs [Projekt]",
               "RelativeToolTip": "Desktop\\artistsForm.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T16:46:43.289Z",
+              "WhenOpened": "2025-01-23T21:59:33.105Z",
               "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Dashboard.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
-              "RelativeDocumentMoniker": "Dashboard.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs [Projekt]",
-              "RelativeToolTip": "Dashboard.cs [Projekt]",
+              "DocumentIndex": 0,
+              "Title": "artistsForm.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
+              "RelativeDocumentMoniker": "Desktop\\artistsForm.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\artistsForm.cs",
+              "RelativeToolTip": "Desktop\\artistsForm.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAiwAEBAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T23:08:52.867Z",
+              "WhenOpened": "2025-01-23T21:59:35.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "profileForm.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\profileForm.cs",
+              "RelativeDocumentMoniker": "Desktop\\profileForm.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\profileForm.cs [Projekt]",
+              "RelativeToolTip": "Desktop\\profileForm.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T21:29:08.564Z",
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "songsForm.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\songsForm.cs",
+              "RelativeDocumentMoniker": "Desktop\\songsForm.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\songsForm.cs",
+              "RelativeToolTip": "Desktop\\songsForm.cs",
+              "ViewState": "AQIAAMoAAAAAAAAAAAAYwNUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T17:07:52.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "songsForm.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\songsForm.cs",
+              "RelativeDocumentMoniker": "Desktop\\songsForm.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\songsForm.cs [Projekt]",
+              "RelativeToolTip": "Desktop\\songsForm.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T17:03:18.087Z",
               "EditorCaption": " [Projekt]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Dashboard.cs",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
-              "RelativeDocumentMoniker": "Dashboard.cs",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Dashboard.cs",
-              "RelativeToolTip": "Dashboard.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAADgvycAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-01T15:30:14.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "DatabaseControl.cs",
               "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\DatabaseControl.cs",
               "RelativeDocumentMoniker": "DatabaseControl.cs",
               "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\DatabaseControl.cs",
               "RelativeToolTip": "DatabaseControl.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAcwCcAAAAAAAAA",
+              "ViewState": "AQIAAGUDAAAAAAAAAAAiwGoDAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-31T23:50:20.279Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 134,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "strings.resx",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Language\\strings.resx",
-              "RelativeDocumentMoniker": "Language\\strings.resx",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Language\\strings.resx",
-              "RelativeToolTip": "Language\\strings.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-01-22T15:12:50.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "strings.en.resx",
-              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Language\\strings.en.resx",
-              "RelativeDocumentMoniker": "Language\\strings.en.resx",
-              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Language\\strings.en.resx",
-              "RelativeToolTip": "Language\\strings.en.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-01-08T23:53:52.065Z",
+              "Title": "profileForm.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\profileForm.cs",
+              "RelativeDocumentMoniker": "Desktop\\profileForm.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\profileForm.cs",
+              "RelativeToolTip": "Desktop\\profileForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIoAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T21:45:34.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "artistInfo.cs",
+              "DocumentMoniker": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\artistInfo.cs",
+              "RelativeDocumentMoniker": "Desktop\\Query\\artistInfo.cs",
+              "ToolTip": "C:\\Users\\jakub\\Documents\\Github Projects\\NStudio\\NStudio\\Desktop\\Query\\artistInfo.cs",
+              "RelativeToolTip": "Desktop\\Query\\artistInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T10:29:08.469Z",
               "EditorCaption": ""
             }
           ]

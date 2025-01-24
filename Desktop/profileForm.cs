@@ -15,17 +15,14 @@ namespace NStudio.Desktop
     public partial class profileForm : Form
     {
         private string tempString = "";
-        private byte[] imageData = null;
         private bool avatarChanged;
-        private bool avatarNull;
-        public DatabaseControl dbControlProfile;
+        public DatabaseControl dbControl;
         public DataTable userInfo;
         public profileForm(DatabaseControl dbControl)
         {
-            this.dbControlProfile = dbControl;
-            userInfo = dbControlProfile.userInfo;
+            this.dbControl = dbControl;
+            userInfo = dbControl.userInfo;
             avatarChanged = false;
-            avatarNull = true;
             InitializeComponent();
             Innit();
             changePasswordButton.Focus();
@@ -82,33 +79,6 @@ namespace NStudio.Desktop
             if (textBox.Text == "") { textBox.Text = tempString; }
         }
 
-        private bool CompareTwoDataTable(DataTable originalUserInfo, DataTable newUserInfo)
-        {
-            for (int i = 0; i < originalUserInfo.Columns.Count; i++) 
-            {
-                if(i == 8) 
-                {
-                    if(originalUserInfo.Rows[0][i] is byte[] byteArray1 && newUserInfo.Rows[0][i] is byte[] byteArray2)
-                    if (!CompareTwoByteTable(byteArray1, byteArray2)) { return false; }
-                }else 
-                {
-                    if (originalUserInfo.Rows[0][i].ToString() != newUserInfo.Rows[0][i].ToString()) { return false; }
-                }
-            }
-            return true;
-        }
-
-        private bool CompareTwoByteTable(byte[] byteArray1,  byte[] byteArray2)
-        {
-            if (byteArray1.Length != byteArray2.Length) { return false; }
-            for (int i = 0; i < byteArray1.Length; i++)
-            {
-                if(byteArray1[i] != byteArray2[i]) { 
-                    return false; }
-            }
-            return true;
-        }
-
         private void rejectButton_Click(object sender, EventArgs e)
         {
             tempString = "";
@@ -131,30 +101,20 @@ namespace NStudio.Desktop
 
                     Image selectedImage = Image.FromFile(openFileDialog.FileName);
                     avatarBox.Image = selectedImage;
-                    imageData = File.ReadAllBytes(openFileDialog.FileName);
                     avatarChanged = true;
                 }
             }
         }
 
-        private byte[] AvatarToByteArray(PictureBox pictureBox)
-        {
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                pictureBox.Image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-                return memoryStream.ToArray();
-            }
-        }
-
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            DataTable newUserInfo = dbControlProfile.userInfo.Clone();
-            foreach(DataRow row in dbControlProfile.userInfo.Rows) { newUserInfo.ImportRow(row); }
-            if(usernameBox.Text != dbControlProfile.userInfo.Rows[0][1].ToString())
+            DataTable newUserInfo = dbControl.userInfo.Clone();
+            foreach(DataRow row in dbControl.userInfo.Rows) { newUserInfo.ImportRow(row); }
+            if(usernameBox.Text != dbControl.userInfo.Rows[0][1].ToString())
             {
-                if (dbControlProfile.UserExists(usernameBox.Text))
+                if (dbControl.UserExists(usernameBox.Text))
                 {
-                    newUserInfo.Rows[0][1] = dbControlProfile.userInfo.Rows[0][1].ToString();
+                    newUserInfo.Rows[0][1] = dbControl.userInfo.Rows[0][1].ToString();
                     MessageBox.Show(LogInModule.GetString("msgBox6Profile"));
                 }
                 else
@@ -169,14 +129,14 @@ namespace NStudio.Desktop
             newUserInfo.Rows[0][6] = streetBox.Text;
             if (avatarChanged)
             {
-                byte[] avatarArrayP = AvatarToByteArray(avatarBox);
+                byte[] avatarArrayP = dbControl.AvatarToByteArray(avatarBox);
                 newUserInfo.Rows[0][8] = avatarArrayP;
             }
-            else { newUserInfo.Rows[0][8] = dbControlProfile.userInfo.Rows[0][8]; }
-            if (newUserInfo.Rows[0][8] is byte[] avatarArray) { newUserInfo.Rows[0][8] = avatarArray; }
-            else { newUserInfo.Rows[0][8] = null; }
-
-            if(!CompareTwoDataTable(dbControlProfile.userInfo, newUserInfo))
+            else { newUserInfo.Rows[0][8] = dbControl.userInfo.Rows[0][8]; }
+            //if (newUserInfo.Rows[0][8] is byte[] avatarArray) { newUserInfo.Rows[0][8] = avatarArrayP; }
+            //else { newUserInfo.Rows[0][8] = null; }
+  
+            if(!dbControl.CompareTwoUserInfo(dbControl.userInfo, newUserInfo))
             {
                 var result = MessageBox.Show(LogInModule.GetString("msgBox1Profile"),
                                               "UserInfo",
@@ -184,8 +144,8 @@ namespace NStudio.Desktop
                                               MessageBoxIcon.Information);
                 if(result == DialogResult.Yes)
                 {
-                    if (dbControlProfile.ChangeUserInfo(newUserInfo)) {
-                        dbControlProfile.userInfo = newUserInfo;
+                    if (dbControl.ChangeUserInfo(newUserInfo)) {
+                        dbControl.userInfo = newUserInfo;
                         MessageBox.Show(LogInModule.GetString("msgBox2Profile")); 
                     } 
                     else { MessageBox.Show(LogInModule.GetString("msgBox5Profile")); }
@@ -204,7 +164,7 @@ namespace NStudio.Desktop
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
-            passwordForm passwordForm = new passwordForm(dbControlProfile);
+            passwordForm passwordForm = new passwordForm(dbControl);
             passwordForm.ShowDialog();
         }
     }

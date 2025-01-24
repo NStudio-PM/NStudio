@@ -169,6 +169,15 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// </summary>
+        internal static string authorLabel {
+            get {
+                return ResourceManager.GetString("authorLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zmień zdjęcie.
         /// </summary>
         internal static string changeAvatarButton {
@@ -457,6 +466,33 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Błąd.
+        /// </summary>
+        internal static string msgBoxError {
+            get {
+                return ResourceManager.GetString("msgBoxError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Brak zaznaczonych przedmiotów.
+        /// </summary>
+        internal static string msgBoxNoSelection {
+            get {
+                return ResourceManager.GetString("msgBoxNoSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Zbyt dużo wybranych elementów.
+        /// </summary>
+        internal static string msgBoxTooManySelections {
+            get {
+                return ResourceManager.GetString("msgBoxTooManySelections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Nowe hasło.
         /// </summary>
         internal static string newPasswordLabel {
@@ -665,11 +701,65 @@ namespace NStudio.Language {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Autor:.
+        /// </summary>
+        internal static string SongsUCAuthorLabel {
+            get {
+                return ResourceManager.GetString("SongsUCAuthorLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Cena:.
+        /// </summary>
+        internal static string SongsUCCostLabel {
+            get {
+                return ResourceManager.GetString("SongsUCCostLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Płyta:.
+        /// </summary>
+        internal static string SongsUCRecordLabel {
+            get {
+                return ResourceManager.GetString("SongsUCRecordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Tytuł:.
+        /// </summary>
+        internal static string SongsUCTitleLabel {
+            get {
+                return ResourceManager.GetString("SongsUCTitleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Rok:.
+        /// </summary>
+        internal static string SongsUCYearLabel {
+            get {
+                return ResourceManager.GetString("SongsUCYearLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Ulica:.
         /// </summary>
         internal static string streetLabel {
             get {
                 return ResourceManager.GetString("streetLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu .
+        /// </summary>
+        internal static string titleLabel {
+            get {
+                return ResourceManager.GetString("titleLabel", resourceCulture);
             }
         }
         
