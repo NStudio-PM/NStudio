@@ -165,6 +165,10 @@
     <value>Artists</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="artistsCountLabel" xml:space="preserve">
+    <value>Artists count:</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="ArtistUCLabelLabel" xml:space="preserve">
     <value>Label:</value>
     <comment>ArtistsUC</comment>
@@ -264,6 +268,10 @@
   <data name="editProfileLabel" xml:space="preserve">
     <value>EDIT PROFILE</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="incomeLabel" xml:space="preserve">
+    <value>Income:</value>
+    <comment>Dashboard</comment>
   </data>
   <data name="labelLabel" xml:space="preserve">
     <value>Label:</value>
@@ -413,6 +421,10 @@
     <value>Records</value>
     <comment>Dashboard</comment>
   </data>
+  <data name="recordsCountLabel" xml:space="preserve">
+    <value>Records count:</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="registerButton1" xml:space="preserve">
     <value>Sign Up</value>
     <comment>LogInModule</comment>
@@ -476,6 +488,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   </data>
   <data name="songsButton" xml:space="preserve">
     <value>Songs</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="songsCountLabel" xml:space="preserve">
+    <value>Songs count:</value>
     <comment>Dashboard</comment>
   </data>
   <data name="SongsUCAuthorLabel" xml:space="preserve">

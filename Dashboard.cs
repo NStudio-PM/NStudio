@@ -35,6 +35,8 @@ namespace NStudio
         public Dashboard(DatabaseControl dbControl)
         {
             this.dbControl = dbControl;
+            this.KeyPreview = true;
+            this.KeyDown += Dashboard_KeyDown;
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
@@ -59,6 +61,11 @@ namespace NStudio
             artistsButton.Text = LogInModule.GetString("artistsButton");
             shopButton.Text = LogInModule.GetString("shopButton");
             settingsButton.Text = LogInModule.GetString("settingsButton");
+            incomeLabel.Text = LogInModule.GetString("incomeLabel");
+            songsCountLabel.Text = LogInModule.GetString("songsCountLabel");
+            recordsCountLabel.Text = LogInModule.GetString("recordsCountLabel");
+            artistsCountLabel.Text = LogInModule.GetString("artistsCountLabel");
+            dbName.Text = Properties.Settings.Default.dbName + "  @" + Properties.Settings.Default.dbHostname;
 
             toolTip.SetToolTip(profileButton, LogInModule.GetString("d1Tooltip"));
             toolTip.SetToolTip(profileNameLabel, LogInModule.GetString("d1Tooltip"));
@@ -68,6 +75,45 @@ namespace NStudio
         {
             base.OnFormClosed(e);
             Application.Exit();
+        }
+
+        private void Dashboard_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.SuppressKeyPress = true;
+                songsButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.R)
+            {
+                e.SuppressKeyPress = true;
+                recordsButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.A)
+            {
+                e.SuppressKeyPress = true;
+                artistsButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.H)
+            {
+                e.SuppressKeyPress = true;
+                shopButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.E)
+            {
+                e.SuppressKeyPress = true;
+                settingsButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.P)
+            {
+                e.SuppressKeyPress = true;
+                profileButton_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.D)
+            {
+                e.SuppressKeyPress = true;
+                Reset();
+            }
         }
 
         private void OpenChild(Form childForm)
@@ -88,7 +134,7 @@ namespace NStudio
 
         private void ActivateButton(object sender, Color color)
         {
-            if (sender != null)
+            if (sender != null && sender is IconButton button)
             {
                 DeactivateButton();
                 currentBtn = (IconButton)sender;
