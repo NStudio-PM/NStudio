@@ -33,6 +33,16 @@ namespace NStudio.Desktop
             flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
+        public artistsForm(bool demo)
+        {
+            InitializeComponent();
+            InnitView(0);
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = true;
+            flowPanel.AutoSize = true;
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
         private void LoadArtistsToFlowPanel(DataTable artistsTable, FlowLayoutPanel flowPanel)
         {
             flowPanel.Controls.Clear();
@@ -77,25 +87,23 @@ namespace NStudio.Desktop
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
             flowPanel.AutoScroll = true;
-
-            artists = dbControlArtists.ArtistsLoadData();
-            LoadArtistsToFlowPanel(artists, flowPanel);
-
-            var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
-            foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
-            var emptySlot = "";
-            if (!LabelBox.Items.Contains(emptySlot)) {  LabelBox.Items.Add(emptySlot); }
-
             toolTip = new ToolTip();
             toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("aF1Tooltip"));
             toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("aF2Tooltip"));
             toolTip.SetToolTip(ArtistEditButton, LogInModule.GetString("aF3Tooltip"));
-
             ArtistNameLabel.Text = LogInModule.GetString("artistName");
             ArtistNickLabel.Text = LogInModule.GetString("artistNick");
             ArtistLabelLabel.Text = LogInModule.GetString("artistLabel");
 
-            if (power >= 2)
+            if (power > 0)
+            {
+                artists = dbControlArtists.ArtistsLoadData();
+                LoadArtistsToFlowPanel(artists, flowPanel);
+                var uniqueLabels = artists.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
+                foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
+                var emptySlot = "";
+                if (!LabelBox.Items.Contains(emptySlot)) { LabelBox.Items.Add(emptySlot); }
+            }else if (power >= 2)
             {
                 ArtistPlusButton.Enabled = true;
                 ArtistMinusButton.Enabled = true;

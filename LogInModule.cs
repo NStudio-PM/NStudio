@@ -21,6 +21,7 @@ using Org.BouncyCastle.Asn1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Diagnostics.Eventing.Reader;
 using NStudio.Desktop;
+using Org.BouncyCastle.Pqc.Crypto.Utilities;
 
 namespace NStudio
 {
@@ -32,8 +33,10 @@ namespace NStudio
         public DatabaseControl dbControl;
         public bool dbCreated = false;
         private bool isEnglish;
+        private static bool isDark;
         private static bool isFirstCall = true;
         public static bool logInSkipMode = false;
+        public static string DemoPassword;
 
         private string DHostname = Properties.Settings.Default.dbHostname;
         public string DName = Properties.Settings.Default.dbName;
@@ -55,9 +58,13 @@ namespace NStudio
         {
             _rm = new ResourceManager("NStudio.Language.strings", Assembly.GetExecutingAssembly());
             string language = Properties.Settings.Default.language;
+            string theme = Properties.Settings.Default.theme;
+            LogInModule.ChangeTheme(theme);
             LogInModule.ChangeLanguage(language);
             if (Properties.Settings.Default.language == "pl") { isEnglish = false; }
             else { isEnglish = true; }
+            if(Properties.Settings.Default.theme == "white") { isDark = false; }
+            else { isDark = true; }
             if (logInSkipMode)
             {
                 Dashboard dashboard = new Dashboard(dbControl);
@@ -74,6 +81,8 @@ namespace NStudio
             returnButton.Visible = false;
             toolTip = new ToolTip();
             toolTip.SetToolTip(lblConnectionStatus, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(dbBox, LogInModule.GetString("dbTooltip"));
+            toolTip.SetToolTip(lockBox, LogInModule.GetString("lockBoxTooltip"));
             toolTip.SetToolTip(changeLanguageButton, LogInModule.GetString("changeLanguageTooltip"));
 
             string connectionString = $"server={DHostname};database={DName};uid={DUser};pwd={DPass};";
@@ -149,7 +158,55 @@ namespace NStudio
             return _rm.GetString(name);
         }
 
-        public static void ChangeLanguage(string choice)
+        public static Color GetColor(string shade) // font/up/down
+        {
+            if (isDark)
+            {
+                switch (shade) 
+                {
+                    case "up":
+                        return Color.FromArgb(41, 41, 41);
+
+                    case "down":
+                        return Color.FromArgb(31, 31, 31);
+
+                    case "font":
+                        return Color.White;
+
+                    default:
+                        return Color.FromArgb(21, 21, 21);
+                }
+            }
+            else
+            {
+                switch (shade)
+                {
+                    case "up":
+                        return Color.FromArgb(173, 216, 230);
+
+                    case "down":
+                        return Color.FromArgb(34, 116, 165);
+
+                    case "font":
+                        return Color.Black;
+
+                    default:
+                        return Color.FromArgb(173, 216, 230);
+                }
+            }
+        }
+
+        public static string GetUnlockPassword()
+        {
+            return DemoPassword;
+        }
+
+        public static void SetUnlockPassword(string pass)
+        {
+            DemoPassword = pass;
+        }
+
+        public static void ChangeLanguage(string choice) // pl/en
         {
             if (isFirstCall)
             {
@@ -175,6 +232,27 @@ namespace NStudio
                     CultureInfo.CurrentCulture = cultureInfo;
                     CultureInfo.CurrentUICulture = cultureInfo;
 
+                    System.Threading.Thread.Sleep(1000);
+
+                    string exePath = Application.ExecutablePath;
+                    System.Diagnostics.Process.Start(exePath);
+                    Application.Exit();
+                }
+            }
+        }
+
+        public static void ChangeTheme(string choice) // dark/white    -/-font/up/down-/-
+        {
+            if (choice != Properties.Settings.Default.theme) 
+            {
+                var result = MessageBox.Show(GetString("changeThemeRequest"),
+                                             GetString("changeThemeTitle"),
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    Properties.Settings.Default.theme = choice;
+                    Properties.Settings.Default.Save();
                     System.Threading.Thread.Sleep(1000);
 
                     string exePath = Application.ExecutablePath;
@@ -293,6 +371,23 @@ namespace NStudio
         private void acceptRulesLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show(LogInModule.GetString("rules"), LogInModule.GetString("rulesTitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lockBox_Click(object sender, EventArgs e)
+        {
+            // enter demo mode
+            unlockForm unlockForm = new unlockForm();
+            var result = unlockForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Dashboard dashboard = new Dashboard(dbControl, demo: true);
+                this.Hide();
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show(LogInModule.GetString("badUnlockMsg"), LogInModule.GetString("lockTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

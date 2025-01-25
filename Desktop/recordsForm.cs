@@ -35,6 +35,16 @@ namespace NStudio.Desktop
             flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
+        public recordsForm(bool demo)
+        {
+            InitializeComponent();
+            InnitView(0);
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = true;
+            flowPanel.AutoSize = true;
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
         private void LoadRecordsToFlowPanel(DataTable recordsTable, FlowLayoutPanel flowPanel)
         {
             flowPanel.Controls.Clear();
@@ -81,26 +91,25 @@ namespace NStudio.Desktop
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
             flowPanel.AutoScroll = true;
-
-            records = dbControlRecords.RecordsLoadData();
-            LoadRecordsToFlowPanel(records, flowPanel);
-
-            var uniqueLabels = records.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
-            foreach (var label in uniqueLabels) { labelBox.Items.Add(label); }
-            var emptySlot = "";
-            if (!labelBox.Items.Contains(emptySlot)) { labelBox.Items.Add(emptySlot); }
-
             toolTip = new ToolTip();
             toolTip.SetToolTip(RecordsPlusButton, LogInModule.GetString("aF1Tooltip"));
             toolTip.SetToolTip(RecordsMinusButton, LogInModule.GetString("aF2Tooltip"));
             toolTip.SetToolTip(RecordsEditButton, LogInModule.GetString("aF3Tooltip"));
-
             titleLabel.Text = LogInModule.GetString("titleLabel-");
             authorLabel.Text = LogInModule.GetString("artistNick");
             labelLabel.Text = LogInModule.GetString("labelLabel-");
             yearLabel.Text = LogInModule.GetString("yearLabel-");
 
-            if (power >= 2)
+            if (power > 0)
+            {
+                records = dbControlRecords.RecordsLoadData();
+                LoadRecordsToFlowPanel(records, flowPanel);
+                var uniqueLabels = records.AsEnumerable().Select(row => row["label"].ToString()).Distinct().ToList();
+                foreach (var label in uniqueLabels) { labelBox.Items.Add(label); }
+                var emptySlot = "";
+                if (!labelBox.Items.Contains(emptySlot)) { labelBox.Items.Add(emptySlot); }
+            }
+            else if (power >= 2)
             {
                 RecordsPlusButton.Enabled = true;
                 RecordsMinusButton.Enabled = true;

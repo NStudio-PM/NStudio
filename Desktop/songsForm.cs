@@ -34,6 +34,16 @@ namespace NStudio.Desktop
             flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
+        public songsForm(bool demo)
+        {
+            InitializeComponent();
+            InnitView(0);
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = true;
+            flowPanel.AutoSize = true;
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
         private void LoadSongsToFlowPanel(DataTable songsTable, FlowLayoutPanel flowPanel)
         {
             flowPanel.Controls.Clear();
@@ -80,26 +90,25 @@ namespace NStudio.Desktop
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
             flowPanel.AutoScroll = true;
-
-            songs = dbControlSongs.SongsLoadData();
-            LoadSongsToFlowPanel(songs, flowPanel);
-
-            var uniqueRecords = songs.AsEnumerable().Select(row => row["record"].ToString()).Distinct().ToList();
-            foreach (var record in uniqueRecords) { recordBox.Items.Add(record); }
-            var emptySlot = "";
-            if (!recordBox.Items.Contains(emptySlot)) { recordBox.Items.Add(emptySlot); }
-
             toolTip = new ToolTip();
             toolTip.SetToolTip(SongsPlusButton, LogInModule.GetString("aF1Tooltip"));
             toolTip.SetToolTip(SongsMinusButton, LogInModule.GetString("aF2Tooltip"));
             toolTip.SetToolTip(SongsEditButton, LogInModule.GetString("aF3Tooltip"));
-
             titleLabel.Text = LogInModule.GetString("titleLabel-");
             authorLabel.Text = LogInModule.GetString("artistNick");
             recordLabel.Text = LogInModule.GetString("recordLabel-");
             yearLabel.Text = LogInModule.GetString("yearLabel-");
 
-            if (power >= 2)
+            if (power > 0)
+            {
+                songs = dbControlSongs.SongsLoadData();
+                LoadSongsToFlowPanel(songs, flowPanel);
+                var uniqueRecords = songs.AsEnumerable().Select(row => row["record"].ToString()).Distinct().ToList();
+                foreach (var record in uniqueRecords) { recordBox.Items.Add(record); }
+                var emptySlot = "";
+                if (!recordBox.Items.Contains(emptySlot)) { recordBox.Items.Add(emptySlot); }
+            }
+            else if (power >= 2)
             {
                 SongsPlusButton.Enabled = true;
                 SongsMinusButton.Enabled = true;

@@ -125,6 +125,50 @@
     <value>Akceptuje regulamin</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="AddAdminButton" xml:space="preserve">
+    <value>Dodaj</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddAdminLabel" xml:space="preserve">
+    <value>Wybierz użytkownika do nadania praw</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddAdminTitle" xml:space="preserve">
+    <value>Dodaj administratora</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddRejectButton" xml:space="preserve">
+    <value>Odrzuć</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="adminDBLabel" xml:space="preserve">
+    <value>Baza administratorów</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="adminLevelLabel" xml:space="preserve">
+    <value>Poziom administratora</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="AdminMinusButton" xml:space="preserve">
+    <value>Dodaj administratora</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="AdminPlusButton" xml:space="preserve">
+    <value>Usuń administratora</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="AdminResignButton" xml:space="preserve">
+    <value>Zrezygnuj</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="AdminResignButton1" xml:space="preserve">
+    <value>Zrezygnuj z praw administratora</value>
+    <comment>adminInfo</comment>
+  </data>
+  <data name="adminSettingsLabel" xml:space="preserve">
+    <value>Ustawienia administratora:</value>
+    <comment>settingsForm</comment>
+  </data>
   <data name="aF1Tooltip" xml:space="preserve">
     <value>Dodaj</value>
     <comment>controls</comment>
@@ -185,6 +229,10 @@
     <value>Autor:</value>
     <comment>songInfo</comment>
   </data>
+  <data name="badUnlockMsg" xml:space="preserve">
+    <value>Niepoprawne hasło odblokowujące</value>
+    <comment>unlockForm</comment>
+  </data>
   <data name="changeAvatarButton" xml:space="preserve">
     <value>Zmień zdjęcie</value>
     <comment>profileForm</comment>
@@ -216,6 +264,18 @@
   <data name="changeProfile" xml:space="preserve">
     <value>Zmień dane</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="changeThemeLabel" xml:space="preserve">
+    <value>Zmień motyw</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="changeThemeRequest" xml:space="preserve">
+    <value>Aby zastosować zmiany, konieczny jest reset aplikacji. Czy chcesz zrestartować?</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="changeThemeTitle" xml:space="preserve">
+    <value>Zmiana motywu</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="cityLabel" xml:space="preserve">
     <value>Miasto:</value>
@@ -281,6 +341,18 @@
     <value>Label</value>
     <comment>recordsForm</comment>
   </data>
+  <data name="lockBoxTooltip" xml:space="preserve">
+    <value>Wejdź w tryb demo</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="lockLabel" xml:space="preserve">
+    <value>Wprowadź hasło zabezpieczające</value>
+    <comment>unlockForm(lock)</comment>
+  </data>
+  <data name="lockTitle" xml:space="preserve">
+    <value>Zablokowanie aplikacji</value>
+    <comment>unlockForm(lock)</comment>
+  </data>
   <data name="loginButton" xml:space="preserve">
     <value>Zaloguj się</value>
     <comment>LogInModule</comment>
@@ -299,6 +371,14 @@
   </data>
   <data name="logOutLabel" xml:space="preserve">
     <value>Wyloguj</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="logOutRequest" xml:space="preserve">
+    <value>Czy na pewno chcesz się wylogować?</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="logOutTitle" xml:space="preserve">
+    <value>Wyloguj się</value>
     <comment>settingsForm</comment>
   </data>
   <data name="msgBox1Artist" xml:space="preserve">
@@ -397,6 +477,22 @@
     <value>Kod pocztowy:</value>
     <comment>profileForm</comment>
   </data>
+  <data name="PromoteAdminButton" xml:space="preserve">
+    <value>Wybierz</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteAdminLabel" xml:space="preserve">
+    <value>Wybierz admina do nadania SuperAdministratora</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteAdminTitle" xml:space="preserve">
+    <value>Nadaj SuperAdministratora</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteRejectButton" xml:space="preserve">
+    <value>Odrzuć</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
   <data name="recordInfoTitle" xml:space="preserve">
     <value>Informacje o płycie</value>
     <comment>recordInfo</comment>
@@ -440,6 +536,30 @@
   <data name="rejectButton" xml:space="preserve">
     <value>Odrzuć</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="RemoveAdminButton" xml:space="preserve">
+    <value>Zabierz</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveAdminLabel" xml:space="preserve">
+    <value>Wybierz administratora do zabrania praw</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveAdminTitle" xml:space="preserve">
+    <value>Usuń administratora</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveRejectButton" xml:space="preserve">
+    <value>Odrzuć</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="resignRequest" xml:space="preserve">
+    <value>Zostaniesz wylogowany z konta</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="resignTitle" xml:space="preserve">
+    <value>Rezygnacja</value>
+    <comment>settingsForm</comment>
   </data>
   <data name="returnButton" xml:space="preserve">
     <value>Powrót</value>
@@ -526,6 +646,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Tytuł</value>
     <comment>songsForm</comment>
   </data>
+  <data name="unlockButton" xml:space="preserve">
+    <value>Odblokuj</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="unlockTitle" xml:space="preserve">
+    <value>Odblokowanie demo</value>
+    <comment>unlockForm</comment>
+  </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Nazwa użytkownika</value>
     <comment>LogInModule</comment>
@@ -533,6 +661,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   <data name="usernameLabel" xml:space="preserve">
     <value>Nazwa użytkownika:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="userSettingsLabel" xml:space="preserve">
+    <value>Ustawienia użytkownika:</value>
+    <comment>settingsForm</comment>
   </data>
   <data name="wrongOldPass" xml:space="preserve">
     <value>Stare hasło jest nieprawidłowe.</value>

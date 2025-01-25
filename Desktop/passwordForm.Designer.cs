@@ -180,6 +180,7 @@
             this.Controls.Add(this.oldPasswordLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "passwordForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "passwordForm";
             this.panel1.ResumeLayout(false);

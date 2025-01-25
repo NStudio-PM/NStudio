@@ -20,5 +20,8 @@
     <Setting Name="language" Type="System.String" Scope="User">
       <Value Profile="(Default)">pl</Value>
     </Setting>
+    <Setting Name="theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dark</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

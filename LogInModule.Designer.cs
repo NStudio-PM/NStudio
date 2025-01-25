@@ -44,7 +44,7 @@
             this.rPassInput = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.lblConnectionStatus = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.dbBox = new System.Windows.Forms.PictureBox();
             this.registerButton = new System.Windows.Forms.Button();
             this.acceptRulesInput = new System.Windows.Forms.CheckBox();
             this.acceptRulesLabel = new System.Windows.Forms.LinkLabel();
@@ -52,12 +52,13 @@
             this.passPanel = new System.Windows.Forms.Panel();
             this.returnButton = new System.Windows.Forms.Button();
             this.changeLanguageButton = new System.Windows.Forms.Button();
+            this.lockBox = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PassPic)).BeginInit();
             this.rPassPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rPassPic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBox)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -168,16 +169,17 @@
             // 
             this.lblConnectionStatus.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.lblConnectionStatus, "lblConnectionStatus");
-            this.lblConnectionStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblConnectionStatus.ForeColor = System.Drawing.Color.RosyBrown;
             this.lblConnectionStatus.Name = "lblConnectionStatus";
             this.lblConnectionStatus.Click += new System.EventHandler(this.lblConnectionStatus_Click);
             // 
-            // pictureBox3
+            // dbBox
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
+            resources.ApplyResources(this.dbBox, "dbBox");
+            this.dbBox.BackColor = System.Drawing.Color.Transparent;
+            this.dbBox.Name = "dbBox";
+            this.dbBox.TabStop = false;
+            this.dbBox.Click += new System.EventHandler(this.lblConnectionStatus_Click);
             // 
             // registerButton
             // 
@@ -239,11 +241,25 @@
             this.changeLanguageButton.UseVisualStyleBackColor = false;
             this.changeLanguageButton.Click += new System.EventHandler(this.changeLanguageButton_Click);
             // 
+            // lockBox
+            // 
+            resources.ApplyResources(this.lockBox, "lockBox");
+            this.lockBox.BackColor = System.Drawing.Color.Transparent;
+            this.lockBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lockBox.FlatAppearance.BorderSize = 0;
+            this.lockBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.lockBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.lockBox.ForeColor = System.Drawing.Color.White;
+            this.lockBox.Name = "lockBox";
+            this.lockBox.UseVisualStyleBackColor = false;
+            this.lockBox.Click += new System.EventHandler(this.lockBox_Click);
+            // 
             // LogInModule
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(29)))), ((int)(((byte)(31)))));
+            this.Controls.Add(this.lockBox);
             this.Controls.Add(this.changeLanguageButton);
             this.Controls.Add(this.returnButton);
             this.Controls.Add(this.passPanel);
@@ -251,7 +267,7 @@
             this.Controls.Add(this.acceptRulesLabel);
             this.Controls.Add(this.acceptRulesInput);
             this.Controls.Add(this.registerButton);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.dbBox);
             this.Controls.Add(this.lblConnectionStatus);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.rPassPanel);
@@ -263,6 +279,7 @@
             this.Controls.Add(this.usernameInput);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.logo);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "LogInModule";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogInModule_FormClosing);
@@ -273,7 +290,7 @@
             this.rPassPanel.ResumeLayout(false);
             this.rPassPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rPassPic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +309,7 @@
         private System.Windows.Forms.Panel rPassPanel;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Label lblConnectionStatus;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox dbBox;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox rPassPic;
@@ -304,6 +321,7 @@
         private System.Windows.Forms.Panel passPanel;
         private System.Windows.Forms.Button returnButton;
         private System.Windows.Forms.Button changeLanguageButton;
+        private System.Windows.Forms.Button lockBox;
     }
 }
 

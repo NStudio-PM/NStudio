@@ -15,6 +15,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>C:\Users\jakub\Documents\PM RELEASE\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -35,8 +37,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,6 +65,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>NStudio.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaBlendTextBox">
@@ -411,6 +414,12 @@
     <Compile Include="Desktop\profileForm.Designer.cs">
       <DependentUpon>profileForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\Query\adminInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\Query\adminInfo.Designer.cs">
+      <DependentUpon>adminInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\Query\artistInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +462,12 @@
     <Compile Include="Desktop\songsForm.Designer.cs">
       <DependentUpon>songsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\unlockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\unlockForm.Designer.cs">
+      <DependentUpon>unlockForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogInModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +505,9 @@
     <EmbeddedResource Include="Desktop\profileForm.resx">
       <DependentUpon>profileForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\Query\adminInfo.resx">
+      <DependentUpon>adminInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Desktop\Query\artistInfo.resx">
       <DependentUpon>artistInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -511,12 +529,14 @@
     <EmbeddedResource Include="Desktop\songsForm.resx">
       <DependentUpon>songsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\unlockForm.resx">
+      <DependentUpon>unlockForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogInModule.resx">
       <DependentUpon>LogInModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Language\strings.en.resx" />
     <EmbeddedResource Include="Language\strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>strings1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

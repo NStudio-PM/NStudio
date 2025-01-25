@@ -22,6 +22,7 @@ namespace NStudio
         private Panel leftBorderBtn;
         private Form currentChild;
         private ToolTip toolTip;
+        private bool demo = false;
         private readonly struct RGBColors
         {
 
@@ -30,6 +31,7 @@ namespace NStudio
             public static readonly Color artistsColor = Color.FromArgb(147, 157, 254);
             public static readonly Color shopColor = Color.FromArgb(134, 125, 253);
             public static readonly Color settingsColor = Color.FromArgb(237, 28, 36);
+            public static readonly Color unlockColor = Color.FromArgb(232, 63, 111);
 
         }
         public Dashboard(DatabaseControl dbControl)
@@ -42,6 +44,7 @@ namespace NStudio
             leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
             profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
+            unlockButton.Visible = false;
 
             if (!DBNull.Value.Equals(dbControl.userInfo.Rows[0][8]))
             {
@@ -53,6 +56,23 @@ namespace NStudio
                 }
             }
         }
+
+        // demo mode activated
+        public Dashboard(DatabaseControl dbControl, bool demo)
+        {
+            this.dbControl = dbControl;
+            this.demo = demo;
+            this.KeyPreview = true;
+            this.KeyDown += Dashboard_KeyDown;
+            InitializeComponent();
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 60);
+            panelMenu.Controls.Add(leftBorderBtn);
+            profileNameLabel.Text = "demo";
+            unlockButton.Visible = true;
+            this.ControlBox = false;
+        }
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
             toolTip = new ToolTip();
@@ -65,10 +85,24 @@ namespace NStudio
             songsCountLabel.Text = LogInModule.GetString("songsCountLabel");
             recordsCountLabel.Text = LogInModule.GetString("recordsCountLabel");
             artistsCountLabel.Text = LogInModule.GetString("artistsCountLabel");
-            dbName.Text = Properties.Settings.Default.dbName + "  @" + Properties.Settings.Default.dbHostname;
+            unlockButton.Text = LogInModule.GetString("unlockButton");
+            if (!demo)
+            {
+                dbName.Text = Properties.Settings.Default.dbName + "  @" + Properties.Settings.Default.dbHostname;
+            }
+            else
+            {
+                dbName.Text = "demo  @localhost";
+            }
 
             toolTip.SetToolTip(profileButton, LogInModule.GetString("d1Tooltip"));
             toolTip.SetToolTip(profileNameLabel, LogInModule.GetString("d1Tooltip"));
+
+            ChangePanelBackgroundColorByTag("up", LogInModule.GetColor(shade: "up"));
+            ChangePanelBackgroundColorByTag("down", LogInModule.GetColor(shade: "down"));
+            ChangePanelBackgroundColorByTag("font", LogInModule.GetColor(shade: "font"));
+            ChangePanelBackgroundColorByTag("accent", LogInModule.GetColor(shade: "accent"));
+
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -114,22 +148,60 @@ namespace NStudio
                 e.SuppressKeyPress = true;
                 Reset();
             }
+            else if (e.Control && e.KeyCode == Keys.U)
+            {
+                e.SuppressKeyPress = true;
+                unlockButton_Click(sender, e);
+            }
+        }
+
+        private void ChangePanelBackgroundColorByTag(string tag, Color color)
+        {
+            ChangeControlColorByTag(this.Controls, tag, color);
+        }
+
+        private void ChangeControlColorByTag(Control.ControlCollection controls, string tag, Color color)
+        {
+            foreach (Control control in controls)
+            {
+                // Sprawdzenie tagu i zmiana koloru
+                if (control.Tag != null && control.Tag.ToString() == tag)
+                {
+                    if (control is Panel)
+                    {
+                        control.BackColor = color;
+                    }
+                    else if(control is Label)
+                    {
+                        control.ForeColor = color;
+                    }
+                    else if(control is IconButton button)
+                    {
+                        button.ForeColor = color;
+                        button.IconColor = color;
+                    }
+                }
+
+                // Rekurencja dla kontenerów
+                if (control.Controls.Count > 0)
+                {
+                    ChangeControlColorByTag(control.Controls, tag, color);
+                }
+            }
         }
 
         private void OpenChild(Form childForm)
         {
-
             if (currentChild != null) { currentChild.Close(); }
             currentChild = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            childForm.BackColor = Color.FromArgb(31, 31, 31);
+            childForm.BackColor = LogInModule.GetColor(shade: "down");
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-
         }
 
         private void ActivateButton(object sender, Color color)
@@ -138,7 +210,7 @@ namespace NStudio
             {
                 DeactivateButton();
                 currentBtn = (IconButton)sender;
-                currentBtn.BackColor = Color.FromArgb(31, 31, 31);
+                currentBtn.BackColor = LogInModule.GetColor(shade: "down");
                 currentBtn.ForeColor = color;
                 currentBtn.IconColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
@@ -156,9 +228,9 @@ namespace NStudio
         {
             if (currentBtn != null)
             {
-                currentBtn.BackColor = Color.FromArgb(41, 41, 41);
-                currentBtn.ForeColor = Color.White;
-                currentBtn.IconColor = Color.White;
+                currentBtn.BackColor = LogInModule.GetColor(shade: "up");
+                currentBtn.ForeColor = LogInModule.GetColor(shade: "font");
+                currentBtn.IconColor = LogInModule.GetColor(shade: "font");
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
@@ -174,32 +246,85 @@ namespace NStudio
 
         private void songsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.songsColor);
-            OpenChild(new songsForm(dbControl));
+            if (!demo)
+            {
+                ActivateButton(sender, RGBColors.songsColor);
+                OpenChild(new songsForm(dbControl));
+            }
+            else
+            {
+                ActivateButton(sender, RGBColors.songsColor);
+                OpenChild(new songsForm(demo: true));
+            }
         }
 
         private void recordsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.recordsColor);
-            OpenChild(new recordsForm(dbControl));
+            if (!demo)
+            {
+                ActivateButton(sender, RGBColors.recordsColor);
+                OpenChild(new recordsForm(dbControl));
+            }
+            else
+            {
+                ActivateButton(sender, RGBColors.recordsColor);
+                OpenChild(new recordsForm(demo: true));
+            }
         }
 
         private void artistsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.artistsColor);
-            OpenChild(new artistsForm(dbControl));
+            if (!demo)
+            {
+                ActivateButton(sender, RGBColors.artistsColor);
+                OpenChild(new artistsForm(dbControl));
+            }
+            else
+            {
+                ActivateButton(sender, RGBColors.artistsColor);
+                OpenChild(new artistsForm(demo: true));
+            }
         }
 
         private void shopButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.shopColor);
-            OpenChild(new shopForm());
+            if (!demo)
+            {
+                ActivateButton(sender, RGBColors.shopColor);
+                OpenChild(new shopForm());
+            }
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.settingsColor);
-            OpenChild(new settingsForm());
+            if (!demo)
+            {
+                ActivateButton(sender, RGBColors.settingsColor);
+                OpenChild(new settingsForm(dbControl));
+            }
+            else
+            {
+                ActivateButton(sender, RGBColors.settingsColor);
+                OpenChild(new settingsForm(demo: true));
+            }
+        }
+
+        private void unlockButton_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.unlockColor);
+            unlockForm unlockForm = new unlockForm(unlockRequest: true);
+            DialogResult result = unlockForm.ShowDialog();
+            DeactivateButton();
+            if(result == DialogResult.OK)
+            {
+                string exePath = Application.ExecutablePath;
+                System.Diagnostics.Process.Start(exePath);
+                Application.Exit();
+            }
+            else if (result == DialogResult.Abort)
+            {
+                MessageBox.Show(LogInModule.GetString("badUnlockMsg"), LogInModule.GetString("unlockTitle"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void logo_Click(object sender, EventArgs e)
@@ -209,17 +334,20 @@ namespace NStudio
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            profileForm profileForm = new profileForm(dbControl);
-            profileForm.ShowDialog();
-
-            profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
-            if (!DBNull.Value.Equals(dbControl.userInfo.Rows[0][8]))
+            if (!demo)
             {
-                byte[] avatar = (byte[])dbControl.userInfo.Rows[0][8];
-                using (MemoryStream avatarStream = new MemoryStream(avatar))
+                profileForm profileForm = new profileForm(dbControl);
+                profileForm.ShowDialog();
+
+                profileNameLabel.Text = dbControl.userInfo.Rows[0][1].ToString();
+                if (!DBNull.Value.Equals(dbControl.userInfo.Rows[0][8]))
                 {
-                    Bitmap bitmap = new Bitmap(avatarStream);
-                    profileButton.BackgroundImage = bitmap;
+                    byte[] avatar = (byte[])dbControl.userInfo.Rows[0][8];
+                    using (MemoryStream avatarStream = new MemoryStream(avatar))
+                    {
+                        Bitmap bitmap = new Bitmap(avatarStream);
+                        profileButton.BackgroundImage = bitmap;
+                    }
                 }
             }
         }

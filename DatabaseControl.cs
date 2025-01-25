@@ -534,6 +534,111 @@ namespace NStudio
             }
         }
 
+        public DataTable GetUsers()
+        {
+            DataTable users = new DataTable();
+            int maxPower = 2;
+            string query = "SELECT username FROM users WHERE power < @maxPower";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@maxPower", maxPower);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(users);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
+                }
+            }
+
+            return users;
+        }
+
+        public DataTable GetAdmins()
+        {
+            DataTable users = new DataTable();
+            int power = 2;
+            string query = "SELECT username FROM users WHERE power = @power";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@power", power);
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(users);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
+                }
+            }
+
+            return users;
+        }
+
+        public bool SetUserPower(string username, int goToPower)
+        {
+            string query = "UPDATE users SET power = @power WHERE username = @username";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+                        command.Parameters.AddWithValue("@power", goToPower);
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Błąd podczas aktualizacji użytkownika: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+        public int GetSAdminCount()
+        {
+            string query = "SELECT COUNT(*) FROM users WHERE power = 3";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        object result = command.ExecuteScalar();
+                        return Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Błąd podczas pobierania liczby użytkowników: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
 
         public bool ChangeUserInfo(DataTable userInfo)
         {

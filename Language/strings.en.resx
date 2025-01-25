@@ -125,6 +125,38 @@
     <value>Accept rules</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="AddAdminButton" xml:space="preserve">
+    <value>Promote</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddAdminLabel" xml:space="preserve">
+    <value>Choose user from table to promote</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddAdminTitle" xml:space="preserve">
+    <value>Add admin</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="AddRejectButton" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>adminInfo(Add)</comment>
+  </data>
+  <data name="adminDBLabel" xml:space="preserve">
+    <value>Admin database</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="adminLevelLabel" xml:space="preserve">
+    <value>Administrator power</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="AdminResignButton" xml:space="preserve">
+    <value>Resign from being admin</value>
+    <comment>adminInfo</comment>
+  </data>
+  <data name="adminSettingsLabel" xml:space="preserve">
+    <value>Admin tools:</value>
+    <comment>settingsForm</comment>
+  </data>
   <data name="aF1Tooltip" xml:space="preserve">
     <value>Add record</value>
     <comment>artistsForm</comment>
@@ -185,6 +217,10 @@
     <value>Author:</value>
     <comment>songInfo</comment>
   </data>
+  <data name="badUnlockMsg" xml:space="preserve">
+    <value>Bad unlock password</value>
+    <comment>unlockForm</comment>
+  </data>
   <data name="changeAvatarButton" xml:space="preserve">
     <value>Change avatar</value>
     <comment>profileForm</comment>
@@ -216,6 +252,18 @@
   <data name="changeProfile" xml:space="preserve">
     <value>Change profile info</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="changeThemeLabel" xml:space="preserve">
+    <value>Change theme</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="changeThemeRequest" xml:space="preserve">
+    <value>In order to apply the changes, it is necessary to reset the application. Do you want to restart?</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="changeThemeTitle" xml:space="preserve">
+    <value>Theme change</value>
+    <comment>LogInModule</comment>
   </data>
   <data name="cityLabel" xml:space="preserve">
     <value>City:</value>
@@ -281,6 +329,18 @@
     <value>Label</value>
     <comment>recordsForm</comment>
   </data>
+  <data name="lockBoxTooltip" xml:space="preserve">
+    <value>Enter demo mode</value>
+    <comment>LogInModule</comment>
+  </data>
+  <data name="lockLabel" xml:space="preserve">
+    <value>Enter unlock password</value>
+    <comment>unlockForm(lock)</comment>
+  </data>
+  <data name="lockTitle" xml:space="preserve">
+    <value>Lock app</value>
+    <comment>unlockForm(lock)</comment>
+  </data>
   <data name="loginButton" xml:space="preserve">
     <value>Log In</value>
     <comment>LogInModule</comment>
@@ -299,6 +359,14 @@
   </data>
   <data name="logOutLabel" xml:space="preserve">
     <value>Log out</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="logOutRequest" xml:space="preserve">
+    <value>Are you sure you want to log out?</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="logOutTitle" xml:space="preserve">
+    <value>Log Out</value>
     <comment>settingsForm</comment>
   </data>
   <data name="msgBox1Artist" xml:space="preserve">
@@ -397,6 +465,22 @@
     <value>Postcode:</value>
     <comment>profileForm</comment>
   </data>
+  <data name="PromoteAdminButton" xml:space="preserve">
+    <value>Choose</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteAdminLabel" xml:space="preserve">
+    <value>Choose admin to be SuperAdmin</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteAdminTitle" xml:space="preserve">
+    <value>Promote admin</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
+  <data name="PromoteRejectButton" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>adminInfo(Promote)</comment>
+  </data>
   <data name="recordInfoTitle" xml:space="preserve">
     <value>Record information</value>
     <comment>recordInfo</comment>
@@ -440,6 +524,30 @@
   <data name="rejectButton" xml:space="preserve">
     <value>Reject</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="RemoveAdminButton" xml:space="preserve">
+    <value>Demote</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveAdminLabel" xml:space="preserve">
+    <value>Choose admin from table to demote</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveAdminTitle" xml:space="preserve">
+    <value>Remove admin</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="RemoveRejectButton" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>adminInfo(Remove)</comment>
+  </data>
+  <data name="resignRequest" xml:space="preserve">
+    <value>You will be sign off from account</value>
+    <comment>settingsForm</comment>
+  </data>
+  <data name="resignTitle" xml:space="preserve">
+    <value>Resign</value>
+    <comment>settingsForm</comment>
   </data>
   <data name="returnButton" xml:space="preserve">
     <value>Return</value>
@@ -526,6 +634,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
     <value>Title</value>
     <comment>songsForm</comment>
   </data>
+  <data name="unlockButton" xml:space="preserve">
+    <value>Unlock app</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="unlockTitle" xml:space="preserve">
+    <value>Unlock demo</value>
+    <comment>unlockForm</comment>
+  </data>
   <data name="userInputLabel" xml:space="preserve">
     <value>Username</value>
     <comment>LogInModule</comment>
@@ -533,6 +649,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec e
   <data name="usernameLabel" xml:space="preserve">
     <value>Username:</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="userSettingsLabel" xml:space="preserve">
+    <value>User settings:</value>
+    <comment>settingsForm</comment>
   </data>
   <data name="wrongPassword" xml:space="preserve">
     <value>Wrong old password</value>
