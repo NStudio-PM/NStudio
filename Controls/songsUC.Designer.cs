@@ -54,6 +54,7 @@
             this.songsID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.songsID.Size = new System.Drawing.Size(27, 22);
             this.songsID.TabIndex = 22;
+            this.songsID.Tag = "font";
             this.songsID.Text = "N/A";
             this.songsID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -67,6 +68,7 @@
             this.SUCRecordData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SUCRecordData.Size = new System.Drawing.Size(113, 22);
             this.SUCRecordData.TabIndex = 21;
+            this.SUCRecordData.Tag = "font";
             this.SUCRecordData.Text = "SUCRecordData";
             this.SUCRecordData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -80,6 +82,7 @@
             this.SUCAuthorData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SUCAuthorData.Size = new System.Drawing.Size(113, 22);
             this.SUCAuthorData.TabIndex = 20;
+            this.SUCAuthorData.Tag = "font";
             this.SUCAuthorData.Text = "SUCAuthorData";
             this.SUCAuthorData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -93,6 +96,7 @@
             this.SUCTitleData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SUCTitleData.Size = new System.Drawing.Size(113, 22);
             this.SUCTitleData.TabIndex = 19;
+            this.SUCTitleData.Tag = "font";
             this.SUCTitleData.Text = "SUCTitleData";
             this.SUCTitleData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -106,6 +110,7 @@
             this.ID.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ID.Size = new System.Drawing.Size(23, 22);
             this.ID.TabIndex = 18;
+            this.ID.Tag = "font";
             this.ID.Text = "ID:";
             this.ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -119,6 +124,7 @@
             this.SongsUCRecordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SongsUCRecordLabel.Size = new System.Drawing.Size(107, 22);
             this.SongsUCRecordLabel.TabIndex = 17;
+            this.SongsUCRecordLabel.Tag = "font";
             this.SongsUCRecordLabel.Text = "SongsUCRecordLabel";
             this.SongsUCRecordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -132,6 +138,7 @@
             this.SongsUCAuthorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SongsUCAuthorLabel.Size = new System.Drawing.Size(107, 22);
             this.SongsUCAuthorLabel.TabIndex = 16;
+            this.SongsUCAuthorLabel.Tag = "font";
             this.SongsUCAuthorLabel.Text = "SongsUCAuthorLabel";
             this.SongsUCAuthorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -145,6 +152,7 @@
             this.SongsUCTitleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SongsUCTitleLabel.Size = new System.Drawing.Size(110, 22);
             this.SongsUCTitleLabel.TabIndex = 15;
+            this.SongsUCTitleLabel.Tag = "font";
             this.SongsUCTitleLabel.Text = "SongsUCTitleLabel";
             this.SongsUCTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -155,6 +163,7 @@
             this.songsImage.Size = new System.Drawing.Size(115, 115);
             this.songsImage.TabIndex = 14;
             this.songsImage.TabStop = false;
+            this.songsImage.Tag = "up";
             // 
             // SUCCostData
             // 
@@ -167,6 +176,7 @@
             this.SUCCostData.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SUCCostData.Size = new System.Drawing.Size(84, 22);
             this.SUCCostData.TabIndex = 26;
+            this.SUCCostData.Tag = "font";
             this.SUCCostData.Text = "12,34 PLN";
             this.SUCCostData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -180,6 +190,7 @@
             this.SUCYearData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SUCYearData.Size = new System.Drawing.Size(72, 22);
             this.SUCYearData.TabIndex = 25;
+            this.SUCYearData.Tag = "font";
             this.SUCYearData.Text = "0000";
             this.SUCYearData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -193,6 +204,7 @@
             this.SongsUCCostLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SongsUCCostLabel.Size = new System.Drawing.Size(107, 22);
             this.SongsUCCostLabel.TabIndex = 24;
+            this.SongsUCCostLabel.Tag = "font";
             this.SongsUCCostLabel.Text = "SongsUCCostLabel";
             this.SongsUCCostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -206,6 +218,7 @@
             this.SongsUCYearLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SongsUCYearLabel.Size = new System.Drawing.Size(107, 22);
             this.SongsUCYearLabel.TabIndex = 23;
+            this.SongsUCYearLabel.Tag = "font";
             this.SongsUCYearLabel.Text = "SongsUCYearLabel";
             this.SongsUCYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -229,6 +242,7 @@
             this.Controls.Add(this.songsImage);
             this.Name = "songsUC";
             this.Size = new System.Drawing.Size(400, 124);
+            this.Tag = "up";
             ((System.ComponentModel.ISupportInitialize)(this.songsImage)).EndInit();
             this.ResumeLayout(false);
 

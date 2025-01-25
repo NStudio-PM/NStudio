@@ -30,6 +30,7 @@ namespace NStudio.Desktop
 
         private void Innit()
         {
+            LogInModule.ChangeColorColorByTag(this.Controls);
             this.Text = LogInModule.GetString("changeProfile");
             editProfileLabel.Text = LogInModule.GetString("editProfileLabel");
             usernameLabel.Text = LogInModule.GetString("usernameLabel");

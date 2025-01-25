@@ -55,6 +55,7 @@
             this.RUCCostData.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RUCCostData.Size = new System.Drawing.Size(84, 22);
             this.RUCCostData.TabIndex = 39;
+            this.RUCCostData.Tag = "font";
             this.RUCCostData.Text = "12,34 PLN";
             this.RUCCostData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -68,6 +69,7 @@
             this.RUCYearData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RUCYearData.Size = new System.Drawing.Size(72, 22);
             this.RUCYearData.TabIndex = 38;
+            this.RUCYearData.Tag = "font";
             this.RUCYearData.Text = "0000";
             this.RUCYearData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -81,6 +83,7 @@
             this.RecordsUCCostLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RecordsUCCostLabel.Size = new System.Drawing.Size(107, 22);
             this.RecordsUCCostLabel.TabIndex = 37;
+            this.RecordsUCCostLabel.Tag = "font";
             this.RecordsUCCostLabel.Text = "RecordsUCCostLabel";
             this.RecordsUCCostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -94,6 +97,7 @@
             this.RecordsUCYearLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RecordsUCYearLabel.Size = new System.Drawing.Size(107, 22);
             this.RecordsUCYearLabel.TabIndex = 36;
+            this.RecordsUCYearLabel.Tag = "font";
             this.RecordsUCYearLabel.Text = "RecordsUCYearLabel";
             this.RecordsUCYearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -107,6 +111,7 @@
             this.recordsID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.recordsID.Size = new System.Drawing.Size(27, 22);
             this.recordsID.TabIndex = 35;
+            this.recordsID.Tag = "font";
             this.recordsID.Text = "N/A";
             this.recordsID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -120,6 +125,7 @@
             this.RUCLabelData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RUCLabelData.Size = new System.Drawing.Size(113, 22);
             this.RUCLabelData.TabIndex = 34;
+            this.RUCLabelData.Tag = "font";
             this.RUCLabelData.Text = "RUCLabelData";
             this.RUCLabelData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -133,6 +139,7 @@
             this.RUCAuthorData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RUCAuthorData.Size = new System.Drawing.Size(113, 22);
             this.RUCAuthorData.TabIndex = 33;
+            this.RUCAuthorData.Tag = "font";
             this.RUCAuthorData.Text = "RUCAuthorData";
             this.RUCAuthorData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -146,6 +153,7 @@
             this.RUCTitleData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RUCTitleData.Size = new System.Drawing.Size(113, 22);
             this.RUCTitleData.TabIndex = 32;
+            this.RUCTitleData.Tag = "font";
             this.RUCTitleData.Text = "RUCTitleData";
             this.RUCTitleData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -159,6 +167,7 @@
             this.ID.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ID.Size = new System.Drawing.Size(23, 22);
             this.ID.TabIndex = 31;
+            this.ID.Tag = "font";
             this.ID.Text = "ID:";
             this.ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -172,6 +181,7 @@
             this.RecordsUCLabelLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RecordsUCLabelLabel.Size = new System.Drawing.Size(107, 22);
             this.RecordsUCLabelLabel.TabIndex = 30;
+            this.RecordsUCLabelLabel.Tag = "font";
             this.RecordsUCLabelLabel.Text = "RecordsUCLabelLabel";
             this.RecordsUCLabelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -185,6 +195,7 @@
             this.RecordsUCAuthorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RecordsUCAuthorLabel.Size = new System.Drawing.Size(107, 22);
             this.RecordsUCAuthorLabel.TabIndex = 29;
+            this.RecordsUCAuthorLabel.Tag = "font";
             this.RecordsUCAuthorLabel.Text = "RecordsUCAuthorLabel";
             this.RecordsUCAuthorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -198,6 +209,7 @@
             this.RecordsUCTitleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RecordsUCTitleLabel.Size = new System.Drawing.Size(110, 22);
             this.RecordsUCTitleLabel.TabIndex = 28;
+            this.RecordsUCTitleLabel.Tag = "font";
             this.RecordsUCTitleLabel.Text = "RecordsUCTitleLabel";
             this.RecordsUCTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -208,6 +220,7 @@
             this.recordsImage.Size = new System.Drawing.Size(115, 115);
             this.recordsImage.TabIndex = 27;
             this.recordsImage.TabStop = false;
+            this.recordsImage.Tag = "up";
             // 
             // recordsUC
             // 
@@ -229,6 +242,7 @@
             this.Controls.Add(this.recordsImage);
             this.Name = "recordsUC";
             this.Size = new System.Drawing.Size(400, 124);
+            this.Tag = "up";
             ((System.ComponentModel.ISupportInitialize)(this.recordsImage)).EndInit();
             this.ResumeLayout(false);
 

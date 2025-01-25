@@ -34,6 +34,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.adminLevel = new System.Windows.Forms.Label();
+            this.adminLevelLabel = new System.Windows.Forms.Label();
             this.AdminMinusButton = new System.Windows.Forms.Button();
             this.AdminPlusButton = new System.Windows.Forms.Button();
             this.AdminResignButton = new System.Windows.Forms.Button();
@@ -49,8 +51,6 @@
             this.changeLanguageButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.userSettingsLabel = new System.Windows.Forms.Label();
-            this.adminLevelLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -64,6 +64,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(93, 461);
             this.panel1.TabIndex = 0;
+            this.panel1.Tag = "down";
             // 
             // flowLayoutPanel1
             // 
@@ -72,6 +73,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(111, 461);
             this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Tag = "down";
             // 
             // panel2
             // 
@@ -80,6 +82,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(550, 72);
             this.panel2.TabIndex = 2;
+            this.panel2.Tag = "down";
             // 
             // panel3
             // 
@@ -88,11 +91,12 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(550, 54);
             this.panel3.TabIndex = 3;
+            this.panel3.Tag = "down";
             // 
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.adminLevel);
             this.panel4.Controls.Add(this.adminLevelLabel);
             this.panel4.Controls.Add(this.AdminMinusButton);
             this.panel4.Controls.Add(this.AdminPlusButton);
@@ -105,6 +109,36 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(544, 323);
             this.panel4.TabIndex = 4;
+            this.panel4.Tag = "down";
+            // 
+            // adminLevel
+            // 
+            this.adminLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminLevel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminLevel.ForeColor = System.Drawing.Color.White;
+            this.adminLevel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.adminLevel.Location = new System.Drawing.Point(312, 276);
+            this.adminLevel.MaximumSize = new System.Drawing.Size(252, 28);
+            this.adminLevel.Name = "adminLevel";
+            this.adminLevel.Size = new System.Drawing.Size(49, 28);
+            this.adminLevel.TabIndex = 40;
+            this.adminLevel.Tag = "font";
+            this.adminLevel.Text = "0";
+            // 
+            // adminLevelLabel
+            // 
+            this.adminLevelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminLevelLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.adminLevelLabel.ForeColor = System.Drawing.Color.White;
+            this.adminLevelLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.adminLevelLabel.Location = new System.Drawing.Point(93, 269);
+            this.adminLevelLabel.MaximumSize = new System.Drawing.Size(252, 28);
+            this.adminLevelLabel.Name = "adminLevelLabel";
+            this.adminLevelLabel.Size = new System.Drawing.Size(220, 28);
+            this.adminLevelLabel.TabIndex = 39;
+            this.adminLevelLabel.Tag = "font";
+            this.adminLevelLabel.Text = "adminLevelLabel";
+            this.adminLevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // AdminMinusButton
             // 
@@ -180,6 +214,7 @@
             this.adminDBLabel.Name = "adminDBLabel";
             this.adminDBLabel.Size = new System.Drawing.Size(220, 28);
             this.adminDBLabel.TabIndex = 36;
+            this.adminDBLabel.Tag = "font";
             this.adminDBLabel.Text = "adminDBLabel";
             this.adminDBLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -191,6 +226,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(544, 42);
             this.panel7.TabIndex = 35;
+            this.panel7.Tag = "down";
             // 
             // adminSettingsLabel
             // 
@@ -200,6 +236,7 @@
             this.adminSettingsLabel.Name = "adminSettingsLabel";
             this.adminSettingsLabel.Size = new System.Drawing.Size(302, 30);
             this.adminSettingsLabel.TabIndex = 30;
+            this.adminSettingsLabel.Tag = "font";
             this.adminSettingsLabel.Text = "adminSettingsLabel";
             this.adminSettingsLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
@@ -216,6 +253,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(544, 154);
             this.panel6.TabIndex = 34;
+            this.panel6.Tag = "down";
             // 
             // changeLanguageLabel
             // 
@@ -228,6 +266,7 @@
             this.changeLanguageLabel.Name = "changeLanguageLabel";
             this.changeLanguageLabel.Size = new System.Drawing.Size(220, 28);
             this.changeLanguageLabel.TabIndex = 27;
+            this.changeLanguageLabel.Tag = "font";
             this.changeLanguageLabel.Text = "changeLanguageLabel";
             this.changeLanguageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -242,6 +281,7 @@
             this.changeThemeLabel.Name = "changeThemeLabel";
             this.changeThemeLabel.Size = new System.Drawing.Size(220, 28);
             this.changeThemeLabel.TabIndex = 33;
+            this.changeThemeLabel.Tag = "font";
             this.changeThemeLabel.Text = "changeThemeLabel";
             this.changeThemeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -277,6 +317,7 @@
             this.logOutLabel.Name = "logOutLabel";
             this.logOutLabel.Size = new System.Drawing.Size(139, 30);
             this.logOutLabel.TabIndex = 29;
+            this.logOutLabel.Tag = "font";
             this.logOutLabel.Text = "logOutLabel";
             this.logOutLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -339,35 +380,9 @@
             this.userSettingsLabel.Name = "userSettingsLabel";
             this.userSettingsLabel.Size = new System.Drawing.Size(296, 30);
             this.userSettingsLabel.TabIndex = 30;
+            this.userSettingsLabel.Tag = "font";
             this.userSettingsLabel.Text = "userSettingsLabel";
             this.userSettingsLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // adminLevelLabel
-            // 
-            this.adminLevelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.adminLevelLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.adminLevelLabel.ForeColor = System.Drawing.Color.White;
-            this.adminLevelLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.adminLevelLabel.Location = new System.Drawing.Point(93, 269);
-            this.adminLevelLabel.MaximumSize = new System.Drawing.Size(252, 28);
-            this.adminLevelLabel.Name = "adminLevelLabel";
-            this.adminLevelLabel.Size = new System.Drawing.Size(220, 28);
-            this.adminLevelLabel.TabIndex = 39;
-            this.adminLevelLabel.Text = "adminLevelLabel";
-            this.adminLevelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(312, 276);
-            this.label1.MaximumSize = new System.Drawing.Size(252, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 28);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "0";
             // 
             // settingsForm
             // 
@@ -412,7 +427,7 @@
         private System.Windows.Forms.Button AdminMinusButton;
         private System.Windows.Forms.Button AdminPlusButton;
         private System.Windows.Forms.Button AdminResignButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label adminLevel;
         private System.Windows.Forms.Label adminLevelLabel;
     }
 }

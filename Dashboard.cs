@@ -75,6 +75,7 @@ namespace NStudio
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            LogInModule.ChangeColorColorByTag(this.Controls);
             toolTip = new ToolTip();
             songsButton.Text = LogInModule.GetString("songsButton");
             recordsButton.Text = LogInModule.GetString("recordsButton");
@@ -97,12 +98,6 @@ namespace NStudio
 
             toolTip.SetToolTip(profileButton, LogInModule.GetString("d1Tooltip"));
             toolTip.SetToolTip(profileNameLabel, LogInModule.GetString("d1Tooltip"));
-
-            ChangePanelBackgroundColorByTag("up", LogInModule.GetColor(shade: "up"));
-            ChangePanelBackgroundColorByTag("down", LogInModule.GetColor(shade: "down"));
-            ChangePanelBackgroundColorByTag("font", LogInModule.GetColor(shade: "font"));
-            ChangePanelBackgroundColorByTag("accent", LogInModule.GetColor(shade: "accent"));
-
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -152,41 +147,6 @@ namespace NStudio
             {
                 e.SuppressKeyPress = true;
                 unlockButton_Click(sender, e);
-            }
-        }
-
-        private void ChangePanelBackgroundColorByTag(string tag, Color color)
-        {
-            ChangeControlColorByTag(this.Controls, tag, color);
-        }
-
-        private void ChangeControlColorByTag(Control.ControlCollection controls, string tag, Color color)
-        {
-            foreach (Control control in controls)
-            {
-                // Sprawdzenie tagu i zmiana koloru
-                if (control.Tag != null && control.Tag.ToString() == tag)
-                {
-                    if (control is Panel)
-                    {
-                        control.BackColor = color;
-                    }
-                    else if(control is Label)
-                    {
-                        control.ForeColor = color;
-                    }
-                    else if(control is IconButton button)
-                    {
-                        button.ForeColor = color;
-                        button.IconColor = color;
-                    }
-                }
-
-                // Rekurencja dla kontenerów
-                if (control.Controls.Count > 0)
-                {
-                    ChangeControlColorByTag(control.Controls, tag, color);
-                }
             }
         }
 

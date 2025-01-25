@@ -18,11 +18,12 @@ namespace NStudio.Controls
         {
             InitializeComponent();
             artistAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            LogInModule.ChangeColorColorByTag(this.Controls);
             ArtistUCNameLabel.Text = LogInModule.GetString("ArtistUCNameLabel");
             ArtistUCNickLabel.Text = LogInModule.GetString("ArtistUCNickLabel");
             ArtistUCLabelLabel.Text = LogInModule.GetString("ArtistUCLabelLabel");
 
-            this.BackColor = Color.FromArgb(41, 41, 41);
+            this.BackColor = LogInModule.GetColor("up");
             this.Click += ArtistsUC_Click;
             foreach (Control control in this.Controls)
             {
@@ -42,13 +43,13 @@ namespace NStudio.Controls
         private void ArtistsUC_Click(object sender, EventArgs e)
         {
             isSelected = !isSelected;
-            this.BackColor = isSelected ? Color.FromArgb(51, 51, 51) : Color.FromArgb(41, 41, 41);
+            this.BackColor = isSelected ? LogInModule.GetColor("selected") : LogInModule.GetColor("up");
         }
 
         public void Deselect()
         {
             isSelected = false;
-            this.BackColor = Color.FromArgb(41, 41, 41);
+            this.BackColor = LogInModule.GetColor("up");
         }
 
         public bool IsSelected()

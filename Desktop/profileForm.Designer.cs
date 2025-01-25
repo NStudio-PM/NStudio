@@ -67,6 +67,7 @@
             this.panelProfileHeader.Name = "panelProfileHeader";
             this.panelProfileHeader.Size = new System.Drawing.Size(454, 70);
             this.panelProfileHeader.TabIndex = 4;
+            this.panelProfileHeader.Tag = "up";
             // 
             // panelProfileLbl
             // 
@@ -76,6 +77,7 @@
             this.panelProfileLbl.Name = "panelProfileLbl";
             this.panelProfileLbl.Size = new System.Drawing.Size(454, 50);
             this.panelProfileLbl.TabIndex = 0;
+            this.panelProfileLbl.Tag = "up";
             // 
             // editProfileLabel
             // 
@@ -86,6 +88,7 @@
             this.editProfileLabel.Name = "editProfileLabel";
             this.editProfileLabel.Size = new System.Drawing.Size(437, 28);
             this.editProfileLabel.TabIndex = 0;
+            this.editProfileLabel.Tag = "font";
             this.editProfileLabel.Text = "EDIT PROFILE";
             this.editProfileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -97,6 +100,7 @@
             this.panelProfileBuffor.Name = "panelProfileBuffor";
             this.panelProfileBuffor.Size = new System.Drawing.Size(454, 10);
             this.panelProfileBuffor.TabIndex = 5;
+            this.panelProfileBuffor.Tag = "down";
             // 
             // panelProfileMain
             // 
@@ -124,6 +128,7 @@
             this.panelProfileMain.Name = "panelProfileMain";
             this.panelProfileMain.Size = new System.Drawing.Size(454, 563);
             this.panelProfileMain.TabIndex = 6;
+            this.panelProfileMain.Tag = "up";
             // 
             // changePasswordButton
             // 
@@ -154,6 +159,7 @@
             this.changePasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.changePasswordLabel.Size = new System.Drawing.Size(146, 22);
             this.changePasswordLabel.TabIndex = 20;
+            this.changePasswordLabel.Tag = "font";
             this.changePasswordLabel.Text = "changePasswordLabel";
             this.changePasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -232,6 +238,7 @@
             this.rejectButton.Name = "rejectButton";
             this.rejectButton.Size = new System.Drawing.Size(110, 25);
             this.rejectButton.TabIndex = 19;
+            this.rejectButton.Tag = "font";
             this.rejectButton.Text = "rejectButton";
             this.rejectButton.UseVisualStyleBackColor = false;
             this.rejectButton.Click += new System.EventHandler(this.rejectButton_Click);
@@ -250,6 +257,7 @@
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(110, 25);
             this.acceptButton.TabIndex = 18;
+            this.acceptButton.Tag = "font";
             this.acceptButton.Text = "acceptButton";
             this.acceptButton.UseVisualStyleBackColor = false;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
@@ -268,6 +276,7 @@
             this.changeAvatarButton.Name = "changeAvatarButton";
             this.changeAvatarButton.Size = new System.Drawing.Size(125, 25);
             this.changeAvatarButton.TabIndex = 17;
+            this.changeAvatarButton.Tag = "font";
             this.changeAvatarButton.Text = "changeAvatarButton";
             this.changeAvatarButton.UseVisualStyleBackColor = false;
             this.changeAvatarButton.Click += new System.EventHandler(this.changeAvatarButton_Click);
@@ -293,6 +302,7 @@
             this.streetLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.streetLabel.Size = new System.Drawing.Size(146, 22);
             this.streetLabel.TabIndex = 15;
+            this.streetLabel.Tag = "font";
             this.streetLabel.Text = "streetLabel";
             this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -306,6 +316,7 @@
             this.postcodeLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.postcodeLabel.Size = new System.Drawing.Size(146, 22);
             this.postcodeLabel.TabIndex = 13;
+            this.postcodeLabel.Tag = "font";
             this.postcodeLabel.Text = "postcodeLabel";
             this.postcodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -319,6 +330,7 @@
             this.cityLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cityLabel.Size = new System.Drawing.Size(146, 22);
             this.cityLabel.TabIndex = 11;
+            this.cityLabel.Tag = "font";
             this.cityLabel.Text = "cityLabel";
             this.cityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -332,6 +344,7 @@
             this.countryLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.countryLabel.Size = new System.Drawing.Size(146, 22);
             this.countryLabel.TabIndex = 9;
+            this.countryLabel.Tag = "font";
             this.countryLabel.Text = "countryLabel";
             this.countryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -342,6 +355,7 @@
             this.panelProfileBufforRight.Name = "panelProfileBufforRight";
             this.panelProfileBufforRight.Size = new System.Drawing.Size(80, 563);
             this.panelProfileBufforRight.TabIndex = 7;
+            this.panelProfileBufforRight.Tag = "up";
             // 
             // panelProfileBufforLeft
             // 
@@ -350,6 +364,7 @@
             this.panelProfileBufforLeft.Name = "panelProfileBufforLeft";
             this.panelProfileBufforLeft.Size = new System.Drawing.Size(29, 563);
             this.panelProfileBufforLeft.TabIndex = 6;
+            this.panelProfileBufforLeft.Tag = "up";
             // 
             // usernameLabel
             // 
@@ -361,6 +376,7 @@
             this.usernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.usernameLabel.Size = new System.Drawing.Size(146, 22);
             this.usernameLabel.TabIndex = 5;
+            this.usernameLabel.Tag = "font";
             this.usernameLabel.Text = "usernameLabel";
             this.usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 

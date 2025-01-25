@@ -17,13 +17,14 @@ namespace NStudio.Controls
         {
             InitializeComponent();
             recordsImage.SizeMode = PictureBoxSizeMode.Zoom;
+            LogInModule.ChangeColorColorByTag(this.Controls);
             RecordsUCTitleLabel.Text = LogInModule.GetString("SongsUCTitleLabel");
             RecordsUCAuthorLabel.Text = LogInModule.GetString("SongsUCAuthorLabel");
             RecordsUCLabelLabel.Text = LogInModule.GetString("SongsUCRecordLabel");
             RecordsUCYearLabel.Text = LogInModule.GetString("SongsUCYearLabel");
             RecordsUCCostLabel.Text = LogInModule.GetString("SongsUCCostLabel");
 
-            this.BackColor = Color.FromArgb(41, 41, 41);
+            this.BackColor = LogInModule.GetColor("up");
             this.Click += RecordsUC_Click;
             foreach (Control control in this.Controls)
             {
@@ -45,13 +46,13 @@ namespace NStudio.Controls
         private void RecordsUC_Click(object sender, EventArgs e)
         {
             isSelected = !isSelected;
-            this.BackColor = isSelected ? Color.FromArgb(51, 51, 51) : Color.FromArgb(41, 41, 41);
+            this.BackColor = isSelected ? LogInModule.GetColor("selected") : LogInModule.GetColor("up");
         }
 
         public void Deselect()
         {
             isSelected = false;
-            this.BackColor = Color.FromArgb(41, 41, 41);
+            this.BackColor = LogInModule.GetColor("up");
         }
 
         public bool IsSelected()

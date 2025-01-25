@@ -58,6 +58,7 @@
             this.ArtistUCNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ArtistUCNameLabel.Size = new System.Drawing.Size(110, 22);
             this.ArtistUCNameLabel.TabIndex = 6;
+            this.ArtistUCNameLabel.Tag = "font";
             this.ArtistUCNameLabel.Text = "ArtistUCNameLabel";
             this.ArtistUCNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -71,6 +72,7 @@
             this.ArtistUCNickLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ArtistUCNickLabel.Size = new System.Drawing.Size(107, 22);
             this.ArtistUCNickLabel.TabIndex = 7;
+            this.ArtistUCNickLabel.Tag = "font";
             this.ArtistUCNickLabel.Text = "ArtistUCNickLabel";
             this.ArtistUCNickLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -84,6 +86,7 @@
             this.ArtistUCLabelLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ArtistUCLabelLabel.Size = new System.Drawing.Size(107, 22);
             this.ArtistUCLabelLabel.TabIndex = 8;
+            this.ArtistUCLabelLabel.Tag = "font";
             this.ArtistUCLabelLabel.Text = "ArtistUCLabelLabel";
             this.ArtistUCLabelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -97,6 +100,7 @@
             this.ID.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ID.Size = new System.Drawing.Size(23, 22);
             this.ID.TabIndex = 9;
+            this.ID.Tag = "font";
             this.ID.Text = "ID:";
             this.ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -110,6 +114,7 @@
             this.AUCNameData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AUCNameData.Size = new System.Drawing.Size(113, 22);
             this.AUCNameData.TabIndex = 10;
+            this.AUCNameData.Tag = "font";
             this.AUCNameData.Text = "AUCNameData";
             this.AUCNameData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -123,6 +128,7 @@
             this.AUCNickData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AUCNickData.Size = new System.Drawing.Size(113, 22);
             this.AUCNickData.TabIndex = 11;
+            this.AUCNickData.Tag = "font";
             this.AUCNickData.Text = "AUCNickData";
             this.AUCNickData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -136,6 +142,7 @@
             this.AUCLabelData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AUCLabelData.Size = new System.Drawing.Size(113, 22);
             this.AUCLabelData.TabIndex = 12;
+            this.AUCLabelData.Tag = "font";
             this.AUCLabelData.Text = "AUCLabelData";
             this.AUCLabelData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -149,6 +156,7 @@
             this.artistID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.artistID.Size = new System.Drawing.Size(27, 22);
             this.artistID.TabIndex = 13;
+            this.artistID.Tag = "font";
             this.artistID.Text = "N/A";
             this.artistID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -170,6 +178,7 @@
             this.MinimumSize = new System.Drawing.Size(400, 124);
             this.Name = "artistsUC";
             this.Size = new System.Drawing.Size(400, 124);
+            this.Tag = "up";
             ((System.ComponentModel.ISupportInitialize)(this.artistAvatar)).EndInit();
             this.ResumeLayout(false);
 

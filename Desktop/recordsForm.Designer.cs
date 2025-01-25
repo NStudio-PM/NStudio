@@ -37,19 +37,15 @@
             this.yearBox = new System.Windows.Forms.TextBox();
             this.labelBox = new System.Windows.Forms.ComboBox();
             this.labelLabel = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.authorLabel = new System.Windows.Forms.Label();
             this.authorSearchBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleSearchBox = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelActions.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -109,6 +105,7 @@
             this.panelActions.Name = "panelActions";
             this.panelActions.Size = new System.Drawing.Size(80, 461);
             this.panelActions.TabIndex = 8;
+            this.panelActions.Tag = "up";
             // 
             // RecordsMinusButton
             // 
@@ -137,8 +134,9 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(754, 25);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(674, 25);
             this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.Tag = "down";
             // 
             // yearLabel
             // 
@@ -150,6 +148,7 @@
             this.yearLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.yearLabel.Size = new System.Drawing.Size(42, 18);
             this.yearLabel.TabIndex = 7;
+            this.yearLabel.Tag = "font";
             this.yearLabel.Text = "Year";
             // 
             // yearBox
@@ -186,15 +185,8 @@
             this.labelLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelLabel.Size = new System.Drawing.Size(62, 18);
             this.labelLabel.TabIndex = 4;
+            this.labelLabel.Tag = "font";
             this.labelLabel.Text = "Record";
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(90, 336);
-            this.panel3.TabIndex = 6;
             // 
             // authorLabel
             // 
@@ -205,6 +197,7 @@
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(56, 18);
             this.authorLabel.TabIndex = 3;
+            this.authorLabel.Tag = "font";
             this.authorLabel.Text = "Author";
             // 
             // authorSearchBox
@@ -228,6 +221,7 @@
             this.titleLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.titleLabel.Size = new System.Drawing.Size(36, 18);
             this.titleLabel.TabIndex = 1;
+            this.titleLabel.Tag = "font";
             this.titleLabel.Text = "Title";
             // 
             // titleSearchBox
@@ -241,41 +235,11 @@
             this.titleSearchBox.TabIndex = 0;
             this.titleSearchBox.TextChanged += new System.EventHandler(this.TitleSearchTextBox_TextChanged);
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.flowPanel);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(90, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(564, 336);
-            this.panel4.TabIndex = 7;
-            // 
-            // flowPanel
-            // 
-            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanel.Location = new System.Drawing.Point(0, 0);
-            this.flowPanel.MinimumSize = new System.Drawing.Size(520, 0);
-            this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(564, 336);
-            this.flowPanel.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 100, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.panel2.Size = new System.Drawing.Size(754, 336);
-            this.panel2.TabIndex = 6;
-            // 
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panelMain.Controls.Add(this.flowPanel);
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Controls.Add(this.flowLayoutPanel1);
@@ -283,7 +247,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.MinimumSize = new System.Drawing.Size(550, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(754, 461);
+            this.panelMain.Size = new System.Drawing.Size(674, 461);
             this.panelMain.TabIndex = 7;
             // 
             // panel1
@@ -299,8 +263,30 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 361);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 100);
+            this.panel1.Size = new System.Drawing.Size(674, 100);
             this.panel1.TabIndex = 5;
+            this.panel1.Tag = "down";
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(35, 336);
+            this.panel2.TabIndex = 6;
+            this.panel2.Tag = "down";
+            // 
+            // flowPanel
+            // 
+            this.flowPanel.AutoScroll = true;
+            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanel.Location = new System.Drawing.Point(35, 25);
+            this.flowPanel.MinimumSize = new System.Drawing.Size(520, 0);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(639, 336);
+            this.flowPanel.TabIndex = 7;
+            this.flowPanel.Tag = "down";
             // 
             // recordsForm
             // 
@@ -308,13 +294,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(754, 461);
-            this.Controls.Add(this.panelActions);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelActions);
             this.Name = "recordsForm";
             this.Text = "recordsForm";
             this.panelActions.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -333,15 +317,13 @@
         private System.Windows.Forms.TextBox yearBox;
         private System.Windows.Forms.ComboBox labelBox;
         private System.Windows.Forms.Label labelLabel;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label authorLabel;
         private System.Windows.Forms.TextBox authorSearchBox;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox titleSearchBox;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.FlowLayoutPanel flowPanel;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowPanel;
+        private System.Windows.Forms.Panel panel2;
     }
 }

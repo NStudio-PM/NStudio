@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelBox = new System.Windows.Forms.ComboBox();
             this.ArtistLabelLabel = new System.Windows.Forms.Label();
@@ -46,8 +44,6 @@
             this.ArtistMinusButton = new FontAwesome.Sharp.IconButton();
             this.ArtistPlusButton = new FontAwesome.Sharp.IconButton();
             this.panelMain.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelActions.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +52,7 @@
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panelMain.Controls.Add(this.flowPanel);
             this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Controls.Add(this.flowLayoutPanel1);
@@ -63,47 +60,29 @@
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.MinimumSize = new System.Drawing.Size(550, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(754, 461);
+            this.panelMain.Size = new System.Drawing.Size(674, 461);
             this.panelMain.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 3, 100, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.panel2.Size = new System.Drawing.Size(754, 336);
-            this.panel2.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.flowPanel);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(90, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(564, 336);
-            this.panel4.TabIndex = 7;
             // 
             // flowPanel
             // 
             this.flowPanel.AutoScroll = true;
             this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanel.Location = new System.Drawing.Point(0, 0);
+            this.flowPanel.Location = new System.Drawing.Point(35, 25);
+            this.flowPanel.MinimumSize = new System.Drawing.Size(520, 0);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(564, 336);
-            this.flowPanel.TabIndex = 0;
+            this.flowPanel.Padding = new System.Windows.Forms.Padding(0, 0, 70, 0);
+            this.flowPanel.Size = new System.Drawing.Size(639, 336);
+            this.flowPanel.TabIndex = 7;
+            this.flowPanel.Tag = "down";
             // 
-            // panel3
+            // panel2
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(90, 336);
-            this.panel3.TabIndex = 6;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(35, 336);
+            this.panel2.TabIndex = 6;
+            this.panel2.Tag = "down";
             // 
             // panel1
             // 
@@ -116,8 +95,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 361);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 100);
+            this.panel1.Size = new System.Drawing.Size(674, 100);
             this.panel1.TabIndex = 5;
+            this.panel1.Tag = "down";
             // 
             // LabelBox
             // 
@@ -141,6 +121,7 @@
             this.ArtistLabelLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ArtistLabelLabel.Size = new System.Drawing.Size(49, 18);
             this.ArtistLabelLabel.TabIndex = 4;
+            this.ArtistLabelLabel.Tag = "font";
             this.ArtistLabelLabel.Text = "Label";
             // 
             // ArtistNickLabel
@@ -152,6 +133,7 @@
             this.ArtistNickLabel.Name = "ArtistNickLabel";
             this.ArtistNickLabel.Size = new System.Drawing.Size(88, 18);
             this.ArtistNickLabel.TabIndex = 3;
+            this.ArtistNickLabel.Tag = "font";
             this.ArtistNickLabel.Text = "Pseudonim";
             // 
             // nickSearchTextBox
@@ -175,6 +157,7 @@
             this.ArtistNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ArtistNameLabel.Size = new System.Drawing.Size(58, 18);
             this.ArtistNameLabel.TabIndex = 1;
+            this.ArtistNameLabel.Tag = "font";
             this.ArtistNameLabel.Text = "Nazwa";
             // 
             // nameSearchTextBox
@@ -193,8 +176,9 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(754, 25);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(674, 25);
             this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.Tag = "down";
             // 
             // panelActions
             // 
@@ -207,6 +191,7 @@
             this.panelActions.Name = "panelActions";
             this.panelActions.Size = new System.Drawing.Size(80, 461);
             this.panelActions.TabIndex = 4;
+            this.panelActions.Tag = "up";
             // 
             // ArtistEditButton
             // 
@@ -280,13 +265,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(754, 461);
-            this.Controls.Add(this.panelActions);
             this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelActions);
             this.Name = "artistsForm";
             this.Text = "artistsForm";
             this.panelMain.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelActions.ResumeLayout(false);
@@ -298,10 +281,8 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelActions;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox nameSearchTextBox;
-        private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton ArtistPlusButton;
         private FontAwesome.Sharp.IconButton ArtistMinusButton;
         private FontAwesome.Sharp.IconButton ArtistEditButton;
@@ -310,7 +291,7 @@
         private System.Windows.Forms.TextBox nickSearchTextBox;
         private System.Windows.Forms.Label ArtistNameLabel;
         private System.Windows.Forms.ComboBox LabelBox;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowPanel;
     }
 }

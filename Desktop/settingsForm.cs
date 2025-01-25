@@ -16,7 +16,7 @@ namespace NStudio.Desktop
     public partial class settingsForm : Form
     {
         DatabaseControl dbControl;
-        private ToolTip toolTip;
+        private static ToolTip toolTip;
         private bool isEnglish;
         private bool isDark;
         public settingsForm(DatabaseControl dbControl)
@@ -34,7 +34,7 @@ namespace NStudio.Desktop
                 AdminPlusButton.Visible = true;
                 AdminMinusButton.Visible = true;
                 AdminResignButton.Visible = true;
-                label1.Visible = true;
+                adminLevel.Visible = true;
                 adminLevelLabel.Visible = true;
                 adminDBLabel.Visible = true;
             }
@@ -44,10 +44,11 @@ namespace NStudio.Desktop
                 AdminPlusButton.Visible = false;
                 AdminMinusButton.Visible = false;
                 AdminResignButton.Visible = false;
-                label1.Visible = false;
+                adminLevel.Visible = false;
                 adminLevelLabel.Visible = false;
                 adminDBLabel.Visible = false;
             }
+            LogInModule.ChangeColorColorByTag(this.Controls);
             toolTip = new ToolTip();
             toolTip.SetToolTip(changeLanguageButton, LogInModule.GetString("changeLanguageLabel"));
             toolTip.SetToolTip(changeThemeButton, LogInModule.GetString("changeThemeLabel"));
@@ -62,7 +63,7 @@ namespace NStudio.Desktop
             changeThemeLabel.Text = LogInModule.GetString("changeThemeLabel");
             logOutLabel.Text = LogInModule.GetString("logOutLabel");
             adminLevelLabel.Text = LogInModule.GetString("adminLevelLabel");
-            label1.Text = dbControl.userInfo.Rows[0][2].ToString();
+            adminLevel.Text = dbControl.userInfo.Rows[0][2].ToString();
         }
 
         public settingsForm(bool demo)
@@ -73,9 +74,23 @@ namespace NStudio.Desktop
             else { isDark = true; }
 
             InitializeComponent();
-            adminSettingsLabel.Visible = true;
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(changeLanguageButton, LogInModule.GetString("changeLanguageLabel"));
+            toolTip.SetToolTip(changeThemeButton, LogInModule.GetString("changeThemeLabel"));
+            toolTip.SetToolTip(logOutButton, LogInModule.GetString("logOutLabel"));
+            toolTip.SetToolTip(AdminMinusButton, LogInModule.GetString("RemoveAdminTitle"));
+            toolTip.SetToolTip(AdminPlusButton, LogInModule.GetString("AddAdminTitle"));
+            toolTip.SetToolTip(AdminResignButton, LogInModule.GetString("AdminResignButton"));
+            userSettingsLabel.Text = LogInModule.GetString("userSettingsLabel");
+            adminSettingsLabel.Text = LogInModule.GetString("adminSettingsLabel");
+            adminDBLabel.Text = LogInModule.GetString("adminDBLabel");
+            changeLanguageLabel.Text = LogInModule.GetString("changeLanguageLabel");
+            changeThemeLabel.Text = LogInModule.GetString("changeThemeLabel");
             changeLanguageLabel.Text = LogInModule.GetString("changeLanguageLabel");
             logOutLabel.Text = LogInModule.GetString("logOutLabel");
+            adminLevelLabel.Text = LogInModule.GetString("adminLevelLabel");
+            adminLevel.Text = "demo";
+            adminSettingsLabel.Visible = true;
             changeLanguageButton.Enabled = false;
             changeThemeButton.Enabled = false;
             logOutButton.Enabled = false;

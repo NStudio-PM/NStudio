@@ -86,6 +86,7 @@ namespace NStudio.Desktop
 
         private void InnitView(int power)
         {
+            LogInModule.ChangeColorColorByTag(this.Controls);
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
@@ -108,7 +109,7 @@ namespace NStudio.Desktop
                 var emptySlot = "";
                 if (!recordBox.Items.Contains(emptySlot)) { recordBox.Items.Add(emptySlot); }
             }
-            else if (power >= 2)
+            if (power >= 2)
             {
                 SongsPlusButton.Enabled = true;
                 SongsMinusButton.Enabled = true;

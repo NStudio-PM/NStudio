@@ -83,10 +83,11 @@ namespace NStudio.Desktop
 
         private void InnitView(int power)
         {
+            LogInModule.ChangeColorColorByTag(this.Controls);
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = true;
-            flowPanel.AutoScroll = true;
+            // flowPanel.WrapContents = true;
+            // flowPanel.AutoScroll = true;
             toolTip = new ToolTip();
             toolTip.SetToolTip(ArtistPlusButton, LogInModule.GetString("aF1Tooltip"));
             toolTip.SetToolTip(ArtistMinusButton, LogInModule.GetString("aF2Tooltip"));
@@ -103,7 +104,8 @@ namespace NStudio.Desktop
                 foreach (var label in uniqueLabels) { LabelBox.Items.Add(label); }
                 var emptySlot = "";
                 if (!LabelBox.Items.Contains(emptySlot)) { LabelBox.Items.Add(emptySlot); }
-            }else if (power >= 2)
+            }
+            if (power >= 2)
             {
                 ArtistPlusButton.Enabled = true;
                 ArtistMinusButton.Enabled = true;

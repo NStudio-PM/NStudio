@@ -22,6 +22,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Diagnostics.Eventing.Reader;
 using NStudio.Desktop;
 using Org.BouncyCastle.Pqc.Crypto.Utilities;
+using FontAwesome.Sharp;
 
 namespace NStudio
 {
@@ -170,6 +171,9 @@ namespace NStudio
                     case "down":
                         return Color.FromArgb(31, 31, 31);
 
+                    case "selected":
+                        return Color.FromArgb(51, 51, 51);
+
                     case "font":
                         return Color.White;
 
@@ -187,11 +191,47 @@ namespace NStudio
                     case "down":
                         return Color.FromArgb(34, 116, 165);
 
+                    case "selected":
+                        return Color.FromArgb(21, 122, 110);
+
                     case "font":
                         return Color.Black;
 
                     default:
                         return Color.FromArgb(173, 216, 230);
+                }
+            }
+        }
+
+        public static void ChangeColorColorByTag(Control.ControlCollection controls)
+        {
+            string[] tagArray = new string[4] { "up", "down", "font", "accent" };
+            foreach (string type in tagArray)
+            {
+                Color color = GetColor(shade: type);
+                foreach (Control control in controls)
+                {
+                    if (control.Tag != null && control.Tag.ToString() == type)
+                    {
+                        if (control is Panel)
+                        {
+                            control.BackColor = color;
+                        }
+                        else if (control is Label)
+                        {
+                            control.ForeColor = color;
+                        }
+                        else if (control is IconButton button)
+                        {
+                            button.ForeColor = color;
+                            button.IconColor = color;
+                        }
+                    }
+
+                    if (control.Controls.Count > 0)
+                    {
+                        ChangeColorColorByTag(control.Controls);
+                    }
                 }
             }
         }
@@ -380,6 +420,7 @@ namespace NStudio
             var result = unlockForm.ShowDialog();
             if (result == DialogResult.OK)
             {
+                connectionStatusTimer.Stop();
                 Dashboard dashboard = new Dashboard(dbControl, demo: true);
                 this.Hide();
                 dashboard.Show();
