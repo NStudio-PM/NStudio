@@ -407,11 +407,10 @@ namespace NStudio.Desktop
                         transactionData.Rows.Add("song", id, cost, dbControlSongs.userInfo.Rows[0][0]);
                         dbControlSongs.AddRowToDB(transactionData, table: "transactions");
 
-                        if (!dbControlSongs.AddRowToDB(data, table: "transactions"))
-                        {
-                            MessageBox.Show(LogInModule.GetString("somethingWrong"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        songsUC.Deselect();
                     }
+                    MessageBox.Show(LogInModule.GetString("msgBox3sales"), LogInModule.GetString("msgBox2sales"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbControlSongs.UpdateBalance();
                 }
             }
             else

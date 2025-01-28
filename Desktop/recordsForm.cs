@@ -396,6 +396,10 @@ namespace NStudio.Desktop
                     {
                         DataTable data = recordsUC.GetRecordData();
                         int id = Convert.ToInt32(data.Rows[0][0]);
+                        string title = data.Rows[0][1].ToString();
+                        string author = data.Rows[0][2].ToString();
+                        string label = data.Rows[0][3].ToString();
+                        int year = Convert.ToInt32(data.Rows[0][4]);
                         int cost = Convert.ToInt32(data.Rows[0][5]);
 
                         DataTable transactionData = new DataTable();
@@ -405,12 +409,10 @@ namespace NStudio.Desktop
                         transactionData.Columns.Add("user_id", typeof(int));
                         transactionData.Rows.Add("record", id, cost, dbControlRecords.userInfo.Rows[0][0]);
                         dbControlRecords.AddRowToDB(transactionData, table: "transactions");
-
-                        if (!dbControlRecords.AddRowToDB(data, table: "transactions"))
-                        {
-                            MessageBox.Show(LogInModule.GetString("somethingWrong"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        recordsUC.Deselect();
                     }
+                    MessageBox.Show(LogInModule.GetString("msgBox3sales"), LogInModule.GetString("msgBox2sales"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dbControlRecords.UpdateBalance();
                 }
             }
             else
