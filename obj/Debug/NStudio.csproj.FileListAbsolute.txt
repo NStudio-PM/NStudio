@@ -82,3 +82,4 @@ C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.appli
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.connectForm.resources
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.csproj.Fody.CopyLocal.cache
 C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\jakub\Documents\Github Projects\NStudio\NStudio\obj\Debug\NStudio.Desktop.rulesForm.resources

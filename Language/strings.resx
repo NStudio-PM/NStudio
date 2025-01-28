@@ -606,6 +606,10 @@
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit nibh nec egestas tincidunt. Praesent vel augue volutpat, pharetra quam eget, ultrices magna. Duis ac odio enim. Suspendisse mattis in eros ac gravida. Nulla ligula lectus, tincidunt id sapien id, sodales hendrerit sem. Sed consectetur facilisis est et dictum. Sed gravida eros turpis, id euismod quam commodo ac. In turpis nibh, vehicula fermentum tellus at, eleifend congue neque. Nunc molestie vel arcu ut tempor. Mauris luctus, nunc vehicula malesuada porta, leo tellus dignissim ligula, vitae iaculis ligula sem quis dui. Vestibulum semper magna placerat imperdiet lacinia. Donec bibendum ipsum quis ipsum egestas faucibus. Donec mattis vehicula augue, non suscipit turpis malesuada eu. Donec quis consequat ante, vel congue sapien.</value>
     <comment>LogInModule</comment>
   </data>
+  <data name="rulesForm" xml:space="preserve">
+    <value>Zmiana regulaminu</value>
+    <comment>rulesForm</comment>
+  </data>
   <data name="rulesTitle" xml:space="preserve">
     <value>Regulamin</value>
     <comment>LogInModule</comment>

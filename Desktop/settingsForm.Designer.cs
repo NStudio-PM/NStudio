@@ -34,6 +34,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.rulesLabel = new System.Windows.Forms.Label();
             this.adminLevel = new System.Windows.Forms.Label();
             this.adminLevelLabel = new System.Windows.Forms.Label();
             this.AdminMinusButton = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.changeLanguageButton = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.userSettingsLabel = new System.Windows.Forms.Label();
+            this.rulesButton = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -96,6 +98,8 @@
             // panel4
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel4.Controls.Add(this.rulesButton);
+            this.panel4.Controls.Add(this.rulesLabel);
             this.panel4.Controls.Add(this.adminLevel);
             this.panel4.Controls.Add(this.adminLevelLabel);
             this.panel4.Controls.Add(this.AdminMinusButton);
@@ -107,9 +111,24 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(93, 60);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(544, 323);
+            this.panel4.Size = new System.Drawing.Size(544, 352);
             this.panel4.TabIndex = 4;
             this.panel4.Tag = "down";
+            // 
+            // rulesLabel
+            // 
+            this.rulesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rulesLabel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rulesLabel.ForeColor = System.Drawing.Color.White;
+            this.rulesLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rulesLabel.Location = new System.Drawing.Point(93, 309);
+            this.rulesLabel.MaximumSize = new System.Drawing.Size(252, 28);
+            this.rulesLabel.Name = "rulesLabel";
+            this.rulesLabel.Size = new System.Drawing.Size(220, 28);
+            this.rulesLabel.TabIndex = 41;
+            this.rulesLabel.Tag = "font";
+            this.rulesLabel.Text = "rulesLabel";
+            this.rulesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // adminLevel
             // 
@@ -117,7 +136,7 @@
             this.adminLevel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.adminLevel.ForeColor = System.Drawing.Color.White;
             this.adminLevel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.adminLevel.Location = new System.Drawing.Point(312, 276);
+            this.adminLevel.Location = new System.Drawing.Point(313, 277);
             this.adminLevel.MaximumSize = new System.Drawing.Size(252, 28);
             this.adminLevel.Name = "adminLevel";
             this.adminLevel.Size = new System.Drawing.Size(49, 28);
@@ -153,7 +172,7 @@
             this.AdminMinusButton.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.AdminMinusButton.ForeColor = System.Drawing.Color.White;
             this.AdminMinusButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AdminMinusButton.Location = new System.Drawing.Point(364, 238);
+            this.AdminMinusButton.Location = new System.Drawing.Point(355, 238);
             this.AdminMinusButton.Margin = new System.Windows.Forms.Padding(0);
             this.AdminMinusButton.Name = "AdminMinusButton";
             this.AdminMinusButton.Size = new System.Drawing.Size(30, 38);
@@ -174,7 +193,7 @@
             this.AdminPlusButton.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.AdminPlusButton.ForeColor = System.Drawing.Color.White;
             this.AdminPlusButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AdminPlusButton.Location = new System.Drawing.Point(325, 238);
+            this.AdminPlusButton.Location = new System.Drawing.Point(316, 238);
             this.AdminPlusButton.Margin = new System.Windows.Forms.Padding(0);
             this.AdminPlusButton.Name = "AdminPlusButton";
             this.AdminPlusButton.Size = new System.Drawing.Size(30, 38);
@@ -195,7 +214,7 @@
             this.AdminResignButton.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.AdminResignButton.ForeColor = System.Drawing.Color.White;
             this.AdminResignButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AdminResignButton.Location = new System.Drawing.Point(423, 238);
+            this.AdminResignButton.Location = new System.Drawing.Point(414, 238);
             this.AdminResignButton.Margin = new System.Windows.Forms.Padding(0);
             this.AdminResignButton.Name = "AdminResignButton";
             this.AdminResignButton.Size = new System.Drawing.Size(30, 38);
@@ -384,6 +403,27 @@
             this.userSettingsLabel.Text = "userSettingsLabel";
             this.userSettingsLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // rulesButton
+            // 
+            this.rulesButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rulesButton.BackColor = System.Drawing.Color.Transparent;
+            this.rulesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rulesButton.BackgroundImage")));
+            this.rulesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.rulesButton.FlatAppearance.BorderSize = 0;
+            this.rulesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.rulesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.rulesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rulesButton.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.rulesButton.ForeColor = System.Drawing.Color.White;
+            this.rulesButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.rulesButton.Location = new System.Drawing.Point(316, 310);
+            this.rulesButton.Margin = new System.Windows.Forms.Padding(0);
+            this.rulesButton.Name = "rulesButton";
+            this.rulesButton.Size = new System.Drawing.Size(30, 30);
+            this.rulesButton.TabIndex = 42;
+            this.rulesButton.UseVisualStyleBackColor = false;
+            this.rulesButton.Click += new System.EventHandler(this.rulesButton_Click);
+            // 
             // settingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,5 +469,7 @@
         private System.Windows.Forms.Button AdminResignButton;
         private System.Windows.Forms.Label adminLevel;
         private System.Windows.Forms.Label adminLevelLabel;
+        private System.Windows.Forms.Label rulesLabel;
+        private System.Windows.Forms.Button rulesButton;
     }
 }

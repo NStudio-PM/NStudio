@@ -456,6 +456,12 @@
     <Compile Include="Desktop\recordsForm.Designer.cs">
       <DependentUpon>recordsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\rulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\rulesForm.Designer.cs">
+      <DependentUpon>rulesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\settingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -537,6 +543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\recordsForm.resx">
       <DependentUpon>recordsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\rulesForm.resx">
+      <DependentUpon>rulesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\settingsForm.resx">
       <DependentUpon>settingsForm.cs</DependentUpon>

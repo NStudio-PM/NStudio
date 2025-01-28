@@ -683,9 +683,6 @@
   <data name="usernameInput.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="usernameInput.Text" xml:space="preserve">
-    <value>ColderVoid</value>
-  </data>
   <data name="usernameInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
@@ -719,9 +716,6 @@
   <data name="passwordInput.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="passwordInput.Text" xml:space="preserve">
-    <value>testtest</value>
-  </data>
   <data name="passwordInput.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
@@ -739,75 +733,6 @@
   </data>
   <data name="rPassPanel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>rPassPanel</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;rPassPic.Name" xml:space="preserve">
-    <value>rPassPic</value>
-  </data>
-  <data name="&gt;&gt;rPassPic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rPassPic.Parent" xml:space="preserve">
-    <value>rPassPanel</value>
-  </data>
-  <data name="&gt;&gt;rPassPic.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;rPassInputLabel.Name" xml:space="preserve">
-    <value>rPassInputLabel</value>
-  </data>
-  <data name="&gt;&gt;rPassInputLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rPassInputLabel.Parent" xml:space="preserve">
-    <value>rPassPanel</value>
-  </data>
-  <data name="&gt;&gt;rPassInputLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;rPassInput.Name" xml:space="preserve">
-    <value>rPassInput</value>
-  </data>
-  <data name="&gt;&gt;rPassInput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rPassInput.Parent" xml:space="preserve">
-    <value>rPassPanel</value>
-  </data>
-  <data name="&gt;&gt;rPassInput.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="rPassPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 362</value>
-  </data>
-  <data name="rPassPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 63</value>
-  </data>
-  <data name="rPassPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;rPassPanel.Name" xml:space="preserve">
-    <value>rPassPanel</value>
-  </data>
-  <data name="&gt;&gt;rPassPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rPassPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;rPassPanel.ZOrder" xml:space="preserve">
-    <value>11</value>
   </data>
   <data name="panel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1072,6 +997,27 @@
   </data>
   <data name="&gt;&gt;rPassInput.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="rPassPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 362</value>
+  </data>
+  <data name="rPassPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 63</value>
+  </data>
+  <data name="rPassPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;rPassPanel.Name" xml:space="preserve">
+    <value>rPassPanel</value>
+  </data>
+  <data name="&gt;&gt;rPassPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rPassPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;rPassPanel.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="loginButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1570,7 +1516,7 @@
   <data name="changeLanguageButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAKIJSURBVHhe7d0H
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAKIJSURBVHhe7d0H
         fBVl1j/wTa8kJCF0AgQSCITQa6gJhN5RUayIoICigHSQIqj0IqioqIiISG8qCnZRsKOioK6uus1tllX3
         3XLe51w2LpJfbp65M3PvzNxzPp/v5//+1zD3mefOvefcmaf8SkJCQsKhUUUZrixV9iofKH9U/q6QEEH0
         vfIH5X1lt3KHMkRJUyQkJCQkLAhO+tcrryn/VtCXsRBOwdfoy8p1SroiISEhIWEw6ilrlB8U9EUrhNP9
@@ -2307,7 +2253,7 @@
   <data name="lockBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACDHSURBVHhe7d0J
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACDHSURBVHhe7d0J
         tK7ZfOfxGsVMxEyhO52Ys4JCp5MQU5kjRKFEDKGJtHlJ62TFijGsSktUhyQlQwtB6NDSJIgMqELEVGYh
         BI0qQ5Uy1KSG7t8uYy3/W+697/Oes/ezP9+1PmvVKuXc9zznf/bZ9z3PcICkobtYXC/uFL8UvxpHx5/E
         K+P4+FB87JtO+aavxf/7pvbP3/r33/rvPhjHRfsY7WO1j9k+dvsz2p/V/sz2Z0uSpC11SFw/7hNPj5fE

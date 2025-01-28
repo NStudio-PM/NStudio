@@ -37,6 +37,8 @@ namespace NStudio.Desktop
                 adminLevel.Visible = true;
                 adminLevelLabel.Visible = true;
                 adminDBLabel.Visible = true;
+                rulesLabel.Visible = true;
+                rulesButton.Visible = true;
             }
             else
             {
@@ -47,6 +49,8 @@ namespace NStudio.Desktop
                 adminLevel.Visible = false;
                 adminLevelLabel.Visible = false;
                 adminDBLabel.Visible = false;
+                rulesLabel.Visible = false;
+                rulesButton.Visible = false;
             }
             LogInModule.ChangeColorColorByTag(this.Controls);
             toolTip = new ToolTip();
@@ -63,6 +67,7 @@ namespace NStudio.Desktop
             changeThemeLabel.Text = LogInModule.GetString("changeThemeLabel");
             logOutLabel.Text = LogInModule.GetString("logOutLabel");
             adminLevelLabel.Text = LogInModule.GetString("adminLevelLabel");
+            rulesLabel.Text = LogInModule.GetString("rulesTitle");
             adminLevel.Text = dbControl.userInfo.Rows[0][2].ToString();
         }
 
@@ -181,6 +186,12 @@ namespace NStudio.Desktop
                     Application.Exit();
                 }
             }
+        }
+
+        private void rulesButton_Click(object sender, EventArgs e)
+        {
+            rulesForm rules = new rulesForm();
+            rules.Show();
         }
     }
 }
