@@ -23,26 +23,27 @@ namespace NStudio.Desktop
         public DatabaseControl dbControlRecords;
         public readonly string table = "records";
         private DataTable records;
+        private bool sales;
 
         public recordsForm(DatabaseControl dbControl)
         {
             InitializeComponent();
             dbControlRecords = dbControl;
             InnitView(Convert.ToInt32(dbControlRecords.userInfo.Rows[0][2]));
-            flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = true;
-            flowPanel.AutoSize = true;
-            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         public recordsForm(bool demo)
         {
             InitializeComponent();
             InnitView(0);
-            flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = true;
-            flowPanel.AutoSize = true;
-            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
+        public recordsForm(DatabaseControl dbControl, bool sales)
+        {
+            InitializeComponent();
+            this.sales = sales;
+            dbControlRecords = dbControl;
+            InnitView(Convert.ToInt32(dbControlRecords.userInfo.Rows[0][2]));
         }
 
         private void LoadRecordsToFlowPanel(DataTable recordsTable, FlowLayoutPanel flowPanel)
@@ -88,6 +89,7 @@ namespace NStudio.Desktop
         private void InnitView(int power)
         {
             LogInModule.ChangeColorColorByTag(this.Controls);
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
             flowPanel.WrapContents = true;
@@ -101,7 +103,7 @@ namespace NStudio.Desktop
             labelLabel.Text = LogInModule.GetString("labelLabel-");
             yearLabel.Text = LogInModule.GetString("yearLabel-");
 
-            if (power > 0)
+            if (power >= 1)
             {
                 records = dbControlRecords.RecordsLoadData();
                 LoadRecordsToFlowPanel(records, flowPanel);
@@ -115,7 +117,16 @@ namespace NStudio.Desktop
                 RecordsPlusButton.Enabled = true;
                 RecordsMinusButton.Enabled = true;
                 RecordsEditButton.Enabled = true;
+                salesBox.Enabled = true;
             }
+            if (sales)
+            {
+                RecordsPlusButton.Visible = false;
+                RecordsMinusButton.Visible = false;
+                RecordsEditButton.Visible = false;
+                salesBox.Visible = true;
+            }
+
         }
 
         private void ApplyFilter(string labelFilter, string titleFilter = null, string authorFilter = null, string yearFilter = null)
@@ -295,6 +306,116 @@ namespace NStudio.Desktop
             else
             {
                 MessageBox.Show(LogInModule.GetString("msgBoxTooManySelections"),
+                                LogInModule.GetString("msgBoxError"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
+        private void salesBox_Click(object sender, EventArgs e)
+        {
+            var selectedControls = flowPanel.Controls
+                .OfType<recordsUC>()
+                .Where(uc => uc.IsSelected())
+                .ToList();
+
+            if (selectedControls.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1sales"),
+                                                      LogInModule.GetString("msgBox2sales"),
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool fuse = true;
+                    string exePath = AppDomain.CurrentDomain.BaseDirectory;
+                    DateTimeOffset nowOffset = DateTimeOffset.Now;
+                    long unixTimestamp = nowOffset.ToUnixTimeSeconds();
+                    string reciptName = "potwierdzenie [" + unixTimestamp + "].txt";
+                    string filePath = Path.Combine(exePath, reciptName);
+                    string transactionString = "-----------------------------\n";
+                    int itemCount = 1;
+                    int transactionSum = 0;
+                    if (sales)
+                    {
+                        foreach (var recordsUC in selectedControls)
+                        {
+                            DataTable data = recordsUC.GetRecordData();
+                            int cost = Convert.ToInt32(data.Rows[0][5]);
+                            transactionSum += cost;
+                        }
+                        if (!dbControlRecords.DeductFromBalance(transactionSum))
+                        {
+                            fuse = false;
+                            MessageBox.Show(LogInModule.GetString("msgBox4sales"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    transactionSum = 0;
+
+                    if (fuse)
+                    {
+                        foreach (var recordsUC in selectedControls)
+                        {
+                            DataTable data = recordsUC.GetRecordData();
+                            int id = Convert.ToInt32(data.Rows[0][0]);
+                            string title = data.Rows[0][1].ToString();
+                            string author = data.Rows[0][2].ToString();
+                            string label = data.Rows[0][3].ToString();
+                            int year = Convert.ToInt32(data.Rows[0][4]);
+                            int cost = Convert.ToInt32(data.Rows[0][5]);
+
+                            DataTable transactionData = new DataTable();
+                            transactionData.Columns.Add("type", typeof(string));
+                            transactionData.Columns.Add("item_id", typeof(int));
+                            transactionData.Columns.Add("cost", typeof(int));
+                            transactionData.Columns.Add("user_id", typeof(int));
+                            transactionData.Rows.Add("record", id, cost, dbControlRecords.userInfo.Rows[0][0]);
+                            dbControlRecords.AddRowToDB(transactionData, table: "transactions");
+
+                            transactionString += "[" + itemCount + "]\n";
+                            transactionString += "Typ przedmiotu: PŁYTA\n";
+                            transactionString += "Tytuł: " + title + "\n";
+                            transactionString += "Autor: " + author + "\n";
+                            transactionString += "Label: " + label + "\n\n";
+                            transactionString += "Rok wydania: " + year + "\n";
+                            transactionString += $"Cena: {cost / 100.0f:F2}" + " PLN\n\n";
+                            itemCount++;
+                            transactionSum += cost;
+                            recordsUC.Deselect();
+                        }
+                        transactionString += "SUMA: " + $" {transactionSum / 100.0f:F2}" + " PLN\n";
+                        transactionString += "-----------------------------\n";
+                        File.WriteAllText(filePath, transactionString);
+                        MessageBox.Show(LogInModule.GetString("msgBox3sales"), LogInModule.GetString("msgBox2sales"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dbControlRecords.UpdateBalance();
+                    }
+                }
+                else // bez potweirdzenia
+                {
+                    foreach (var recordsUC in selectedControls)
+                    {
+                        DataTable data = recordsUC.GetRecordData();
+                        int id = Convert.ToInt32(data.Rows[0][0]);
+                        int cost = Convert.ToInt32(data.Rows[0][5]);
+
+                        DataTable transactionData = new DataTable();
+                        transactionData.Columns.Add("type", typeof(string));
+                        transactionData.Columns.Add("item_id", typeof(int));
+                        transactionData.Columns.Add("cost", typeof(int));
+                        transactionData.Columns.Add("user_id", typeof(int));
+                        transactionData.Rows.Add("record", id, cost, dbControlRecords.userInfo.Rows[0][0]);
+                        dbControlRecords.AddRowToDB(transactionData, table: "transactions");
+
+                        if (!dbControlRecords.AddRowToDB(data, table: "transactions"))
+                        {
+                            MessageBox.Show(LogInModule.GetString("somethingWrong"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(LogInModule.GetString("msgBoxNoSelection"),
                                 LogInModule.GetString("msgBoxError"),
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);

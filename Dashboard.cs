@@ -87,17 +87,25 @@ namespace NStudio
             recordsCountLabel.Text = LogInModule.GetString("recordsCountLabel");
             artistsCountLabel.Text = LogInModule.GetString("artistsCountLabel");
             unlockButton.Text = LogInModule.GetString("unlockButton");
+            moneyLabel.Text = LogInModule.GetString("moneyLabel");
             if (!demo)
             {
                 dbName.Text = Properties.Settings.Default.dbName + "  @" + Properties.Settings.Default.dbHostname;
+                moneyBox.Text = $"{Convert.ToInt32(dbControl.userInfo.Rows[0][7]) / 100.0f:F2}" + "  PLN";
             }
             else
             {
                 dbName.Text = "demo  @localhost";
+                moneyBox.Text = "N/A";
             }
 
             toolTip.SetToolTip(profileButton, LogInModule.GetString("d1Tooltip"));
             toolTip.SetToolTip(profileNameLabel, LogInModule.GetString("d1Tooltip"));
+
+            incomeBox.Text = $"{dbControl.GetCount(type: "income") / 100.0f:F2}" + "  PLN";
+            artistsCount.Text = dbControl.GetCount(type: "artists").ToString();
+            recordsCount.Text = dbControl.GetCount(type: "records").ToString();
+            songsCount.Text = dbControl.GetCount(type: "songs").ToString();
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -202,6 +210,7 @@ namespace NStudio
             DeactivateButton();
             if(leftBorderBtn.Visible) { leftBorderBtn.Visible = false; }
             if (currentChild != null) { currentChild.Close(); }
+            moneyBox.Text = $"{Convert.ToInt32(dbControl.userInfo.Rows[0][7]) / 100.0f:F2}" + "  PLN";
         }
 
         private void songsButton_Click(object sender, EventArgs e)
@@ -251,7 +260,8 @@ namespace NStudio
             if (!demo)
             {
                 ActivateButton(sender, RGBColors.shopColor);
-                OpenChild(new shopForm());
+                OpenChild(new shopForm(dbControl));
+                moneyBox.Text = $"{Convert.ToInt32(dbControl.userInfo.Rows[0][7]) / 100.0f:F2}" + "  PLN";
             }
         }
 

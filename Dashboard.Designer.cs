@@ -54,26 +54,26 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.artistsCount = new System.Windows.Forms.Label();
             this.artistsCountLabel = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.songsCount = new System.Windows.Forms.Label();
             this.songsCountLabel = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.recordsCount = new System.Windows.Forms.Label();
             this.recordsCountLabel = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.incomeBox = new System.Windows.Forms.Label();
             this.incomeLabel = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -87,6 +87,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelBufforLeft = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.moneyLabel = new System.Windows.Forms.Label();
+            this.moneyBox = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -115,6 +118,7 @@
             this.panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -326,6 +330,7 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.panelTitle.Controls.Add(this.panel1);
             this.panelTitle.Controls.Add(this.panel15);
             this.panelTitle.Controls.Add(this.userInfoPanel);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -352,12 +357,12 @@
             this.studioLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.studioLabel.ForeColor = System.Drawing.Color.White;
             this.studioLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.studioLabel.Location = new System.Drawing.Point(17, 25);
+            this.studioLabel.Location = new System.Drawing.Point(6, 25);
             this.studioLabel.Name = "studioLabel";
-            this.studioLabel.Size = new System.Drawing.Size(55, 19);
+            this.studioLabel.Size = new System.Drawing.Size(66, 19);
             this.studioLabel.TabIndex = 1;
             this.studioLabel.Tag = "font";
-            this.studioLabel.Text = "studio:";
+            this.studioLabel.Text = "Studio:";
             this.studioLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dbName
@@ -365,7 +370,7 @@
             this.dbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dbName.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dbName.ForeColor = System.Drawing.Color.White;
-            this.dbName.Location = new System.Drawing.Point(69, 25);
+            this.dbName.Location = new System.Drawing.Point(72, 24);
             this.dbName.Name = "dbName";
             this.dbName.Size = new System.Drawing.Size(169, 19);
             this.dbName.TabIndex = 2;
@@ -498,7 +503,7 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.panel13.Controls.Add(this.label10);
+            this.panel13.Controls.Add(this.artistsCount);
             this.panel13.Controls.Add(this.artistsCountLabel);
             this.panel13.Controls.Add(this.panel19);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -508,18 +513,18 @@
             this.panel13.TabIndex = 1;
             this.panel13.Tag = "up";
             // 
-            // label10
+            // artistsCount
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(156, 87);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 19);
-            this.label10.TabIndex = 6;
-            this.label10.Tag = "font";
-            this.label10.Text = "9";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.artistsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.artistsCount.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.artistsCount.ForeColor = System.Drawing.Color.White;
+            this.artistsCount.Location = new System.Drawing.Point(141, 87);
+            this.artistsCount.Name = "artistsCount";
+            this.artistsCount.Size = new System.Drawing.Size(65, 19);
+            this.artistsCount.TabIndex = 6;
+            this.artistsCount.Tag = "font";
+            this.artistsCount.Text = "9";
+            this.artistsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // artistsCountLabel
             // 
@@ -527,7 +532,7 @@
             this.artistsCountLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.artistsCountLabel.ForeColor = System.Drawing.Color.White;
             this.artistsCountLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.artistsCountLabel.Location = new System.Drawing.Point(24, 87);
+            this.artistsCountLabel.Location = new System.Drawing.Point(9, 87);
             this.artistsCountLabel.Name = "artistsCountLabel";
             this.artistsCountLabel.Size = new System.Drawing.Size(135, 19);
             this.artistsCountLabel.TabIndex = 4;
@@ -567,7 +572,7 @@
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.panel12.Controls.Add(this.label9);
+            this.panel12.Controls.Add(this.songsCount);
             this.panel12.Controls.Add(this.songsCountLabel);
             this.panel12.Controls.Add(this.panel18);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
@@ -577,18 +582,18 @@
             this.panel12.TabIndex = 0;
             this.panel12.Tag = "up";
             // 
-            // label9
+            // songsCount
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(156, 88);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 19);
-            this.label9.TabIndex = 5;
-            this.label9.Tag = "font";
-            this.label9.Text = "89";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.songsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.songsCount.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.songsCount.ForeColor = System.Drawing.Color.White;
+            this.songsCount.Location = new System.Drawing.Point(141, 86);
+            this.songsCount.Name = "songsCount";
+            this.songsCount.Size = new System.Drawing.Size(65, 19);
+            this.songsCount.TabIndex = 5;
+            this.songsCount.Tag = "font";
+            this.songsCount.Text = "89";
+            this.songsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // songsCountLabel
             // 
@@ -596,7 +601,7 @@
             this.songsCountLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.songsCountLabel.ForeColor = System.Drawing.Color.White;
             this.songsCountLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.songsCountLabel.Location = new System.Drawing.Point(21, 88);
+            this.songsCountLabel.Location = new System.Drawing.Point(6, 86);
             this.songsCountLabel.Name = "songsCountLabel";
             this.songsCountLabel.Size = new System.Drawing.Size(135, 19);
             this.songsCountLabel.TabIndex = 4;
@@ -648,7 +653,7 @@
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.panel16.Controls.Add(this.label8);
+            this.panel16.Controls.Add(this.recordsCount);
             this.panel16.Controls.Add(this.recordsCountLabel);
             this.panel16.Controls.Add(this.panel20);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -658,18 +663,18 @@
             this.panel16.TabIndex = 2;
             this.panel16.Tag = "up";
             // 
-            // label8
+            // recordsCount
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(135, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 19);
-            this.label8.TabIndex = 4;
-            this.label8.Tag = "font";
-            this.label8.Text = "26";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.recordsCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.recordsCount.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.recordsCount.ForeColor = System.Drawing.Color.White;
+            this.recordsCount.Location = new System.Drawing.Point(135, 87);
+            this.recordsCount.Name = "recordsCount";
+            this.recordsCount.Size = new System.Drawing.Size(85, 19);
+            this.recordsCount.TabIndex = 4;
+            this.recordsCount.Tag = "font";
+            this.recordsCount.Text = "26";
+            this.recordsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // recordsCountLabel
             // 
@@ -717,7 +722,7 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.panel14.Controls.Add(this.label7);
+            this.panel14.Controls.Add(this.incomeBox);
             this.panel14.Controls.Add(this.incomeLabel);
             this.panel14.Controls.Add(this.panel17);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
@@ -727,18 +732,18 @@
             this.panel14.TabIndex = 1;
             this.panel14.Tag = "up";
             // 
-            // label7
+            // incomeBox
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(84, 87);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 19);
-            this.label7.TabIndex = 3;
-            this.label7.Tag = "font";
-            this.label7.Text = "43564.78 PLN";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.incomeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.incomeBox.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.incomeBox.ForeColor = System.Drawing.Color.White;
+            this.incomeBox.Location = new System.Drawing.Point(93, 86);
+            this.incomeBox.Name = "incomeBox";
+            this.incomeBox.Size = new System.Drawing.Size(119, 19);
+            this.incomeBox.TabIndex = 3;
+            this.incomeBox.Tag = "font";
+            this.incomeBox.Text = "43564.78 PLN";
+            this.incomeBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // incomeLabel
             // 
@@ -746,7 +751,7 @@
             this.incomeLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.incomeLabel.ForeColor = System.Drawing.Color.White;
             this.incomeLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.incomeLabel.Location = new System.Drawing.Point(8, 87);
+            this.incomeLabel.Location = new System.Drawing.Point(17, 86);
             this.incomeLabel.Name = "incomeLabel";
             this.incomeLabel.Size = new System.Drawing.Size(79, 19);
             this.incomeLabel.TabIndex = 2;
@@ -864,6 +869,44 @@
             this.panelBufforLeft.TabIndex = 0;
             this.panelBufforLeft.Tag = "down";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.moneyLabel);
+            this.panel1.Controls.Add(this.moneyBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(241, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(191, 65);
+            this.panel1.TabIndex = 4;
+            this.panel1.Tag = "down";
+            // 
+            // moneyLabel
+            // 
+            this.moneyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.moneyLabel.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.moneyLabel.ForeColor = System.Drawing.Color.White;
+            this.moneyLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.moneyLabel.Location = new System.Drawing.Point(3, 25);
+            this.moneyLabel.Name = "moneyLabel";
+            this.moneyLabel.Size = new System.Drawing.Size(55, 19);
+            this.moneyLabel.TabIndex = 3;
+            this.moneyLabel.Tag = "font";
+            this.moneyLabel.Text = "Saldo:";
+            this.moneyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // moneyBox
+            // 
+            this.moneyBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.moneyBox.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.moneyBox.ForeColor = System.Drawing.Color.White;
+            this.moneyBox.Location = new System.Drawing.Point(60, 25);
+            this.moneyBox.Name = "moneyBox";
+            this.moneyBox.Size = new System.Drawing.Size(128, 19);
+            this.moneyBox.TabIndex = 4;
+            this.moneyBox.Tag = "font";
+            this.moneyBox.Text = "N/A";
+            this.moneyBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,6 +950,7 @@
             this.panel21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -962,14 +1006,17 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label incomeBox;
         private System.Windows.Forms.Label incomeLabel;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label artistsCount;
+        private System.Windows.Forms.Label songsCount;
+        private System.Windows.Forms.Label recordsCount;
         private System.Windows.Forms.Label label17;
         private FontAwesome.Sharp.IconButton unlockButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label moneyLabel;
+        private System.Windows.Forms.Label moneyBox;
     }
 }

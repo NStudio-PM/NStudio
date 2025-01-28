@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Markup;
 using System.Xml.Linq;
 
 namespace NStudio.Desktop
@@ -22,26 +23,27 @@ namespace NStudio.Desktop
         public DatabaseControl dbControlSongs;
         public readonly string table = "songs";
         private DataTable songs;
+        private bool sales;
 
         public songsForm(DatabaseControl dbControl)
         {
             InitializeComponent();
             dbControlSongs = dbControl;
             InnitView(Convert.ToInt32(dbControlSongs.userInfo.Rows[0][2]));
-            flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = true;
-            flowPanel.AutoSize = true;
-            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
         public songsForm(bool demo)
         {
             InitializeComponent();
             InnitView(0);
-            flowPanel.FlowDirection = FlowDirection.TopDown;
-            flowPanel.WrapContents = true;
-            flowPanel.AutoSize = true;
-            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        }
+
+        public songsForm(DatabaseControl dbControl, bool sales)
+        {
+            InitializeComponent();
+            this.sales = sales;
+            dbControlSongs = dbControl;
+            InnitView(Convert.ToInt32(dbControlSongs.userInfo.Rows[0][2]));
         }
 
         private void LoadSongsToFlowPanel(DataTable songsTable, FlowLayoutPanel flowPanel)
@@ -89,6 +91,7 @@ namespace NStudio.Desktop
             LogInModule.ChangeColorColorByTag(this.Controls);
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             flowPanel.WrapContents = true;
             flowPanel.AutoScroll = true;
             toolTip = new ToolTip();
@@ -100,7 +103,7 @@ namespace NStudio.Desktop
             recordLabel.Text = LogInModule.GetString("recordLabel-");
             yearLabel.Text = LogInModule.GetString("yearLabel-");
 
-            if (power > 0)
+            if (power >= 1)
             {
                 songs = dbControlSongs.SongsLoadData();
                 LoadSongsToFlowPanel(songs, flowPanel);
@@ -108,12 +111,22 @@ namespace NStudio.Desktop
                 foreach (var record in uniqueRecords) { recordBox.Items.Add(record); }
                 var emptySlot = "";
                 if (!recordBox.Items.Contains(emptySlot)) { recordBox.Items.Add(emptySlot); }
+                salesBox.Enabled = false;
             }
             if (power >= 2)
             {
                 SongsPlusButton.Enabled = true;
                 SongsMinusButton.Enabled = true;
                 SongsEditButton.Enabled = true;
+                salesBox.Enabled = true;
+            }
+
+            if (sales)
+            {
+                SongsPlusButton.Visible = false;
+                SongsMinusButton.Visible = false;
+                SongsEditButton.Visible = false;
+                salesBox.Visible = true;
             }
         }
 
@@ -294,6 +307,116 @@ namespace NStudio.Desktop
             else
             {
                 MessageBox.Show(LogInModule.GetString("msgBoxTooManySelections"),
+                                LogInModule.GetString("msgBoxError"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+        }
+
+        private void salesBox_Click(object sender, EventArgs e)
+        {
+            var selectedControls = flowPanel.Controls
+                .OfType<songsUC>()
+                .Where(uc => uc.IsSelected())
+                .ToList();
+
+            if (selectedControls.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(LogInModule.GetString("msgBox1sales"),
+                                                      LogInModule.GetString("msgBox2sales"),
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool fuse = true;
+                    string exePath = AppDomain.CurrentDomain.BaseDirectory;
+                    DateTimeOffset nowOffset = DateTimeOffset.Now;
+                    long unixTimestamp = nowOffset.ToUnixTimeSeconds();
+                    string reciptName = "potwierdzenie [" + unixTimestamp + "].txt";
+                    string filePath = Path.Combine(exePath, reciptName);
+                    string transactionString = "-----------------------------\n";
+                    int itemCount = 1;
+                    int transactionSum = 0;
+                    if (sales)
+                    {
+                        foreach (var songsUC in selectedControls)
+                        {
+                            DataTable data = songsUC.GetSongData();
+                            int cost = Convert.ToInt32(data.Rows[0][5]);
+                            transactionSum += cost;
+                        }
+                        if (!dbControlSongs.DeductFromBalance(transactionSum)) 
+                        { 
+                            fuse = false;
+                            MessageBox.Show(LogInModule.GetString("msgBox4sales"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    transactionSum = 0;
+
+                    if (fuse)
+                    {
+                        foreach (var songsUC in selectedControls)
+                        {
+                            DataTable data = songsUC.GetSongData();
+                            int id = Convert.ToInt32(data.Rows[0][0]);
+                            string title = data.Rows[0][1].ToString();
+                            string author = data.Rows[0][2].ToString();
+                            string record = data.Rows[0][3].ToString();
+                            int year = Convert.ToInt32(data.Rows[0][4]);
+                            int cost = Convert.ToInt32(data.Rows[0][5]);
+
+                            DataTable transactionData = new DataTable();
+                            transactionData.Columns.Add("type", typeof(string));
+                            transactionData.Columns.Add("item_id", typeof(int));
+                            transactionData.Columns.Add("cost", typeof(int));
+                            transactionData.Columns.Add("user_id", typeof(int));
+                            transactionData.Rows.Add("song", id, cost, dbControlSongs.userInfo.Rows[0][0]);
+                            dbControlSongs.AddRowToDB(transactionData, table: "transactions");
+
+                            transactionString += "[" + itemCount + "]\n";
+                            transactionString += "Typ przedmiotu: UTWÓR\n";
+                            transactionString += "Tytuł: " + title + "\n";
+                            transactionString += "Autor: " + author + "\n";
+                            transactionString += "Płyta: " + record + "\n\n";
+                            transactionString += "Rok wydania: " + year + "\n";
+                            transactionString += $"Cena: {cost / 100.0f:F2}" + " PLN\n\n";
+                            itemCount++;
+                            transactionSum += cost;
+                            songsUC.Deselect();
+                        }
+                        transactionString += "SUMA: " + $" {transactionSum / 100.0f:F2}" + " PLN\n";
+                        transactionString += "-----------------------------\n";
+                        File.WriteAllText(filePath, transactionString);
+                        MessageBox.Show(LogInModule.GetString("msgBox3sales"), LogInModule.GetString("msgBox2sales"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dbControlSongs.UpdateBalance();
+                    }
+                }
+                else // bez potweirdzenia
+                {
+                    foreach (var songsUC in selectedControls)
+                    {
+                        DataTable data = songsUC.GetSongData();
+                        int id = Convert.ToInt32(data.Rows[0][0]);
+                        int cost = Convert.ToInt32(data.Rows[0][5]);
+
+                        DataTable transactionData = new DataTable();
+                        transactionData.Columns.Add("type", typeof(string));
+                        transactionData.Columns.Add("item_id", typeof(int));
+                        transactionData.Columns.Add("cost", typeof(int));
+                        transactionData.Columns.Add("user_id", typeof(int));
+                        transactionData.Rows.Add("song", id, cost, dbControlSongs.userInfo.Rows[0][0]);
+                        dbControlSongs.AddRowToDB(transactionData, table: "transactions");
+
+                        if (!dbControlSongs.AddRowToDB(data, table: "transactions"))
+                        {
+                            MessageBox.Show(LogInModule.GetString("somethingWrong"), "ERR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(LogInModule.GetString("msgBoxNoSelection"),
                                 LogInModule.GetString("msgBoxError"),
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);

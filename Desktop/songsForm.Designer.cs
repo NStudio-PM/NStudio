@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(songsForm));
             this.panelMain = new System.Windows.Forms.Panel();
+            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.yearLabel = new System.Windows.Forms.Label();
             this.yearBox = new System.Windows.Forms.TextBox();
@@ -38,32 +42,61 @@
             this.authorSearchBox = new System.Windows.Forms.TextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titleSearchBox = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelActions = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.salesBox = new System.Windows.Forms.Button();
             this.SongsEditButton = new FontAwesome.Sharp.IconButton();
             this.SongsMinusButton = new FontAwesome.Sharp.IconButton();
             this.SongsPlusButton = new FontAwesome.Sharp.IconButton();
-            this.flowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelActions.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
             // 
             this.panelMain.AutoScroll = true;
             this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.flowPanel);
+            this.panelMain.Controls.Add(this.panel3);
+            this.panelMain.Controls.Add(this.panel2);
             this.panelMain.Controls.Add(this.panel1);
-            this.panelMain.Controls.Add(this.flowLayoutPanel1);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.MinimumSize = new System.Drawing.Size(550, 0);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(674, 461);
             this.panelMain.TabIndex = 5;
+            // 
+            // flowPanel
+            // 
+            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanel.Location = new System.Drawing.Point(35, 25);
+            this.flowPanel.MinimumSize = new System.Drawing.Size(520, 0);
+            this.flowPanel.Name = "flowPanel";
+            this.flowPanel.Size = new System.Drawing.Size(639, 336);
+            this.flowPanel.TabIndex = 9;
+            this.flowPanel.Tag = "down";
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(35, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(639, 25);
+            this.panel3.TabIndex = 8;
+            this.panel3.Tag = "down";
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(35, 361);
+            this.panel2.TabIndex = 7;
+            this.panel2.Tag = "down";
             // 
             // panel1
             // 
@@ -179,18 +212,10 @@
             this.titleSearchBox.TabIndex = 0;
             this.titleSearchBox.TextChanged += new System.EventHandler(this.TitleSearchTextBox_TextChanged);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(674, 25);
-            this.flowLayoutPanel1.TabIndex = 4;
-            this.flowLayoutPanel1.Tag = "down";
-            // 
             // panelActions
             // 
             this.panelActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.panelActions.Controls.Add(this.panel4);
             this.panelActions.Controls.Add(this.SongsEditButton);
             this.panelActions.Controls.Add(this.SongsMinusButton);
             this.panelActions.Controls.Add(this.SongsPlusButton);
@@ -200,6 +225,38 @@
             this.panelActions.Size = new System.Drawing.Size(80, 461);
             this.panelActions.TabIndex = 6;
             this.panelActions.Tag = "up";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.salesBox);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 382);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(80, 79);
+            this.panel4.TabIndex = 3;
+            // 
+            // salesBox
+            // 
+            this.salesBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.salesBox.BackColor = System.Drawing.Color.Transparent;
+            this.salesBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("salesBox.BackgroundImage")));
+            this.salesBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.salesBox.Enabled = false;
+            this.salesBox.FlatAppearance.BorderSize = 0;
+            this.salesBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.salesBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.salesBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.salesBox.ForeColor = System.Drawing.Color.White;
+            this.salesBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.salesBox.Location = new System.Drawing.Point(15, 18);
+            this.salesBox.Margin = new System.Windows.Forms.Padding(0);
+            this.salesBox.Name = "salesBox";
+            this.salesBox.Size = new System.Drawing.Size(55, 46);
+            this.salesBox.TabIndex = 24;
+            this.salesBox.UseVisualStyleBackColor = false;
+            this.salesBox.Click += new System.EventHandler(this.salesBox_Click);
             // 
             // SongsEditButton
             // 
@@ -267,26 +324,6 @@
             this.SongsPlusButton.UseVisualStyleBackColor = true;
             this.SongsPlusButton.Click += new System.EventHandler(this.SongsPlusButton_Click);
             // 
-            // flowPanel
-            // 
-            this.flowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanel.Location = new System.Drawing.Point(0, 25);
-            this.flowPanel.MinimumSize = new System.Drawing.Size(520, 0);
-            this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(674, 336);
-            this.flowPanel.TabIndex = 6;
-            this.flowPanel.Tag = "down";
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(35, 336);
-            this.panel2.TabIndex = 7;
-            this.panel2.Tag = "down";
-            // 
             // songsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,12 +332,14 @@
             this.ClientSize = new System.Drawing.Size(754, 461);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelActions);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "songsForm";
             this.Text = "songsForm";
             this.panelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelActions.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -314,7 +353,6 @@
         private System.Windows.Forms.TextBox authorSearchBox;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox titleSearchBox;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panelActions;
         private FontAwesome.Sharp.IconButton SongsEditButton;
         private FontAwesome.Sharp.IconButton SongsMinusButton;
@@ -323,5 +361,8 @@
         private System.Windows.Forms.TextBox yearBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowPanel;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button salesBox;
     }
 }

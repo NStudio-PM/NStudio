@@ -414,6 +414,12 @@
     <Compile Include="Desktop\artistsForm.Designer.cs">
       <DependentUpon>artistsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Desktop\connectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Desktop\connectForm.Designer.cs">
+      <DependentUpon>connectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Desktop\passwordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -510,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\artistsForm.resx">
       <DependentUpon>artistsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Desktop\connectForm.resx">
+      <DependentUpon>connectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Desktop\passwordForm.resx">
       <DependentUpon>passwordForm.cs</DependentUpon>

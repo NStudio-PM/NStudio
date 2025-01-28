@@ -281,6 +281,14 @@
     <value>Miasto:</value>
     <comment>profileForm</comment>
   </data>
+  <data name="connectButton" xml:space="preserve">
+    <value>Połącz się</value>
+    <comment>connectForm</comment>
+  </data>
+  <data name="connectTitle" xml:space="preserve">
+    <value>Połącz się z innym studiem</value>
+    <comment>connectForm</comment>
+  </data>
   <data name="costLabel" xml:space="preserve">
     <value>Cena:</value>
     <comment>songInfo</comment>
@@ -381,6 +389,10 @@
     <value>Wyloguj się</value>
     <comment>settingsForm</comment>
   </data>
+  <data name="moneyLabel" xml:space="preserve">
+    <value>Saldo:</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="msgBox1Artist" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć te dane?</value>
     <comment>artistsForm</comment>
@@ -388,6 +400,10 @@
   <data name="msgBox1Profile" xml:space="preserve">
     <value>Czy chcesz zaktualizowac te dane?</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="msgBox1sales" xml:space="preserve">
+    <value>Czy chcesz wydrukować potwierdzenie zakupu?</value>
+    <comment>sales</comment>
   </data>
   <data name="msgBox2Artist" xml:space="preserve">
     <value>Potwierdzenie</value>
@@ -397,13 +413,25 @@
     <value>Dane zapisane</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox2sales" xml:space="preserve">
+    <value>Sprzedaż</value>
+    <comment>sales</comment>
+  </data>
   <data name="msgBox3Profile" xml:space="preserve">
     <value>Przywrocono poprzednie dane</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox3sales" xml:space="preserve">
+    <value>Sprzedaż udana!</value>
+    <comment>sales</comment>
+  </data>
   <data name="msgBox4Profile" xml:space="preserve">
     <value>Plik za duży. 64KB maks.</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="msgBox4sales" xml:space="preserve">
+    <value>Nie wystarczające saldo</value>
+    <comment>msgBox</comment>
   </data>
   <data name="msgBox5Profile" xml:space="preserve">
     <value>Dane nie zostały zapisane w bazie</value>

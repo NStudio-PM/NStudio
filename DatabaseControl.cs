@@ -24,6 +24,7 @@ using System.Text.Json;
 using System.Runtime.Remoting.Messaging;
 using Microsoft.Win32;
 using System.IO;
+using System.Data.Entity.Infrastructure;
 
 namespace NStudio
 {
@@ -74,21 +75,74 @@ namespace NStudio
         public async Task<bool> CheckDatabaseConnection()
         {
             UpdateLabelColor?.Invoke(Color.Blue);
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            switch (databaseType)
             {
-                try
-                {
-                    await connection.OpenAsync();
-                    UpdateLabelColor?.Invoke(Color.Green);
-                    return true;
-                }
-                catch (Exception)
-                {
-                    UpdateLabelColor?.Invoke(Color.Red);
-                    return false;
-                }
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            await connection.OpenAsync();
+                            UpdateLabelColor?.Invoke(Color.Green);
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            UpdateLabelColor?.Invoke(Color.Red);
+                            return false;
+                        }
+                    }
+
+                case "postgresql":
+                    using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            await connection.OpenAsync();
+                            UpdateLabelColor?.Invoke(Color.Green);
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            UpdateLabelColor?.Invoke(Color.Red);
+                            return false;
+                        }
+                    }
+                case "sqlite":
+                    using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                    {
+                        try
+                        {
+                            await connection.OpenAsync();
+                            UpdateLabelColor?.Invoke(Color.Green);
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            UpdateLabelColor?.Invoke(Color.Red);
+                            return false;
+                        }
+                    }
+                case "mongodb":
+                    using (MongoClient client = new MongoClient(connectionString))
+                    {
+                        try
+                        {
+                            var database = client.GetDatabase("nstudio");                                                   
+                            UpdateLabelColor?.Invoke(Color.Green);
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            UpdateLabelColor?.Invoke(Color.Red);
+                            return false;
+                        }
+                    }
+                default:
+                    UpdateLabelColor?.Invoke(Color.Black);
+                    throw new NotSupportedException($"Unsupported database type: {databaseType}");
             }
-            
+
         }
 
         public async Task<bool> ValidateDatabase(string dbName)
@@ -181,7 +235,16 @@ namespace NStudio
                                         avatar BLOB
                                     )";
 
-                                var createTableCommands = new List<string> { createArtistsTable, createRecordsTable, createSongsTable, createUsersTable };
+                                string createTransactionsTable = @"
+                                    CREATE TABLE `transactions` (
+                                        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+                                        type VARCHAR(10),
+                                        item_id INT(11),
+                                        cost INT(11),
+                                        user_id INT(11)
+                                    )";
+
+                                var createTableCommands = new List<string> { createArtistsTable, createRecordsTable, createSongsTable, createUsersTable, createTransactionsTable };
                                 foreach (var query in createTableCommands)
                                 {
                                     MySqlCommand createTableCmd = new MySqlCommand(query, blankConnection);
@@ -206,54 +269,27 @@ namespace NStudio
                     }
 
                 case "postgresql":
-                    UpdateLabelColor?.Invoke(Color.DarkRed);
-                    return false;
-                    /*
                     try
                     {
                         using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
                         {
                             connection.Open();
                             string query = "SELECT datname FROM pg_database WHERE datname = @dbName";
-                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, connection))
+                            NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
+                            cmd.Parameters.AddWithValue("@dbName", dbName);
+                            var result = cmd.ExecuteScalar();
+                            if (result != null)
                             {
-                                cmd.Parameters.AddWithValue("@dbName", dbName);
-                                var result = cmd.ExecuteScalar();
-                                if (result != null)
-                                {
-                                    // Database exists
-                                    UpdateLabelColor?.Invoke(Color.LightGreen);
-                                    return true;
-                                }
-                                else
-                                {
-                                    throw new InvalidOperationException("Database does not exist");
-                                }
+                                // Database exists
+                                UpdateLabelColor?.Invoke(Color.LightGreen);
+                                return true;
                             }
-                        }
-                    }
-                    catch (PostgresException ex) when (ex.SqlState == "3D000") // Undefined database error
-                    {
-                        // Database does not exist
-                        try
-                        {
-                            using (NpgsqlConnection blankConnection = new NpgsqlConnection(blankConnectionString))
+                            else
                             {
-                                blankConnection.Open();
-                                string createQuery = $"CREATE DATABASE \"{dbName}\"";
-                                using (NpgsqlCommand createCmd = new NpgsqlCommand(createQuery, blankConnection))
-                                {
-                                    await createCmd.ExecuteNonQueryAsync();
-                                    UpdateLabelColor?.Invoke(Color.LightGreen);
-                                    return true;
-                                }
+                                // Database does not exist
+                                UpdateLabelColor?.Invoke(Color.DarkRed);
+                                return false;
                             }
-                        }
-                        catch (Exception createEx)
-                        {
-                            UpdateLabelColor?.Invoke(Color.DarkRed);
-                            Console.WriteLine($"Error creating database: {createEx.Message}");
-                            return false;
                         }
                     }
                     catch (Exception ex)
@@ -262,22 +298,35 @@ namespace NStudio
                         Console.WriteLine($"Unexpected error: {ex.Message}");
                         return false;
                     }
-                    */
                 case "sqlite":
-                    UpdateLabelColor?.Invoke(Color.DarkRed);
-                    return false;
-                    /*
-                     
-
                     try
                     {
-                        using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                        using (var connection = new SQLiteConnection(connectionString))
                         {
                             connection.Open();
-                            // SQLite automatically creates the database if it doesn't exist
-                            UpdateLabelColor?.Invoke(Color.LightGreen);
-                            return true;
+                            // SQLite automatically creates the database file if it does not exist
+                            string query = "SELECT name FROM sqlite_master WHERE type='table' AND name='some_table';"; // Replace 'some_table' with a relevant table name
+                            SQLiteCommand cmd = new SQLiteCommand(query, connection);
+                            var result = cmd.ExecuteScalar();
+                            if (result != null)
+                            {
+                                // Database exists
+                                UpdateLabelColor?.Invoke(Color.LightGreen);
+                                return true;
+                            }
+                            else
+                            {
+                                // Database does not exist
+                                UpdateLabelColor?.Invoke(Color.DarkRed);
+                                return false;
+                            }
                         }
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"SQLite error: {ex.Message}");
+                        return false;
                     }
                     catch (Exception ex)
                     {
@@ -285,21 +334,12 @@ namespace NStudio
                         Console.WriteLine($"Unexpected error: {ex.Message}");
                         return false;
                     }
-                     
-                     */
                 case "mongodb":
-                    UpdateLabelColor?.Invoke(Color.DarkRed);
-                    return false;
-                    /*
                     try
                     {
                         var client = new MongoClient(connectionString);
-                        var database = client.GetDatabase(dbName);
-                        var collection = database.GetCollection<BsonDocument>("dummyCollection");
-
-                        // Check if the database exists by attempting to list collections
-                        var collections = database.ListCollectionNames().ToList();
-                        if (collections.Any())
+                        var dbList = client.ListDatabaseNames().ToList();
+                        if (dbList.Contains(dbName))
                         {
                             // Database exists
                             UpdateLabelColor?.Invoke(Color.LightGreen);
@@ -307,12 +347,16 @@ namespace NStudio
                         }
                         else
                         {
-                            // Database does not exist, create it by inserting a dummy document
-                            var dummyDocument = new BsonDocument { { "dummy", "value" } };
-                            await collection.InsertOneAsync(dummyDocument);
-                            UpdateLabelColor?.Invoke(Color.LightGreen);
-                            return true;
+                            // Database does not exist
+                            UpdateLabelColor?.Invoke(Color.DarkRed);
+                            return false;
                         }
+                    }
+                    catch (MongoException ex)
+                    {
+                        UpdateLabelColor?.Invoke(Color.DarkRed);
+                        Console.WriteLine($"MongoDB error: {ex.Message}");
+                        return false;
                     }
                     catch (Exception ex)
                     {
@@ -320,8 +364,6 @@ namespace NStudio
                         Console.WriteLine($"Unexpected error: {ex.Message}");
                         return false;
                     }
-                    */
-
                 default:
                     UpdateLabelColor?.Invoke(Color.DarkRed);
                     throw new NotSupportedException($"Unsupported database type: {databaseType}");
@@ -462,10 +504,26 @@ namespace NStudio
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
+                            dataTable = null;
                         }
                         return dataTable;
                     }
                 case "postgresql":
+                    using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT * FROM artists";
+                            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(query, connection);
+                            dataAdapter.Fill(dataTable);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        return dataTable;
+                    }
                 case "sqlite":
                 case "mongodb":
                 default:
@@ -492,6 +550,7 @@ namespace NStudio
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
+                            dataTable = null;
                         }
                         return dataTable;
                     }
@@ -522,6 +581,7 @@ namespace NStudio
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
+                            dataTable = null;
                         }
                         return dataTable;
                     }
@@ -537,106 +597,193 @@ namespace NStudio
         public DataTable GetUsers()
         {
             DataTable users = new DataTable();
-            int maxPower = 2;
-            string query = "SELECT username FROM users WHERE power < @maxPower";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            switch (databaseType)
             {
-                try
-                {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@maxPower", maxPower);
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(users);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
-                }
-            }
+                case "mysql":
+                    int maxPower = 2;
+                    string query = "SELECT username FROM users WHERE power < @maxPower";
 
-            return users;
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@maxPower", maxPower);
+                                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                                {
+                                    adapter.Fill(users);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
+                            users = null;
+                        }
+                        return users;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    users = null;
+                    return users;
+            }
         }
 
         public DataTable GetAdmins()
         {
             DataTable users = new DataTable();
-            int power = 2;
-            string query = "SELECT username FROM users WHERE power = @power";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            switch (databaseType)
             {
-                try
-                {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@power", power);
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(users);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
-                }
-            }
+                case "mysql":
+                    int power = 2;
+                    string query = "SELECT username FROM users WHERE power = @power";
 
-            return users;
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@power", power);
+                                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                                {
+                                    adapter.Fill(users);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Błąd podczas pobierania danych: " + ex.Message);
+                            users = null;
+                        }
+                        return users;
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    users = null;
+                    return users;
+            }
         }
 
         public bool SetUserPower(string username, int goToPower)
         {
-            string query = "UPDATE users SET power = @power WHERE username = @username";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            switch (databaseType)
             {
-                try
-                {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                case "mysql":
+                    string query = "UPDATE users SET power = @power WHERE username = @username";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        command.Parameters.AddWithValue("@username", username);
-                        command.Parameters.AddWithValue("@power", goToPower);
-                        int rowsAffected = command.ExecuteNonQuery();
+                        try
+                        {
+                            connection.Open();
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@username", username);
+                                command.Parameters.AddWithValue("@power", goToPower);
+                                int rowsAffected = command.ExecuteNonQuery();
 
-                        return rowsAffected > 0;
+                                return rowsAffected > 0;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Błąd podczas aktualizacji użytkownika: " + ex.Message);
+                            return false;
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Błąd podczas aktualizacji użytkownika: " + ex.Message);
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
                     return false;
-                }
             }
         }
 
         public int GetSAdminCount()
         {
-            string query = "SELECT COUNT(*) FROM users WHERE power = 3";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+            switch (databaseType)
+            {
+                case "mysql":
+                    string query = "SELECT COUNT(*) FROM users WHERE power = 3";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
-                        object result = command.ExecuteScalar();
-                        return Convert.ToInt32(result);
+                        try
+                        {
+                            connection.Open();
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                object result = command.ExecuteScalar();
+                                return Convert.ToInt32(result);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Błąd podczas pobierania liczby użytkowników: " + ex.Message);
+                            return 0;
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Błąd podczas pobierania liczby użytkowników: " + ex.Message);
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
                     return 0;
-                }
+            }
+        }
+
+        public int GetCount(string type)
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        string query = "";
+                        if (type == "songs")
+                        {
+                            query = "SELECT COUNT(*) FROM songs";
+                        }
+                        else if (type == "records")
+                        {
+                            query = "SELECT COUNT(*) FROM records";
+                        }
+                        else if (type == "artists")
+                        {
+                            query = "SELECT COUNT(*) FROM artists";
+                        }
+                        else if (type == "income")
+                        {
+                            query = "SELECT SUM(cost) FROM transactions;";
+                        }
+                        try
+                        {
+                            connection.Open();
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                object result = command.ExecuteScalar();
+                                return Convert.ToInt32(result);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Błąd podczas pobierania liczby użytkowników: " + ex.Message);
+                            return 0;
+                        }
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return 0;
             }
         }
 
@@ -750,6 +897,80 @@ namespace NStudio
 
                 if (result == null) { return false; }
                 return true;
+            }
+        }
+
+        public bool DeductFromBalance(int cost)
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string checkBalanceQuery = "SELECT balance FROM users WHERE id = @id";
+                            MySqlCommand checkBalanceCommand = new MySqlCommand(checkBalanceQuery, connection);
+                            checkBalanceCommand.Parameters.AddWithValue("@id", userInfo.Rows[0][0]);
+
+                            object result = checkBalanceCommand.ExecuteScalar();
+                            if (result == null) { return false; }
+                            int currentBalance = Convert.ToInt32(result);
+                            if (currentBalance >= cost)
+                            {
+                                string updateBalanceQuery = "UPDATE users SET balance = balance - @cost WHERE id = @id";
+                                MySqlCommand updateBalanceCommand = new MySqlCommand(updateBalanceQuery, connection);
+                                updateBalanceCommand.Parameters.AddWithValue("@cost", cost);
+                                updateBalanceCommand.Parameters.AddWithValue("@id", userInfo.Rows[0][0]);
+
+                                int rowsAffected = updateBalanceCommand.ExecuteNonQuery();
+                                return rowsAffected > 0;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Wystąpił błąd: " + ex.Message);
+                            return false;
+                        }
+                    }
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    return false;
+            }
+        }
+
+        public void UpdateBalance()
+        {
+            switch (databaseType)
+            {
+                case "mysql":
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string infoQuery = "SELECT id, username, power, country, postcode, city, street, balance, avatar FROM users WHERE id=@id";
+                        MySqlCommand infoCmd = new MySqlCommand(infoQuery, connection);
+                        infoCmd.Parameters.AddWithValue("@id", userInfo.Rows[0][0]);
+                        try
+                        {
+                            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(infoCmd);
+                            userInfo.Clear();
+                            dataAdapter.Fill(userInfo);
+                        }
+                        catch (Exception ex) { Console.WriteLine("Wystąpił błąd: " + ex.Message); }
+                    }
+                    break;
+                case "postgresql":
+                case "sqlite":
+                case "mongodb":
+                default:
+                    break;
             }
         }
 
@@ -869,6 +1090,27 @@ namespace NStudio
                                     {
                                         command.Parameters.AddWithValue("@image", DBNull.Value);
                                     }
+                                    if (command.ExecuteNonQuery() > 0) { return true; }
+                                    else
+                                    {
+                                        MessageBox.Show(LogInModule.GetString("somethingWrong"));
+                                        return false;
+                                    }
+                                }
+                            }
+                        case "transactions":
+                            insertQuery = "INSERT INTO transactions (type, item_id, cost, user_id) " +
+                                           "VALUES (@type, @item_id, @cost, @user_id)";
+                            using (MySqlConnection connection = new MySqlConnection(connectionString))
+                            {
+                                using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                                {
+                                    connection.Open();
+                                    DataRow row = data.Rows[0];
+                                    command.Parameters.AddWithValue("@type", row["type"]);
+                                    command.Parameters.AddWithValue("@item_id", Convert.ToInt32(row["item_id"]));
+                                    command.Parameters.AddWithValue("@cost", Convert.ToInt32(row["cost"]));
+                                    command.Parameters.AddWithValue("@user_id", Convert.ToInt32(row["user_id"]));
                                     if (command.ExecuteNonQuery() > 0) { return true; }
                                     else
                                     {
@@ -1117,6 +1359,11 @@ namespace NStudio
             Properties.Settings.Default.Save();
             MessageBox.Show(LogInModule.GetString("dbUpdateAfterRestart"));
             this.Hide();
+            System.Threading.Thread.Sleep(500);
+
+            string exePath = Application.ExecutablePath;
+            System.Diagnostics.Process.Start(exePath);
+            Application.Exit();
         }
 
         private void dbCancelButton_Click(object sender, EventArgs e)

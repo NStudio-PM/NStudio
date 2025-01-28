@@ -269,6 +269,14 @@
     <value>City:</value>
     <comment>profileForm</comment>
   </data>
+  <data name="connectButton" xml:space="preserve">
+    <value>Connect</value>
+    <comment>connectForm</comment>
+  </data>
+  <data name="connectTitle" xml:space="preserve">
+    <value>Connect to other studio</value>
+    <comment>connectForm</comment>
+  </data>
   <data name="costLabel" xml:space="preserve">
     <value>Price:</value>
     <comment>songInfo</comment>
@@ -369,6 +377,10 @@
     <value>Log Out</value>
     <comment>settingsForm</comment>
   </data>
+  <data name="moneyLabel" xml:space="preserve">
+    <value>Saldo:</value>
+    <comment>Dashboard</comment>
+  </data>
   <data name="msgBox1Artist" xml:space="preserve">
     <value>Are you sure you want to delete this record(s)?</value>
     <comment>artistsForm</comment>
@@ -376,6 +388,10 @@
   <data name="msgBox1Profile" xml:space="preserve">
     <value>Do you want update this?</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="msgBox1sales" xml:space="preserve">
+    <value>Do you want to print the purchase confirmation?</value>
+    <comment>sales</comment>
   </data>
   <data name="msgBox2Artist" xml:space="preserve">
     <value>Confirm</value>
@@ -385,13 +401,25 @@
     <value>Data updated</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox2sales" xml:space="preserve">
+    <value>Sales</value>
+    <comment>sales</comment>
+  </data>
   <data name="msgBox3Profile" xml:space="preserve">
     <value>Previous data restored</value>
     <comment>profileForm</comment>
   </data>
+  <data name="msgBox3sales" xml:space="preserve">
+    <value>Transaction successful!</value>
+    <comment>sales</comment>
+  </data>
   <data name="msgBox4Profile" xml:space="preserve">
     <value>File too big. 64KB max.</value>
     <comment>profileForm</comment>
+  </data>
+  <data name="msgBox4sales" xml:space="preserve">
+    <value>Not enough balance</value>
+    <comment>msgBox</comment>
   </data>
   <data name="msgBox5Profile" xml:space="preserve">
     <value>Data not saved into database</value>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,6 +64,25 @@ namespace NStudio.Controls
         public int GetSongID()
         {
             return int.Parse(songsID.Text);
+        }
+
+        public DataTable GetSongData()
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add("id", typeof(int));
+            data.Columns.Add("title", typeof(string));
+            data.Columns.Add("author", typeof(string));
+            data.Columns.Add("record", typeof(string));
+            data.Columns.Add("year", typeof(int));
+            data.Columns.Add("cost", typeof(int));
+            int id = Convert.ToInt32(songsID.Text);
+            int year = Convert.ToInt32(SUCYearData.Text);
+            string costText = SUCCostData.Text.Replace(" PLN", "").Trim();
+            float costF = float.Parse(costText) * 100.0f;
+            int cost = (int)costF;
+            data.Rows.Add(id, SUCTitleData.Text, SUCAuthorData.Text, SUCRecordData.Text, year, cost);
+
+            return data;
         }
     }
 }

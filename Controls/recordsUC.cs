@@ -64,5 +64,24 @@ namespace NStudio.Controls
         {
             return int.Parse(recordsID.Text);
         }
+
+        public DataTable GetRecordData()
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add("id", typeof(int));
+            data.Columns.Add("title", typeof(string));
+            data.Columns.Add("author", typeof(string));
+            data.Columns.Add("label", typeof(string));
+            data.Columns.Add("year", typeof(int));
+            data.Columns.Add("cost", typeof(int));
+            int id = Convert.ToInt32(recordsID.Text);
+            int year = Convert.ToInt32(RUCYearData.Text);
+            string costText = RUCCostData.Text.Replace(" PLN", "").Trim();
+            float costF = float.Parse(costText) * 100.0f;
+            int cost = (int)costF;
+            data.Rows.Add(id, RUCTitleData.Text, RUCAuthorData.Text, RUCLabelData.Text, year, cost);
+
+            return data;
+        }
     }
 }

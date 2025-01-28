@@ -221,10 +221,14 @@ namespace NStudio
                         {
                             control.ForeColor = color;
                         }
-                        else if (control is IconButton button)
+                        else if (control is IconButton iconbutton)
+                        {
+                            iconbutton.ForeColor = color;
+                            iconbutton.IconColor = color;
+                        }
+                        else if(control is Button button)
                         {
                             button.ForeColor = color;
-                            button.IconColor = color;
                         }
                     }
 
